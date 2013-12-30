@@ -1,0 +1,53 @@
+.column-custom_id
+{ 
+    text-align: center; 
+    width: 40px !important; 
+    overflow: hidden;
+}
+
+.column-thumbnail 
+{ 
+    text-align: center; 
+    width: 80px !important; 
+    overflow: hidden;
+}
+
+.column-services_icon
+{ 
+    text-align: center; 
+    width: 50px !important; 
+    overflow: hidden;
+}
+
+.dropdowncustom
+{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdowncustom hr
+{
+    border: none;
+}
+
+.dropdowncustom .container
+{
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #333;
+    padding: 10px;
+}
+
+.dropdownskin
+{
+    display: block;
+    width: 25px;
+    height: 25px;
+}
+
+.popupcustom .container hr
+{
+    border: none;
+}
+
+.inline-edit-row .colspanchange{float:none;}
