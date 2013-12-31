@@ -324,7 +324,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 		height: 65px;
 		line-height:65px;
 	}*/
-		.sticky#stickyheader #logo {     margin-top: 12px; }
+
 	/*.sticky#stickyheader ul#navigation ul {
 		top: 68px;
 	}
@@ -1272,9 +1272,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	.sc-projects-without-title .project-carousel .jcarousel-clip {
 		padding-top: 20px;
 		border-top: 3px solid #d8d8d8; }
-	.sc-projects-without-title .sc-projects-arrows .jcarousel-prev, .sc-projects-without-title .sc-projects-arrows .jcarousel-next {
+/*	.sc-projects-without-title .sc-projects-arrows .jcarousel-prev, .sc-projects-without-title .sc-projects-arrows .jcarousel-next {
 		position: inherit; display: inline-block !important; float: none;
-		margin-top: 0px; }
+		margin-top: 0px; }*/
 	.sc-projects-without-title .sc-projects-arrows {
 		padding-bottom: 20px;
 		text-align: center; }
@@ -1684,7 +1684,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	/*  15.  Revolution Slider
 	/* ------------------------------------------------------------------------------- */
 	/*@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);*/
-	.tp-caption { position: absolute; margin: 0; font-family: 'Open Sans', sans-serif; }
+	.tp-caption { position: absolute; margin: 0; font-family: 'Open Sans', sans-serif; !important }
 	.tp-caption .white_mid_big_text_bold { font-weight: bold; }
 	.tp-caption .white_big_text_bold { font-weight: bold; }
 	.tp-caption[class*="white"] { color: #fff; }

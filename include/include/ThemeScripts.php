@@ -18,10 +18,10 @@ class ThemeScripts {
 		
         $this->AddStyle('/css/style.css', 'theme_css_style', $deparry);
         $this->AddStyle(sprintf('/css/%s', $this->styleselector->layout), 'theme_css_layout');
-        //$this->AddStyle(sprintf('/css/colors/%s', $this->styleselector->skin), 'theme_css_skin', array('theme_css_style'));
+        $this->AddStyle(sprintf('/css/colors/%s', $this->styleselector->skin), 'theme_css_skin', array('theme_css_style'));
         $this->AddStyle('/css/custom-style.php', 'custom_style'); // Color Skin
         $this->AddStyle('/css/font-awesome.css', 'theme_css_font_awesome'); 
-        $this->AddStyle('/css/zocial.css', 'theme_css_zocial'); 
+        // $this->AddStyle('/css/zocial.css', 'theme_css_zocial'); 
         
         if ($this->styleselector->background == 1 || $this->styleselector->background == 2) {
             $url = '';
@@ -56,26 +56,26 @@ EOT;
             $this->AddStyle('/css/nonresponsive.css', 'theme_css_nonresponsive');
         }
         $this->AddStyle('/css/flexslider.css', 'theme_css_flexslider');
-        $this->AddStyle('/css/jquery.fancybox.css', 'theme_css_jquery_fancybox');
+        // $this->AddStyle('/css/jquery.fancybox.css', 'theme_css_jquery_fancybox');
         
         // Register theme scripts
         $this->AddScript('/js/jquery.validate.min.js', null, array('jquery'), true);
-        //$this->AddScript('/js/jquery.nicescroll.js', null, array('jquery'), true);
+        // $this->AddScript('/js/jquery.nicescroll.js', null, array('jquery'), true);
         $this->AddScript('/js/jquery.easing-1.3.min.js', null, array('jquery'), true);
-        $this->AddScript('/js/jquery.fitvid.js', null, array('jquery'), true);
-        $this->AddScript('/js/jquery.fancybox.pack.js', 'gllrFancyboxJs', array('jquery'), true);
+        // $this->AddScript('/js/jquery.fitvid.js', null, array('jquery'), true);
+        // $this->AddScript('/js/jquery.fancybox.pack.js', 'gllrFancyboxJs', array('jquery'), true);
         $this->AddScript('/js/jquery.flexslider-min.js', null, array('jquery'), true);
         $this->AddScript('/js/jquery.isotope.min.js', null, array('jquery'), true);
         $this->AddScript('/js/jquery.jcarousel.min.js', null, array('jquery'), true);
-        $this->AddScript('/js/jquery.jtweetsanywhere-1.3.1.min.js', null, array('jquery'), true);
+        // $this->AddScript('/js/jquery.jtweetsanywhere-1.3.1.min.js', null, array('jquery'), true);
         $this->AddScript('/js/jquery.infinitescroll.min.js', null, array('jquery'), true);
         $this->AddScript('/js/jquery.touchSwipe.min.js', null, array('jquery'), true);
-        $this->AddScript('/js/jquery.zflickrfeed.min.js', null, array('jquery'), true);
+        // $this->AddScript('/js/jquery.zflickrfeed.min.js', null, array('jquery'), true);
         $this->AddScript('/js/respond.min.js', null, array('jquery'), true);
         $this->AddScript('/js/selectnav.min.js', null, array('jquery'), true);
         $this->AddScript('/js/custom.js', 'theme_js_custom', array('jquery', 'jquery-ui-core', 'jquery-ui-accordion', 'jquery-ui-widget', 'jquery-ui-tabs'), true);
-		$this->AddScript('/js/jquery.nicescroll.min.js', 'theme_js_nicescroll', array('jquery'), true); 
-		$this->AddScript('/js/jquery.nicescroll.plus.js', 'theme_js_nicescroll_plus', array('jquery','theme_js_nicescroll'), true); 
+		// $this->AddScript('/js/jquery.nicescroll.min.js', 'theme_js_nicescroll', array('jquery'), true); 
+		// $this->AddScript('/js/jquery.nicescroll.plus.js', 'theme_js_nicescroll_plus', array('jquery','theme_js_nicescroll'), true); 
 
 		
         $this->AddScript('/include/js/jquery.funcs.js', null, array('jquery'), true); 

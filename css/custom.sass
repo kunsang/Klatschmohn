@@ -1,17 +1,37 @@
-$xgreen:	#64BC1D;
-$green:		color: hsla(93, 73%, 43%, 1.0);
+$xgreen:		#64BC1D;
+$green:			hsla(93, 73%, 43%, 1.0);
+	
+$xred:			#D0002E;
+$red:			hsla(347, 100%, 41%, 1.0);
+	
+$xwarmred:		#D14200;
+$warmred:		hsla(19, 100%, 41%, 1.0);	
+	
+$xorange:		#D1B200;
+$orange:		hsla(183, 73%, 43%, 1.0);
+	
+$xblue:			#0065D1;
+$blue:			hsla(211, 100%, 41%, 1.0);
 
-$xred:		#D0002E;
-$red:		color: hsla(347, 100%, 41%, 1.0);
+$halfopaquebg:	hsla(0, 0%, 0%, 0.5);
 
-$xwarmred:	#D14200;
-$warmred:	color: hsla(19, 100%, 41%, 1.0);	
+$egg: 			#aaa
 
-$xorange:	#D1B200;
-$orange:	color: hsla(183, 73%, 43%, 1.0);
+body { -webkit-font-smoothing: antialiased !important }
 
-$xblue:		#0065D1;
-$blue:		color: hsla(211, 100%, 41%, 1.0);
-
-
-body {-webkit-font-smoothing: antialiased !important;}
+#topbar 	{ color: $egg; border: 0; background: $halfopaquebg 
+	a 		{  
+		&:hover { color: white; text-decoration: underline }
+		[class^="icon"] { margin-left: 1em }
+	}
+	.smartphone { display: none 
+		@media only screen and (max-width: 480px) {	display: inline	}
+	}
+	.call a { padding: 5px 0; font-size: 16px 
+		@media only screen and (max-width: 480px) {
+			font-size: 24px !important; line-height: 12px }
+	}
+	.no-mobile {
+		@media only screen and (max-width: 480px) {	display: none }
+	}	
+}

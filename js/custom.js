@@ -38,12 +38,12 @@ jQuery('p').each(function(){
 /* --------------------------------------------------------------------------- */
 /*  7.  Page Scroller (Smooth Scrolling)
 /* --------------------------------------------------------------------------- */	
-jQuery("html").niceScroll({
-	styler:"fb",
-	cursorcolor:'#616b74',
-	cursorborder:'0',
-	zindex:9999
-});
+// jQuery("html").niceScroll({
+// 	styler:"fb",
+// 	cursorcolor:'#616b74',
+// 	cursorborder:'0',
+// 	zindex:9999
+// });
 
 
 /* --------------------------------------------------------------------------- */
@@ -343,7 +343,7 @@ jQuery('.tweets').flexslider({
 /*  5.  Responsive Video
 /* --------------------------------------------------------------------------- */
     
-    jQuery('#content').fitVids();
+    // jQuery('#content').fitVids();
 
 
 /* --------------------------------------------------------------------------- */
@@ -372,24 +372,24 @@ jQuery('.tweets').flexslider({
 /*  9. Fancybox
 /* --------------------------------------------------------------------------- */
 
-    jQuery('.folio').fancybox({
-        closeBtn        : false,
-        padding         : 0,
-        openEffect      : 'fade',
-        closeEffect     : 'fade',
-        nextEffect      : 'fade',
-        prevEffect      : 'fade',
-        helpers : {
-            overlay : {
-                css : {
-                    'background' : 'rgba(51, 51, 51, 0.8)'
-                }
-            },
-            title : {
-                type : 'over'
-            }
-        }
-    });
+    // jQuery('.folio').fancybox({
+    //     closeBtn        : false,
+    //     padding         : 0,
+    //     openEffect      : 'fade',
+    //     closeEffect     : 'fade',
+    //     nextEffect      : 'fade',
+    //     prevEffect      : 'fade',
+    //     helpers : {
+    //         overlay : {
+    //             css : {
+    //                 'background' : 'rgba(51, 51, 51, 0.8)'
+    //             }
+    //         },
+    //         title : {
+    //             type : 'over'
+    //         }
+    //     }
+    // });
 
 /* --------------------------------------------------------------------------- */
 /*  9. Isotope
