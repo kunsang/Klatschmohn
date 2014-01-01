@@ -1,197 +1,254 @@
 // Color Variables
-$green:		#54BC43;
-$_green:	hsla(112, 47%, 50%, 1.0);	
-$red:		#D0002E;
-$_red:		hsla(347, 100%, 41%, 1.0);	
-$warmred:	#D14200;
-$_warmred:	hsla(19, 100%, 41%, 1.0);	
-$orange:	#D1B200;
-$_orange:	hsla(183, 73%, 43%, 1.0);	
-$blue:		#0065D1;
-$_blue:		hsla(211, 100%, 41%, 1.0);
+$base:      #eee
 
-$black50:	hsla(0, 0%, 0%, 0.5);
-$black75:	hsla(0, 0%, 0%, 0.75);
-$white50:	hsla(0, 0%, 100%, 0.5);
-$white75:	hsla(0, 0%, 100%, 0.75);
-$transparent:	hsla(0, 0%, 0%, 0);
+$green:     #54BC43;
+$_green:    hsla(112, 47%, 50%, 1.0);
+$red:       #D0002E;
+$_red:      hsla(347, 100%, 41%, 1.0);
+$warmred:   #D14200;
+$_warmred:  hsla(19, 100%, 41%, 1.0);
+$orange:    #D1B200;
+$_orange:   hsla(183, 73%, 43%, 1.0);
+$blue:      #0065D1;
+$_blue:     hsla(211, 100%, 41%, 1.0);
+
+$black50:   hsla(0, 0%, 0%, 0.5);
+$black75:   hsla(0, 0%, 0%, 0.75);
+$white50:   hsla(0, 0%, 100%, 0.5);
+$white75:   hsla(0, 0%, 100%, 0.75);
+$trans:     hsla(0, 0%, 0%, 0);
 
 // Background Images
-$body:	url(/wp-content/files/2013/12/body-bg.jpg) no-repeat center top/cover fixed;
+$body: url(/wp-content/files/2013/12/body-bg.jpg) no-repeat center top/cover fixed;
+
+// Font Variables
+$base-ff: 'Open Sans', sans-serif;
+$base-fz: 16px;
+
 
 // Size Variables
-$menu-height: 		72px;
+$menu-height: 72px;
 $menu-border-height: 3px;
 
-/********************************/
-/* Reset: 						*/
-/********************************/
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, and, address, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, input, textarea, select {margin: 0; padding: 0; outline: 0; border: 0; background: hsla(0, 0%, 0%, 0); vertical-align: baseline; font-size: 100%; }
-/********************************/
-/* Base: 						*/
-/********************************/
+//----------------------------------------
+// $Reset
+//----------------------------------------
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, and, address, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, input, textarea, select {margin: 0; padding: 0; outline: 0; border: 0; background: hsla(0, 0%, 0%, 0); vertical-align: baseline; font-size: 100%;}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+//----------------------------------------
+// $Base
+//----------------------------------------
 body { 
-	-webkit-font-smoothing: antialiased !important;
-	-moz-osx-font-smoothing: grayscale;
-	background: $body;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: $base-ff;
+  font-size: $base-fz;
+  font-weight: normal;
+  line-height: 1.5;
+  color: $base-c;
 }
 #body-wrapper {
-	width: 100%;
-	overflow: hidden;
-	background: url(/wp-content/files/2013/12/body-bg.jpg) no-repeat center top/cover fixed;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: $body;
 }
-/********************************/
-/* Header: 	
-/********************************
-<header id="header">
-	<div id="topbar">
-		<div class="container">
-			<div class="center-content">
-				<div class="callus">
-					<span class="smartphone call"><a class="icon-mobile-phone"></span>
-					<span class="no-mobile"><a class="icon-phone"></a></span>
-					<a class="icon-envelope"></a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="stickyheader" class="nostick">
-		<div class="container">
-			<a id="logo"><img></a>
-			@Top Navigation
-			<select class="selectnav" id="selectnav1"><option value="">Navigation...</option></select>
-		</div>
-	</div> 
-</header>						
-/********************************/
-// #header {
-	#topbar { 
-		background: $black50; border: 0;
-		a { 
-			/*EMPTY*/
-			&[class^="icon"] { 
-				margin-left: 1em; 
-			}
-		}
-		.smartphone { display: none; }
-		.center-content { text-align: right }
-		.callus a { 
-			color: #ccc; 
-			font-size: 16px;
-			&:hover { 
-				color: white;
-				text-decoration: underline;	
-			}
-		}
-	}
-	#stickyheader {
-		background: $white50;
-	
-		&.sticky {		
-			@extend #stickyheader;
-			z-index: 300;
+//----------------------------------------
+// $Global
+//----------------------------------------
+::selection {
+  background: hsl(0, 0%, 20%);
+  color: hsl(0, 100%, 100%);
+  text-shadow: none;
+}
+.clearfix:after {
+  display: block;
+  visibility: hidden;
+  clear: both;
+  width: 0;
+  height: 0;
+  content: ' ';
+  font-size: 0;
+  line-height: 0;
+}
+//----------------------------------------
+// $Header 
+//----------------------------------------
+// <header id="header">
+//   <div id="topbar">
+//     <div class="container">
+//       <div class="center-content">
+//         <div class="callus">
+//           <span class="smartphone call"><a class="icon-mobile-phone"></span>
+//           <span class="no-mobile"><a class="icon-phone"></a></span>
+//           <a class="icon-envelope"></a>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+//   <div id="stickyheader" class="nostick">
+//     <div class="container">
+//       <a id="logo"><img></a>
 
-			#logo {
-				position: fixed;
-				margin: 0 0 0 -7px;
-				width: 103px;
-			}
-		}
-		#logo {
-			margin: -34px 0 -50px -1%;
-		}	
-	}
-// }
-@media only screen and (max-width: 480px) {
-	#topbar .smartphone {display: inline; }
-	.call a {font-size: 24px !important; line-height: 12px; }
-	.no-mobile {display: none; }
+//       @Top Navigation
+
+//       <select class="selectnav" id="selectnav1">
+//         <option value="">Navigation...</option>
+//       </select>
+//     </div>
+//   </div> 
+// </header>           
+//----------------------------------------
+#header {
+  position: relative; //§
+  margin: 0 auto;     //§
 }
-/********************************/
-/* Top Navigation: 
-/********************************	
-<ul id="navigation">
-	<li class="menu-item ... "><a></a></li>
-	...
-	<li class="... menu-item-has-children">
-		<ul>
-		...
-		</ul>
-	</li>
-</ul>							
-/********************************/
+#topbar {
+  background: $black50;
+  margin: 0 -30px 0;    //§
+  padding: 0 30px 0;    //§
+
+  a {
+    color: #ccc;
+    font-size: 16px;
+
+    &[class^="icon"] {
+      margin-left: 1em;
+    }
+    &:hover { 
+      text-decoration: underline; 
+      color: white;
+  }
+}
+.smartphone { 
+  display: none; 
+}
+// .center-content { 
+//   text-align: right;
+// }
+// .callus a {
+//   color: #ccc;
+//   font-size: 16px;
+//   &:hover { 
+//     color: white;
+//     text-decoration: underline; 
+//   }
+// }    
+#stickyheader {
+  background: $white50;
+
+  &.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 300;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    @extend #stickyheader;
+
+    #logo {
+      position: fixed;
+      margin: 0 0 0 -7px;
+      width: 103px;
+    }
+  }
+}
+#logo {
+  margin: -34px 0 -50px -1%;
+} 
+]]]][[[[]]]]
+//}
+@media only screen and (max-width: 480px) {
+  #topbar .smartphone {display: inline; }
+  .call a {font-size: 24px !important; line-height: 12px; }
+  .no-mobile {display: none; }
+}
+//----------------------------------------
+// $Top Navigation: 
+//----------------------------------------
+// <ul id="navigation">
+//   <li class="menu-item ... "><a></a></li>
+//   ...
+//   <li class="... menu-item-has-children">
+//     <ul>
+//     ...
+//     </ul>
+//   </li>
+// </ul>             
+//----------------------------------------
 #navigation {
-		margin-right: -10px;
-		> li { 
-			padding: 0; border: none !important;
-			> a {
-			margin-bottom: $menu-height;
-			padding: 0 12px;
-			height: 0;
-			border-bottom: $menu-border-height solid $transparent;
-			color: $green;
-			text-transform: none;
-			letter-spacing: -2px;
-			font-weight: 100;
-			font-size: 28px;
-			line-height: $menu-height;
-			transition: margin .3s ease-in-out, height .3s ease-in-out, color .3s ease, border-color .3s ease-in;
-		}
-		> a:hover,
-		&.current-menu-item > a, 
-		&.current-menu-ancestor > a { 
-			margin-bottom: 0;
-			height: $menu-height;
-			border-bottom-color: $red;
-			color: $red;
-			transition-delay: 0s;
-		}
-		&.hover > a, &.current > a {
-			border-bottom-color: $red;
-			color: $red;
-		}
-	}
-	ul {
-		top: $menu-height + $menu-border-height;
-		z-index: auto;
-		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
-		a { 
-			padding: 5px 20px 
-		}
-	}
+    margin-right: -10px;
+    > li { 
+      padding: 0; border: none !important;
+      > a {
+      margin-bottom: $menu-height;
+      padding: 0 12px;
+      height: 0;
+      border-bottom: $menu-border-height solid $transparent;
+      color: $green;
+      text-transform: none;
+      letter-spacing: -2px;
+      font-weight: 100;
+      font-size: 28px;
+      line-height: $menu-height;
+      transition: margin .3s ease-in-out, height .3s ease-in-out, color .3s ease, border-color .3s ease-in;
+    }
+    > a:hover,
+    &.current-menu-item > a, 
+    &.current-menu-ancestor > a { 
+      margin-bottom: 0;
+      height: $menu-height;
+      border-bottom-color: $red;
+      color: $red;
+      transition-delay: 0s;
+    }
+    &.hover > a, &.current > a {
+      border-bottom-color: $red;
+      color: $red;
+    }
+  }
+  ul {
+    top: $menu-height + $menu-border-height;
+    z-index: auto;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+    a { 
+      padding: 5px 20px 
+    }
+  }
 }
 // .mac.safari #navigation > li > a { text-shadow: $inset-wood-safari }
 i {font-style: normal !important }
 .nostick #navigation ul { z-index: 31 }
 .selectnav { color: #fff }
-/********************************/
-/* Page Tagline: 				*/
-/********************************/
+//----------------------------------------
+// Page Tagline:        
+//----------------------------------------
 .fullwidth_stroke.header-title-box {
-	margin: 0;
-	padding: 20px 0;
-	.page-title {
-		color: hsla(36, 36%, 36%, 0.5) !important;
-		text-shadow: 0 2px 3px hsla(31, 100%, 69%, 0.7), 0 -1px 1px hsla(0, 0%, 0%, 0.8);
-		letter-spacing: -2px;	// Add to typography section headings
-	}
+  margin: 0;
+  padding: 20px 0;
+  .page-title {
+    color: hsla(36, 36%, 36%, 0.5) !important;
+    text-shadow: 0 2px 3px hsla(31, 100%, 69%, 0.7), 0 -1px 1px hsla(0, 0%, 0%, 0.8);
+    letter-spacing: -2px; // Add to typography section headings
+  }
 }
-/********************************/
-/* Content: 					*/
-/****************************************************************/
-/* All Containers with default fixed Body Background: 			*/
-/****************************************************************/
+//----------------------------------------
+// Content:           
+//**************************************************************
+// All Containers with default fixed Body Background:       
+//**************************************************************
 // .data-wrapper,
 .header-title-box,
 .fullwidthbanner-container,
 .honey-cta-message-full {
-	background: $body !important;
+  background: $body !important;
 }
-/********************************/
+//----------------------------------------
 #content {
-	padding-bottom: 60px;
-	background: $slate;
-	box-shadow: $shadow-bottom;
+  padding-bottom: 60px;
+  background: $slate;
+  box-shadow: $shadow-bottom;
 }
 .fullwidthbanner-container { position: static !important }
 
@@ -200,183 +257,183 @@ i {font-style: normal !important }
 .alignright { float: right }
 
 @media (max-width: 767px){
-	.one-half, .one-third, .one-fourth {
-		width: 100%;
+  .one-half, .one-third, .one-fourth {
+    width: 100%;
 }}
 
-/********************************/
-/* Typography: 			 		*/
-/********************************/
-/* .service-description h3, */
+//----------------------------------------
+// Typography:          
+//----------------------------------------
+// .service-description h3, 
 #footer #copyright, #footer .designer a,
 .project-feed div a {
-	color: hsla(0, 0%, 0%, 0.72) !important;
-	text-shadow: $inset-shadow-slate;
-	letter-spacing: -2px;
-	font-size: 24px;
-	line-height: 1;
+  color: hsla(0, 0%, 0%, 0.72) !important;
+  text-shadow: $inset-shadow-slate;
+  letter-spacing: -2px;
+  font-size: 24px;
+  line-height: 1;
 }
 .service-description h3 {
-	color: #eee;
-	letter-spacing: -1px;
-	text-transform: normal;
+  color: #eee;
+  letter-spacing: -1px;
+  text-transform: normal;
 }
 h1, h2, h3, h4, h5, h6 {
 color: #fff;
 font-style: italic;
 line-height: 1.3em;
 }
-/********************************/
-/* Homepage 					*/
-/********************************/
+//----------------------------------------
+// Homepage           
+//----------------------------------------
 .service-icon { background: $green }
 .service:hover h3 { color: $red !important }
 .service:hover .service-icon { background: $red }
 .icon-truck:before {
-	content: "P";
-	font-family: sans-serif;
-	font-weight: bold;
+  content: "P";
+  font-family: sans-serif;
+  font-weight: bold;
 }
 .data-wrapper {
-	.one-half, .one-third, .two-third, .three-fourth, .one-fourth, 
-	.one-fifth, .two-fifth, .three-fifth, .four-fifth, .one-sixth, .five-sixth {
-		margin: 0 2%;
-	}
-	.one-half 	{ width: 46% }
-	.one-third 	{ width: 29.3% }
-	.one-fourth { width: 21% }
+  .one-half, .one-third, .two-third, .three-fourth, .one-fourth, 
+  .one-fifth, .two-fifth, .three-fifth, .four-fifth, .one-sixth, .five-sixth {
+    margin: 0 2%;
+  }
+  .one-half   { width: 46% }
+  .one-third  { width: 29.3% }
+  .one-fourth { width: 21% }
 }
 .sc-testimonials {
-	background: $paper ;
-	color: hsl(0, 0%, 20%);
+  background: $paper ;
+  color: hsl(0, 0%, 20%);
 }
 .testimonial-wrapper:before {
-	border-color: hsla(192, 15%, 94%, 0) hsla(0, 0%, 0%, 0.89) hsla(0, 0%, 0%, 0.89) hsla(192, 15%, 94%, 0);
-	background: url("http://klatschmohn-giessen.de/wp-content/themes/klatsch/css/../img/paper2.jpg") repeat;
+  border-color: hsla(192, 15%, 94%, 0) hsla(0, 0%, 0%, 0.89) hsla(0, 0%, 0%, 0.89) hsla(192, 15%, 94%, 0);
+  background: url("http://klatschmohn-giessen.de/wp-content/themes/klatsch/css/../img/paper2.jpg") repeat;
 }
-/********************************/
-/* Single Product Page: 		*/
-/********************************/
+//----------------------------------------
+// Single Product Page:     
+//----------------------------------------
 .single-project {
-	#content * { color: hsl(0, 0%, 90%) }
-	.inline-border { margin: 0; border: 0 }
-	.one-third { width: 40% }
-	.two-third { width: 54% }
-	.two-third .one-fourth { margin-right: 0; width: 21% }
-	.project-nav { position: relative; top: -93px; float: right }
-	.project-title { display: none }
-	.project-description {
-		p, ul { font-size: 18px }
-		ul { margin-bottom: 1em; list-style: initial }
-		ul li { margin-left: 2em; }
-		.logo-list li { margin: 1em 1em 0 0 }
-	}
-	.sc-projects-title {text-align: center; text-transform: capitalize; font-size: 25px }	
-	.logo-list { list-style: none;
-		a {
-			height: 66px;
-			border: 2px solid hsla(359, 100%, 100%, 0.2) !important;
-			border-radius: 2px;
-			background-color: #fff;
-			opacity: 0.6;
-		}
-		img {opacity: 1; }
-	}
+  #content * { color: hsl(0, 0%, 90%) }
+  .inline-border { margin: 0; border: 0 }
+  .one-third { width: 40% }
+  .two-third { width: 54% }
+  .two-third .one-fourth { margin-right: 0; width: 21% }
+  .project-nav { position: relative; top: -93px; float: right }
+  .project-title { display: none }
+  .project-description {
+    p, ul { font-size: 18px }
+    ul { margin-bottom: 1em; list-style: initial }
+    ul li { margin-left: 2em; }
+    .logo-list li { margin: 1em 1em 0 0 }
+  }
+  .sc-projects-title {text-align: center; text-transform: capitalize; font-size: 25px } 
+  .logo-list { list-style: none;
+    a {
+      height: 66px;
+      border: 2px solid hsla(359, 100%, 100%, 0.2) !important;
+      border-radius: 2px;
+      background-color: #fff;
+      opacity: 0.6;
+    }
+    img {opacity: 1; }
+  }
 }
-/********************************/
-/* Project Shortcodes: 			*/
-/********************************/
+//----------------------------------------
+// Project Shortcodes:      
+//----------------------------------------
 .flexslider.image-slider:after,
 .project-item .mask {
-	position: absolute;	top: 0;
-	box-sizing: border-box;
-	width: 100%; height: 100%;
-	border: 2px solid;
-	border-color: hsl(0, 0%, 16%) hsl(0, 0%, 39%) hsl(0, 0%, 27%) hsl(0, 0%, 13%);
-	box-shadow: inset 0 0 14px 7px hsla(0, 0%, 0%, 0.8),
-				inset 1px 1px 2px hsla(0, 100%, 100%, 0.7),
-				inset -1px -1px 3px hsla(0, 0%, 0%, 0.7);
-	content: "";
+  position: absolute; top: 0;
+  box-sizing: border-box;
+  width: 100%; height: 100%;
+  border: 2px solid;
+  border-color: hsl(0, 0%, 16%) hsl(0, 0%, 39%) hsl(0, 0%, 27%) hsl(0, 0%, 13%);
+  box-shadow: inset 0 0 14px 7px hsla(0, 0%, 0%, 0.8),
+        inset 1px 1px 2px hsla(0, 100%, 100%, 0.7),
+        inset -1px -1px 3px hsla(0, 0%, 0%, 0.7);
+  content: "";
 }
 
 .sc-projects-without-title .project-carousel .jcarousel-clip {
-	padding-top: 0;
-	border-top: none;
+  padding-top: 0;
+  border-top: none;
 }
 .testimonial-wrapper .flex-direction-nav,
 .sc-projects-arrows {
-	a {
-		z-index: inherit;
-		position: absolute;
-		margin-top: 102px;	
-	}
+  a {
+    z-index: inherit;
+    position: absolute;
+    margin-top: 102px;  
+  }
 }
 .sc-projects-arrows {
-	.jcarousel-prev { left: -40px }
-	.jcarousel-next { right: -40px }
+  .jcarousel-prev { left: -40px }
+  .jcarousel-next { right: -40px }
 }
 .testimonial-wrapper .flex-direction-nav {
-	.flex-prev { left: -40px }
-	.flex-next { right: -40px }
+  .flex-prev { left: -40px }
+  .flex-next { right: -40px }
 }
 
 .sc-testimonials h6 {
-	color: #333;
+  color: #333;
 }
 
 .sc-projects-without-title .sc-projects-arrows { padding-bottom: 0 }
 
 // .data-wrapper {
-// 	margin: 50px auto;
-// 	padding: 30px 0;
+//  margin: 50px auto;
+//  padding: 30px 0;
 // }
 .flex-direction-nav a { z-index: 2 }
 .isotope .isotope-item { z-index: 0 }
-/********************************/
-/* Blog 						*/
-/********************************/
+//----------------------------------------
+// Blog             
+//----------------------------------------
 .post-block-feed {
-	overflow: visible;
+  overflow: visible;
 }
 .post-block .innercontent {
-	background: $paper;
-	margin-bottom: 20px;
-	border: 5px solid hsla(0, 0%, 0%, 0.2);
-	border-bottom-width: 5px;
-	border-radius: 0px 0px 4px 4px;
-	box-shadow: 4px 4px 20px hsl(0, 0%, 0%);
+  background: $paper;
+  margin-bottom: 20px;
+  border: 5px solid hsla(0, 0%, 0%, 0.2);
+  border-bottom-width: 5px;
+  border-radius: 0px 0px 4px 4px;
+  box-shadow: 4px 4px 20px hsl(0, 0%, 0%);
 }
 .isotope .isotope-item {
-	padding: 0 20px;
-	margin: 0 -20px;
+  padding: 0 20px;
+  margin: 0 -20px;
 }
 
 .single-post #main, .blog #main {
-	float: right;
-	padding: 24px;
-	width: 66.6%;
-	background: hsl(0, 100%, 100%);
+  float: right;
+  padding: 24px;
+  width: 66.6%;
+  background: hsl(0, 100%, 100%);
 }
 .single-post #sidebar, .blog #sidebar {
-	position: fixed;
-	z-index: 0;
-	float: left;
-	margin-right: 16px;
-	padding: 16px;
-	width: 16%;
-	background: hsl(0, 100%, 100%);
+  position: fixed;
+  z-index: 0;
+  float: left;
+  margin-right: 16px;
+  padding: 16px;
+  width: 16%;
+  background: hsl(0, 100%, 100%);
 }
 .post h2 { margin-bottom: 10px; font-size: 42px; }
 
 #content > .container {padding: 30px 20px; }
 
-/* Shortcodes */
+// Shortcodes 
 
 .google-map {width: 100%; height: 500px; }
 
-/********************************/
-/* Portfolio Page				*/
-/********************************/
+//----------------------------------------
+// Portfolio Page       
+//----------------------------------------
 
 .logo-list {list-style: none !important;}
 
@@ -384,100 +441,100 @@ line-height: 1.3em;
 .project-item .thumb-item-title, .project-item:hover .thumb-item-title {border-bottom-width: 3px;}
 .project-item .thumb-item-title {border-bottom-color: transparent;}
 
-/********************************/
-/*     Footer    				*/
-/********************************/
+//----------------------------------------
+//     Footer           
+//----------------------------------------
 
 #footer_main {
-	position: relative;
-	z-index: 2;
-	margin-top: 0px;
-	padding-top: 10px;
-	background: transparent url(../img/footer-bg-bottom.min.png) repeat;
+  position: relative;
+  z-index: 2;
+  margin-top: 0px;
+  padding-top: 10px;
+  background: transparent url(../img/footer-bg-bottom.min.png) repeat;
 }
 
 #footer {
-	margin-top: -45px;
-	padding-top: 60px;
-	background: hsla(0, 0%, 0%, 0) url(../img/footer-bg-top.min.png) repeat-x 0 0;
-	a { 
-		color: hsla(10, 100%, 44%, 0.9) !important;
-		&:hover {color: hsl(348, 100%, 44%) !important;}
-	}
-	a, div {
-		color: hsla(48, 80%, 21%, 0.8);
-		text-shadow: 0px 1px 1px hsl(0, 100%, 100%), 0 -1px 1px hsla(0, 0%, 0%, 0.32);
-		letter-spacing: -0.3px;
-		font-weight: 900;
-		font-size: 16px;
-		line-height: 1.6;
-	}	
-	:before, :after {
-		font-family: FontAwesome
-	}
-	h3 {
-		margin: 24px 0;
-		color: hsla(36, 60%, 35%, 0.6);
-		text-transform: capitalize;
-		text-shadow: $inset-shadow-wood;
-		letter-spacing: -2px;
-		font-weight: 900;
-		font-style: normal;
-		font-size: 42px;
-		font-family:"Open Sans", sans-serif;
-		line-height: 24px;
-	}
-	#speiseplan {
-		img {
-			margin: -17px 0 0 2px;
-			opacity: 0.5;
-			transition: all .5s;
-		}
-		&:hover img {
-			box-shadow: 2px 2px 4px #414141;
-			opacity: 1;
-		}
-	}
-	.widget_recent_entries {
-		ul li:before { margin: 0;content:"" }
-		a:before { margin-right: 4px; content:"\f054" }
-		a:after { content:"\2026" }
-	}
-	.post-date { display: block; font-size: 12px }
-	
-	.blogroll { margin-top: -3px }
-	.widget_links a { white-space: nowrap }
-	.widget_links li { line-height: 32px }
+  margin-top: -45px;
+  padding-top: 60px;
+  background: hsla(0, 0%, 0%, 0) url(../img/footer-bg-top.min.png) repeat-x 0 0;
+  a { 
+    color: hsla(10, 100%, 44%, 0.9) !important;
+    &:hover {color: hsl(348, 100%, 44%) !important;}
+  }
+  a, div {
+    color: hsla(48, 80%, 21%, 0.8);
+    text-shadow: 0px 1px 1px hsl(0, 100%, 100%), 0 -1px 1px hsla(0, 0%, 0%, 0.32);
+    letter-spacing: -0.3px;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 1.6;
+  } 
+  :before, :after {
+    font-family: FontAwesome
+  }
+  h3 {
+    margin: 24px 0;
+    color: hsla(36, 60%, 35%, 0.6);
+    text-transform: capitalize;
+    text-shadow: $inset-shadow-wood;
+    letter-spacing: -2px;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 42px;
+    font-family:"Open Sans", sans-serif;
+    line-height: 24px;
+  }
+  #speiseplan {
+    img {
+      margin: -17px 0 0 2px;
+      opacity: 0.5;
+      transition: all .5s;
+    }
+    &:hover img {
+      box-shadow: 2px 2px 4px #414141;
+      opacity: 1;
+    }
+  }
+  .widget_recent_entries {
+    ul li:before { margin: 0;content:"" }
+    a:before { margin-right: 4px; content:"\f054" }
+    a:after { content:"\2026" }
+  }
+  .post-date { display: block; font-size: 12px }
+  
+  .blogroll { margin-top: -3px }
+  .widget_links a { white-space: nowrap }
+  .widget_links li { line-height: 32px }
 
-	.cblock{
-		position:relative;
-		padding-bottom:10px;
-		padding-left: 0;
+  .cblock{
+    position:relative;
+    padding-bottom:10px;
+    padding-left: 0;
 
-		&:before{
-			position: absolute;
-			left: -22px;
-			width: auto;
-			color: hsl(348, 100%, 44%);
-			text-align: center;
-			font-family: FontAwesome;
-		}
-	}
-	.info {
-		margin-top: -50px; padding: 70px 0 0;
-		background: url("../img/inner-border-bottom.png") repeat-x;	
-		border: none;
-		box-shadow: none;
+    &:before{
+      position: absolute;
+      left: -22px;
+      width: auto;
+      color: hsl(348, 100%, 44%);
+      text-align: center;
+      font-family: FontAwesome;
+    }
+  }
+  .info {
+    margin-top: -50px; padding: 70px 0 0;
+    background: url("../img/inner-border-bottom.png") repeat-x; 
+    border: none;
+    box-shadow: none;
 
-		.container {
-			background: $slate;
-			width: 100%;
-			padding: 30px;
-			padding-left: 25%;
-			padding-right: 25%;
-		}
-	}
-	.copyright { float: none }
+    .container {
+      background: $slate;
+      width: 100%;
+      padding: 30px;
+      padding-left: 25%;
+      padding-right: 25%;
+    }
+  }
+  .copyright { float: none }
 }
 
 .address.cblock:before {content: "\f041";}
@@ -487,108 +544,108 @@ line-height: 1.3em;
 
 
 @media only screen and (min-width: 767px) and (max-width: 980px) {
-	#footer h3 {font-size: 28px;}
+  #footer h3 {font-size: 28px;}
 }
 
-/********************************/
-/* Media Queries				*/
-/********************************/
+//----------------------------------------
+// Media Queries        
+//----------------------------------------
 
  @media only screen and (min-width: 768px) and (max-width: 979px) {
-	#logo {
-		position: absolute;
-		left: -0.3%;
-		margin-top: -48px;
-		width: 155px;
-	}
-	#navigation > li {padding-right: 12px; padding-left: 12px; }
-	.single-project .header-title-box .page-title {max-width: 700px; }
-	.single-project .page-title .container {
-		right: -41%;
-		text-align: left;
-		font-size: 32px;
-	}
-	.single-project .project-nav {top: -93px; left: 35px; float: right; }
+  #logo {
+    position: absolute;
+    left: -0.3%;
+    margin-top: -48px;
+    width: 155px;
+  }
+  #navigation > li {padding-right: 12px; padding-left: 12px; }
+  .single-project .header-title-box .page-title {max-width: 700px; }
+  .single-project .page-title .container {
+    right: -41%;
+    text-align: left;
+    font-size: 32px;
+  }
+  .single-project .project-nav {top: -93px; left: 35px; float: right; }
 }
 @media only screen and (min-width: 768px) {
-	#topbar .one-half {
-		float: right;
-		margin-right: -0.7%;
-		width: 50%;
-		text-align: right;
-	}
-	#topbar .column-last {float: none; clear: none; width: 40%; }
+  #topbar .one-half {
+    float: right;
+    margin-right: -0.7%;
+    width: 50%;
+    text-align: right;
+  }
+  #topbar .column-last {float: none; clear: none; width: 40%; }
 }
 @media only screen and (max-width: 767px) {
-	#logo {
-		position: absolute;
-		top: 0;
-		left: -30%;
-		z-index: 1;
-		width: 155px;
-	}
-	.selectnav {margin-left: -164px !important; width: 748px !important; text-indent: 310px; }
-	.single-project .project-nav {top: 13px; left: 8px; float: right; }
-	.single-project .page-title .container {left: 0; text-align: center; }
-	.single-project .one-third {margin-left: 0; width: 100% !important; } .single-project .two-third {width: 100% !important; }
+  #logo {
+    position: absolute;
+    top: 0;
+    left: -30%;
+    z-index: 1;
+    width: 155px;
+  }
+  .selectnav {margin-left: -164px !important; width: 748px !important; text-indent: 310px; }
+  .single-project .project-nav {top: 13px; left: 8px; float: right; }
+  .single-project .page-title .container {left: 0; text-align: center; }
+  .single-project .one-third {margin-left: 0; width: 100% !important; } .single-project .two-third {width: 100% !important; }
 }
 @media only screen and (max-width: 478px) {
-	#logo {position: absolute; top: -10px; width: 90px; }
-	.selectnav {margin-left: -100px !important; width: 679px !important; text-indent: 174px !important; }
-	.single-project .project-nav {left: 0; }
-	.single-project .one-third {margin-left: 0; width: 100% !important; }
-	.single-project .two-third {width: 100% !important; }
+  #logo {position: absolute; top: -10px; width: 90px; }
+  .selectnav {margin-left: -100px !important; width: 679px !important; text-indent: 174px !important; }
+  .single-project .project-nav {left: 0; }
+  .single-project .one-third {margin-left: 0; width: 100% !important; }
+  .single-project .two-third {width: 100% !important; }
 }
 
-/********************************/
-/*   Biosiegel  				*/
-/********************************/
+//----------------------------------------
+//   Biosiegel          
+//----------------------------------------
 
 .biosiegel-tab {
-	clear: both;
-	margin: -20px auto;
-	padding: 10px;
-	max-width: 580px;
-	height: 115px;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-	background: #fafafa;
-	box-shadow: 0 -5px 20px hsla(0, 0%, 0%, 0.4);
-	vertical-align: middle;
-	transition: all 0.3s ease;
-	&:hover {
-		background: #eee;
-		background-image: linear-gradient(hsla(0, 0%, 0%, 0.1) 0%, hsla(0, 0%, 0%, 0) 100%);
-		color: #fff;
-		cursor: pointer !important;
-	}
-	img[alt="Demeter"] {margin-top: 20px; }
-	img[alt="EU-Bio"] {margin-top: 8px; }
-	em {
-		float: right;
-		padding-top: 25px;
-		max-width: 430px;
-		color: #222 !important;
-	}
+  clear: both;
+  margin: -20px auto;
+  padding: 10px;
+  max-width: 580px;
+  height: 115px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fafafa;
+  box-shadow: 0 -5px 20px hsla(0, 0%, 0%, 0.4);
+  vertical-align: middle;
+  transition: all 0.3s ease;
+  &:hover {
+    background: #eee;
+    background-image: linear-gradient(hsla(0, 0%, 0%, 0.1) 0%, hsla(0, 0%, 0%, 0) 100%);
+    color: #fff;
+    cursor: pointer !important;
+  }
+  img[alt="Demeter"] {margin-top: 20px; }
+  img[alt="EU-Bio"] {margin-top: 8px; }
+  em {
+    float: right;
+    padding-top: 25px;
+    max-width: 430px;
+    color: #222 !important;
+  }
 }
 #post-50 a img, .biosiegel-tab img {
-	float: left;
-	margin: 5px 15px 10px 5px;
-	padding: 5px;
-	background-color: #fff !important;
-	transition: all 0.3s ease;
+  float: left;
+  margin: 5px 15px 10px 5px;
+  padding: 5px;
+  background-color: #fff !important;
+  transition: all 0.3s ease;
 }
 .page-id-61 .data-inner-wrapper { max-width: 700px }
 
 .biosiegel-content {
-	margin: 10px auto;
-	padding: 20px;
-	max-width: 560px;
-	width: auto;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-	background: #fafafa;	
-	font-size: 12px;
+  margin: 10px auto;
+  padding: 20px;
+  max-width: 560px;
+  width: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fafafa;  
+  font-size: 12px;
 }
 
 
