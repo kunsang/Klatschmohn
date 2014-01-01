@@ -1,7 +1,8 @@
 /********************************/
 body {
   -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale; }
+  -moz-osx-font-smoothing: grayscale;
+  background: url(/wp-content/files/2013/12/body-bg.jpg) no-repeat center top/cover fixed; }
 
 /********************************/
 /* Topbar: 						*/
@@ -16,7 +17,7 @@ body {
   #topbar .center-content {
     text-align: right; }
   #topbar .callus a {
-    color: #cccccc;
+    color: #ccc;
     font-size: 16px; }
     #topbar .callus a:hover {
       color: white;
@@ -35,52 +36,52 @@ body {
 /********************************/
 /* Header: 						*/
 /********************************/
-#header, #header .sticky {
-  background: url(../img/footer-bg-bottom.min.png);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.75); }
-  #header #logo {
-    margin: -34px 0 -50px -1%; }
-  #header .sticky {
+#stickyheader, #stickyheader.sticky {
+  background: rgba(255, 255, 255, 0.5); }
+  .sticky#stickyheader {
     z-index: 300; }
-    #header .sticky #logo {
+    .sticky#stickyheader #logo {
       position: fixed;
       margin: 0 0 0 -7px;
       width: 103px; }
+  #stickyheader #logo {
+    margin: -34px 0 -50px -1%; }
 
 /********************************/
 /* Top Navigation: 				*/
 /********************************/
-#navigation > li {
-  padding: 0;
-  border: none !important; }
-  #navigation > li > a {
-    margin-bottom: 72px;
-    padding: 0 12px;
-    height: 0;
-    border-bottom: 3px solid rgba(0, 0, 0, 0);
-    color: rgba(128, 74, 0, 0.5);
-    text-transform: none;
-    text-shadow: 0 1px 2px #ffebcc, 0 -1px 0px rgba(0, 0, 0, 0.75);
-    letter-spacing: -2px;
-    font-weight: 900;
-    font-size: 26px;
-    line-height: 72px;
-    transition: margin .3s ease-in-out, height .3s ease-in-out, color .3s ease, border-color .3s ease-in; }
-  #navigation > li > a:hover, #navigation > li.current-menu-item > a, #navigation > li.current-menu-ancestor > a {
-    margin-bottom: 0;
-    height: 72px;
-    border-bottom-color: #d14200;
-    color: #d14200;
-    text-shadow: 0 1px 1px #fff7e5, 0 -1px 0 rgba(0, 0, 0, 0.8); }
-  #navigation > li.hover > a, #navigation > li.current > a {
-    border-bottom-color: #d14200;
-    color: #d14200; }
-#navigation ul {
-  top: 75px;
-  z-index: auto;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7); }
-  #navigation ul a {
-    padding: 5px 20px; }
+#navigation {
+  margin-right: -10px; }
+  #navigation > li {
+    padding: 0;
+    border: none !important; }
+    #navigation > li > a {
+      margin-bottom: 72px;
+      padding: 0 12px;
+      height: 0;
+      border-bottom: 3px solid rgba(0, 0, 0, 0);
+      color: #54bb44;
+      text-transform: none;
+      letter-spacing: -2px;
+      font-weight: 100;
+      font-size: 28px;
+      line-height: 72px;
+      transition: margin .3s ease-in-out, height .3s ease-in-out, color .3s ease, border-color .3s ease-in; }
+    #navigation > li > a:hover, #navigation > li.current-menu-item > a, #navigation > li.current-menu-ancestor > a {
+      margin-bottom: 0;
+      height: 72px;
+      border-bottom-color: #d1002d;
+      color: #d1002d;
+      transition-delay: 0s; }
+    #navigation > li.hover > a, #navigation > li.current > a {
+      border-bottom-color: #d1002d;
+      color: #d1002d; }
+  #navigation ul {
+    top: 75px;
+    z-index: auto;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7); }
+    #navigation ul a {
+      padding: 5px 20px; }
 
 i {
   font-style: normal !important; }
@@ -107,7 +108,6 @@ i {
 /****************************************************************/
 /* All Containers with default fixed Body Background: 			*/
 /****************************************************************/
-.data-wrapper,
 .header-title-box,
 .fullwidthbanner-container,
 .honey-cta-message-full {
@@ -127,6 +127,66 @@ i {
 
 .alignright {
   float: right; }
+
+@media (max-width: 767px) {
+  .one-half, .one-third, .one-fourth {
+    width: 100%; } }
+/********************************/
+/* Typography: 			 		*/
+/********************************/
+/* .service-description h3, */
+#footer #copyright, #footer .designer a,
+.project-feed div a {
+  color: rgba(0, 0, 0, 0.72) !important;
+  text-shadow: 0 1px 1px rgba(120, 120, 120, 0.7), 0 -1px 1px rgba(0, 0, 0, 0.8);
+  letter-spacing: -2px;
+  font-size: 24px;
+  line-height: 1; }
+
+.service-description h3 {
+  color: #eee;
+  letter-spacing: -1px;
+  text-transform: normal; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+  font-style: italic;
+  line-height: 1.3em; }
+
+/********************************/
+/* Homepage 					*/
+/********************************/
+.service-icon {
+  background: #54bb44; }
+
+.service:hover h3 {
+  color: #d1002d !important; }
+
+.service:hover .service-icon {
+  background: #d1002d; }
+
+.icon-truck:before {
+  content: "P";
+  font-family: sans-serif;
+  font-weight: bold; }
+
+.data-wrapper .one-half, .data-wrapper .one-third, .data-wrapper .two-third, .data-wrapper .three-fourth, .data-wrapper .one-fourth,
+.data-wrapper .one-fifth, .data-wrapper .two-fifth, .data-wrapper .three-fifth, .data-wrapper .four-fifth, .data-wrapper .one-sixth, .data-wrapper .five-sixth {
+  margin: 0 2%; }
+.data-wrapper .one-half {
+  width: 46%; }
+.data-wrapper .one-third {
+  width: 29.3%; }
+.data-wrapper .one-fourth {
+  width: 21%; }
+
+.sc-testimonials {
+  background: url("../img/paper2.jpg") repeat;
+  color: #333333; }
+
+.testimonial-wrapper:before {
+  border-color: rgba(237, 241, 242, 0) rgba(0, 0, 0, 0.89) rgba(0, 0, 0, 0.89) rgba(237, 241, 242, 0);
+  background: url("http://klatschmohn-giessen.de/wp-content/themes/klatsch/css/../img/paper2.jpg") repeat; }
 
 /********************************/
 /* Single Product Page: 		*/
@@ -192,21 +252,27 @@ i {
   padding-top: 0;
   border-top: none; }
 
+.testimonial-wrapper .flex-direction-nav a,
 .sc-projects-arrows a {
   z-index: inherit;
   position: absolute;
   margin-top: 102px; }
+
 .sc-projects-arrows .jcarousel-prev {
   left: -40px; }
 .sc-projects-arrows .jcarousel-next {
   right: -40px; }
 
+.testimonial-wrapper .flex-direction-nav .flex-prev {
+  left: -40px; }
+.testimonial-wrapper .flex-direction-nav .flex-next {
+  right: -40px; }
+
+.sc-testimonials h6 {
+  color: #333; }
+
 .sc-projects-without-title .sc-projects-arrows {
   padding-bottom: 0; }
-
-.data-wrapper {
-  margin: 50px auto;
-  padding: 30px 0; }
 
 .flex-direction-nav a {
   z-index: 2; }
@@ -217,6 +283,21 @@ i {
 /********************************/
 /* Blog 						*/
 /********************************/
+.post-block-feed {
+  overflow: visible; }
+
+.post-block .innercontent {
+  background: url("../img/paper2.jpg") repeat;
+  margin-bottom: 20px;
+  border: 5px solid rgba(0, 0, 0, 0.2);
+  border-bottom-width: 5px;
+  border-radius: 0px 0px 4px 4px;
+  box-shadow: 4px 4px 20px black; }
+
+.isotope .isotope-item {
+  padding: 0 20px;
+  margin: 0 -20px; }
+
 .single-post #main, .blog #main {
   float: right;
   padding: 24px;
@@ -236,17 +317,8 @@ i {
   margin-bottom: 10px;
   font-size: 42px; }
 
-h1, h2, h3, h4, h5, h6 {
-  color: #333333;
-  font-style: italic;
-  /*  Todo Typography Section */
-  line-height: 1.3em; }
-
 #content > .container {
   padding: 30px 20px; }
-
-.innercontent {
-  background: url(../img/paper2.jpg) repeat; }
 
 /* Shortcodes */
 .google-map {
@@ -258,14 +330,6 @@ h1, h2, h3, h4, h5, h6 {
 /********************************/
 .logo-list {
   list-style: none !important; }
-
-#footer #copyright, #footer .designer a,
-.project-feed div a {
-  color: rgba(0, 0, 0, 0.72) !important;
-  text-shadow: 0 1px 1px rgba(120, 120, 120, 0.7), 0 -1px 1px rgba(0, 0, 0, 0.8);
-  letter-spacing: -2px;
-  font-size: 24px;
-  line-height: 0.3; }
 
 .project-item .thumb-item-title span {
   display: none; }

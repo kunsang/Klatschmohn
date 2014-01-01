@@ -9,7 +9,12 @@ require(HONEY_PATH_TO_THEME.'/include/include/tools.php');
 require(HONEY_PATH_TO_THEME.'/include/include/start.php');
 
 require(HONEY_PATH_TO_THEME.'/woocommerce_functions.php'); // WooCommerce Changes + Hacks
-
+/*-----------------------------------------------------------------------------------*/
+/* Remove autoformattign of Shortcodes
+/*-----------------------------------------------------------------------------------*/
+remove_filter( 'the_content', 'wpautop' );
+add_filter( 'the_content', 'wpautop' , 99);
+add_filter( 'the_content', 'shortcode_unautop',100 );
 /*-----------------------------------------------------------------------------------*/
 /* Adds new body classes
 /*-----------------------------------------------------------------------------------*/

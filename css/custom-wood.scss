@@ -1,124 +1,81 @@
 // Color Variables
-$green:		#54BC43;
-$_green:	hsla(112, 47%, 50%, 1.0);	
-$red:		#D0002E;
-$_red:		hsla(347, 100%, 41%, 1.0);	
-$warmred:	#D14200;
-$_warmred:	hsla(19, 100%, 41%, 1.0);	
-$orange:	#D1B200;
-$_orange:	hsla(183, 73%, 43%, 1.0);	
-$blue:		#0065D1;
-$_blue:		hsla(211, 100%, 41%, 1.0);
-
-$black50:	hsla(0, 0%, 0%, 0.5);
-$black75:	hsla(0, 0%, 0%, 0.75);
-$white50:	hsla(0, 0%, 100%, 0.5);
-$white75:	hsla(0, 0%, 100%, 0.75);
+$xgreen:		#54BC43;
+	$green:		hsla(112, 47%, 50%, 1.0);	
+$xred:			#D0002E;
+	$red:		hsla(347, 100%, 41%, 1.0);	
+$xwarmred:		#D14200;
+	$warmred:	hsla(19, 100%, 41%, 1.0);	
+$xorange:		#D1B200;
+	$orange:	hsla(183, 73%, 43%, 1.0);	
+$xblue:			#0065D1;
+	$blue:		hsla(211, 100%, 41%, 1.0);
+$halfopaquebg:	hsla(0, 0%, 0%, 0.5);
+$egg: 			#ccc;
 $transparent:	hsla(0, 0%, 0%, 0);
 
+// Shadow Variables
+$shadow-down:	0 2px 20px hsla(0, 0%, 0%, 0.75);
+$shadow-bottom:	0 0 20px hsl(0, 0%, 0%),inset  0 0 5px hsla(0, 100%, 100%, 0.3);
+$shadow-inside:	inset 0 0 20px hsl(0, 0%, 0%), 0 0 5px hsla(0, 100%, 100%, 0.3);
+
+// text-shadow		  //0 1px 1px hsl(40, 100%, 95%), 0 -1px 0 hsla(0, 0%, 0%, 0.45); 
+$inset-shadow-wood:		0 1px 2px hsl(36, 100%, 90%), 0 -1px 0px hsla(0, 0%, 0%, 0.75);
+$inset-wood-hover:		0 1px 1px hsl(40, 100%, 95%), 0 -1px 0 hsla(0, 0%, 0%, 0.8);
+//$inset-wood-safari:		0 1px 2px hsl(40, 100%, 95%), 0 -1px 0 hsla(0, 0%, 0%, 0.8);
+$inset-shadow-slate:  	0 1px 1px hsla(0, 0%, 47%, 0.7), 0 -1px 1px hsla(0, 0%, 0%, 0.8);
+
 // Background Images
-$body:	url(/wp-content/files/2013/12/body-bg.jpg) no-repeat center top/cover fixed;
+$wood:			url(../img/footer-bg-bottom.min.png);
+$body:			url(/wp-content/files/2013/12/body-bg.jpg) no-repeat center top/cover fixed;
+$slate:	   #222 url(../img/slate.jpg) repeat;
+$paper:			url("../img/paper2.jpg") repeat;
 
 // Size Variables
 $menu-height: 		72px;
 $menu-border-height: 3px;
 
 /********************************/
-/* Reset: 						*/
-/********************************/
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, and, address, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, input, textarea, select {margin: 0; padding: 0; outline: 0; border: 0; background: hsla(0, 0%, 0%, 0); vertical-align: baseline; font-size: 100%; }
-/********************************/
-/* Base: 						*/
-/********************************/
 body { 
 	-webkit-font-smoothing: antialiased !important;
-	-moz-osx-font-smoothing: grayscale;
-	background: $body;
-}
-#body-wrapper {
-	width: 100%;
-	overflow: hidden;
-	background: url(/wp-content/files/2013/12/body-bg.jpg) no-repeat center top/cover fixed;
-}
+	-moz-osx-font-smoothing: grayscale;}
 /********************************/
-/* Header: 	
-/********************************
-<header id="header">
-	<div id="topbar">
-		<div class="container">
-			<div class="center-content">
-				<div class="callus">
-					<span class="smartphone call"><a class="icon-mobile-phone"></span>
-					<span class="no-mobile"><a class="icon-phone"></a></span>
-					<a class="icon-envelope"></a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="stickyheader" class="nostick">
-		<div class="container">
-			<a id="logo"><img></a>
-			@Top Navigation
-			<select class="selectnav" id="selectnav1"><option value="">Navigation...</option></select>
-		</div>
-	</div> 
-</header>						
+/* Topbar: 						*/
 /********************************/
-// #header {
-	#topbar { 
-		background: $black50; border: 0;
-		a { 
-			/*EMPTY*/
-			&[class^="icon"] { 
-				margin-left: 1em; 
-			}
-		}
-		.smartphone { display: none; }
-		.center-content { text-align: right }
-		.callus a { 
-			color: #ccc; 
-			font-size: 16px;
-			&:hover { 
-				color: white;
-				text-decoration: underline;	
-			}
-		}
+#topbar { background: $halfopaquebg; border: 0; 
+	a { 
+		&[class^="icon"] { margin-left: 1em; }}
+	.smartphone { display: none; }
+	.center-content { text-align: right }
+	.callus a { color: $egg; font-size: 16px;
+				&:hover { color: white; text-decoration: underline;	}
 	}
-	#stickyheader {
-		background: $white50;
-	
-		&.sticky {		
-			@extend #stickyheader;
-			z-index: 300;
-
-			#logo {
-				position: fixed;
-				margin: 0 0 0 -7px;
-				width: 103px;
-			}
-		}
-		#logo {
-			margin: -34px 0 -50px -1%;
-		}	
-	}
-// }
+}
 @media only screen and (max-width: 480px) {
 	#topbar .smartphone {display: inline; }
 	.call a {font-size: 24px !important; line-height: 12px; }
-	.no-mobile {display: none; }
+	.no-mobile {display: none; }}
+/********************************/
+/* Header: 						*/
+/********************************/
+#header {	
+	background: $wood;
+	box-shadow: $shadow-down;
+	background-attachment: scroll
+	#logo {
+		margin: -34px 0 -50px -1%;
+	}
+	.sticky {		
+		@extend #header;
+		z-index: 300;
+		#logo {
+			position: fixed;
+			margin: 0 0 0 -7px;
+			width: 103px;
+		}
+	}
 }
 /********************************/
-/* Top Navigation: 
-/********************************	
-<ul id="navigation">
-	<li class="menu-item ... "><a></a></li>
-	...
-	<li class="... menu-item-has-children">
-		<ul>
-		...
-		</ul>
-	</li>
-</ul>							
+/* Top Navigation: 				*/
 /********************************/
 #navigation {
 		margin-right: -10px;
@@ -129,11 +86,12 @@ body {
 			padding: 0 12px;
 			height: 0;
 			border-bottom: $menu-border-height solid $transparent;
-			color: $green;
+			color: hsla(35, 100%, 25%, 0.5);
 			text-transform: none;
+			text-shadow: $inset-shadow-wood;
 			letter-spacing: -2px;
-			font-weight: 100;
-			font-size: 28px;
+			font-weight: 900;
+			font-size: 26px;
 			line-height: $menu-height;
 			transition: margin .3s ease-in-out, height .3s ease-in-out, color .3s ease, border-color .3s ease-in;
 		}
@@ -142,13 +100,13 @@ body {
 		&.current-menu-ancestor > a { 
 			margin-bottom: 0;
 			height: $menu-height;
-			border-bottom-color: $red;
-			color: $red;
-			transition-delay: 0s;
+			border-bottom-color: $warmred;
+			color: $warmred;
+			text-shadow: $inset-wood-hover;
 		}
 		&.hover > a, &.current > a {
-			border-bottom-color: $red;
-			color: $red;
+			border-bottom-color: $warmred;
+			color: $warmred;
 		}
 	}
 	ul {
