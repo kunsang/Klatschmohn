@@ -1,0 +1,47 @@
+.biosiegel-tab {
+	clear: both;
+	margin: -20px auto;
+	padding: 10px;
+	max-width: 580px;
+	height: 115px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	background: #fafafa;
+	box-shadow: 0 -5px 20px hsla(0, 0%, 0%, 0.4);
+	vertical-align: middle;
+	transition: all 0.3s ease;
+	&:hover {
+		background: #eee;
+		background-image: linear-gradient(hsla(0, 0%, 0%, 0.1) 0%, hsla(0, 0%, 0%, 0) 100%);
+		color: #fff;
+		cursor: pointer !important;
+		transition-duration: $fade-in-time;
+	}
+	img[alt="Demeter"] {margin-top: 20px; }
+	img[alt="EU-Bio"] {margin-top: 8px; }
+	em {
+		float: right;
+		padding-top: 25px;
+		max-width: 430px;
+		color: #222 !important;
+	}
+}
+#post-50 a img, .biosiegel-tab img {
+	float: left;
+	margin: 5px 15px 10px 5px;
+	padding: 5px;
+	background-color: #fff !important;
+	transition: all 0.3s ease;
+}
+.page-id-61 .data-inner-wrapper { max-width: 700px; }
+
+.biosiegel-content {
+	margin: 10px auto;
+	padding: 20px;
+	max-width: 560px;
+	width: auto;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	background: #fafafa;  
+	font-size: 12px;
+}

@@ -1,0 +1,40 @@
+// Color Variables
+$base-c:    #333333;
+
+$green:     #54BC43;
+$darkgreen: #138F00;
+$red:       #D0002E;
+$warmred:   #D14200;
+$orange:    #D1B200;
+$blue:      #0065D1;
+
+$_green:    hsla(112, 47%, 50%, 1.0);
+$_red:      hsla(347, 100%, 41%, 1.0);
+$_warmred:  hsla(19, 100%, 41%, 1.0);
+$_orange:   hsla(183, 73%, 43%, 1.0);
+$_blue:     hsla(211, 100%, 41%, 1.0);
+
+$black50:   hsla(0, 0%, 0%, 0.5);
+$black75:   hsla(0, 0%, 0%, 0.75);
+$white33: 	hsla(0, 100%, 100%, 0.33);
+$white50:   hsla(0, 100%, 100%, 0.5);
+$white75:   hsla(0, 100%, 100%, 0.75);
+$white90:   hsla(0, 100%, 100%, 0.9);
+$trans:     hsla(0, 0%, 0%, 0);
+
+// Background Images
+$body: 			url(/wp-content/files/2013/12/body-bg.jpg) no-repeat center top/cover fixed;
+$body2: 		url(../img/poppy-field-hd.jpg) no-repeat center top/cover fixed;
+$body2blur: 	url(../img/poppy-field-hd-blur.jpg) no-repeat center top/cover fixed;
+$header-blur: 	url("../img/header-blur.jpg");
+
+// Font Variables
+$base-ff: 'Source Sans Pro', sans-serif;
+$base-fz: 16px;
+
+// Size Variables
+$menu-height: 77px;
+$menu-border-height: 3px;
+
+// Transitions
+$fade-in-time: 0;

@@ -1,0 +1,86 @@
+#main {
+    float: left;
+    width: 71.5%
+}
+
+#sidebar {
+    float: right;
+    width: 23.5%
+}
+
+.one-half, .one-third, .two-third, .three-fourth, .one-fourth, .one-fifth, .two-fifth, .three-fifth, .four-fifth, .one-sixth, .five-sixth {
+    position: relative; float: left;
+    margin-right: 4%;
+    word-wrap: break-word;
+    word-break: normal;
+}
+.two-third .one-fourth {width: 20.4082%; margin-right: 6.1224% }
+.two-third .two-third {width: 64.6258%; margin-right: 6.1224% }
+.two-third .one-third {width: 29.2517%; margin-right: 6.1224% }
+.one-half .two-third {width: 63.8889%; margin-right: 8.3333% }
+.one-half .one-third {width: 27.7778%; margin-right: 8.3333% }
+.one-half .one-half {width: 45.8333%; margin-right: 8.3333% }
+
+.one-half { width: 48% }
+.one-third { width: 30.6666% }
+.two-third { width: 65.3332% }
+.one-fourth { width: 22% }
+.two-fourth { width: 48% }
+.three-fourth { width: 74% }
+.one-fifth { width: 16.8% }
+.two-fifth { width: 37.6% }
+.three-fifth { width: 58.4% }
+.four-fifth { width: 79.2% }
+.one-sixth { width: 13.3333% }
+.two-sixth { width: 30.6666% }
+.three-sixth { width: 47.9998% }
+.four-sixth { width: 65.3332% }
+.five-sixth { width: 82.6665% }
+
+.last {
+    margin-right: 0 !important;
+    clear: right
+}
+
+.column-last {
+    margin-right: 0!important;
+    clear: right
+}
+
+/* reCaptcha */
+
+.recaptchatable .recaptcha_input_area a, .recaptchatable .recaptcha_input_area a:hover { color: rgb(197, 197, 197) }
+
+.recaptchatable .recaptcha_only_if_privacy { margin-top: -6px }
+
+.recaptchatable .recaptcha_input_area { height: 33px !important }
+
+#recaptcha_widget_div { margin-bottom: 24px }
+
+.recaptcha_input_area label.error {
+    position: absolute;
+    bottom: -29px; left: -13px
+}
+
+#recaptcha_widget_div #recaptcha_response_field {
+    padding-right: 2px !important; padding-left: 2px !important;
+    background: white !important
+}
+
+.reset_variations {
+    color: gray;
+    font-size: 12px
+}
+
+hr { display: block }
+
+.sep10 { height: 10px }
+.sep20 { height: 20px }
+.sep30 { height: 30px }
+.sep40 { height: 40px }
+.sep50 { height: 50px }
+.sep60 { height: 60px }
+.sep70 { height: 70px }
+.sep80 { height: 80px }
+.sep90 { height: 90px }
+.sep100 { height: 100px }

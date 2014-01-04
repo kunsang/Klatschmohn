@@ -18,10 +18,10 @@
 <?php endif; ?>
 <!-- CSS Styles and JavaScript
     ======================================================================== -->
+    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/prefixfree.min.js"></script>
 <?php $f->register_header(); ?>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,200italic,300italic,400italic,600italic' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/custom.css" />
-<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/prefixfree.min.js"></script>
-
 </head>
 <body <?php body_class($f->get_body_class()); ?>>
 <!-- Body Wrapper -->
