@@ -21,7 +21,7 @@ class ThemeMenu {
                 'after'           => '',
                 'link_before'     => '',
                 'link_after'      => '',
-                'items_wrap'      => '<ul id="navigation">%3$s</ul>',
+                'items_wrap'      => '<ul id="nav">%3$s</ul>',
                 'walker'          => new ThemeMenuWakler(),
                 'depth'           => 0            
             ),

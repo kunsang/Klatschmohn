@@ -1,0 +1,154 @@
+// Text Styles
+
+.default_text
+	color: #fff
+	font-size: 20px
+
+.default_heading
+	color: #fff
+
+
+//	Slider Settings ---------------------------------------------------------
+// --------------------------------------------------------------------------
+.tp-rightarrow.default, .tp-leftarrow.default
+	width: 35px !important
+	height: 35px !important
+	border-radius: 3px !important
+	line-height: 35px !important
+
+//	--------------------------------------------------------------------------
+//	16. Buttons	
+// --------------------------------------------------------------------------
+.tp-caption .tp-button
+	padding: 6px 13px 5px
+	height: auto
+	border-radius: 3px
+	text-decoration: none
+	text-transform: uppercase
+	text-shadow: none !important
+	letter-spacing: 0px
+	font-weight: 300
+	font-size: 14px
+	font-family: inherit
+	line-height: 14px !important
+	cursor: pointer
+	color: #fff !important
+
+.tp-caption .tp-button.big
+	padding: 12px 20px
+	text-shadow: none
+	font-weight: bold
+	font-size: 13px
+	line-height: 16px !important
+	color: #fff
+
+.tp-caption .tp-button:hover
+	transition-duration: $fade-in
+
+
+// --------------------------------------------------------------------------
+//	BUTTON COLORS
+// --------------------------------------------------------------------------
+.tp-button.lightgrey
+	background: lighten(black, 50%) !important
+	box-shadow: 0 -3px rgba(0, 0, 0, 0.3) inset !important
+
+.tp-button:hover.lightgrey
+	background: $green !important
+	box-shadow: 0 -3px rgba(0, 0, 0, 0.3) inset !important
+
+.tp-button:active.lightgrey
+	top: 3px !important
+	padding-bottom: 9px !important
+	box-shadow: none !important
+	background-color: darken($green, 10%) !important
+
+
+.tp-caption .tp-button.darkgrey,
+.tp-caption .tp-button.grey,
+	background-color: #333
+	box-shadow: 0 -3px rgba(0, 0, 0, 0.22) inset
+
+.tp-caption .tp-button:hover.darkgrey,
+.tp-caption .tp-button:hover.grey
+	color: $green
+
+.tp-caption .tp-button.orange,
+.tp-caption .tp-button:hover.orange
+	background-color: #ff7700
+	box-shadow: 0 -3px rgba(0, 0, 0, 0.22) inset
+
+.tp-caption .tp-button.green,
+.tp-caption .tp-button:hover.green
+	background-color: $green
+	box-shadow: 0 -3px rgba(0, 0, 0, 0.22) inset
+
+.tp-caption .tp-button.blue,
+.tp-caption .tp-button:hover.blue
+	background-color: #1d78cb
+	box-shadow: 0 -3px rgba(0, 0, 0, 0.22) inset
+
+.tp-caption .tp-button.red,
+.tp-caption .tp-button:hover.red
+	background-color: $red
+	box-shadow: 0 -3px rgba(0, 0, 0, 0.22) inset
+
+.tp-button.transparent
+	position: relative
+	padding-right: 60px
+	background: none
+	text-transform: uppercase
+	font-weight: normal
+	font-size: 13px
+
+.tp-button.transparent [class^="icon-"]:before, 
+.tp-button.transparent [class*=" icon-"]:before
+	line-height: 44px
+
+.tp-button.transparent i
+	position: absolute
+	top: -9px
+	right: 0px
+	margin-left: 10px
+	width: 44px
+	height: 44px
+	border: 1px solid #FFF
+	border-radius: 50%
+	color: #fff
+
+.tp-leftarrow.default
+	position: relative
+	z-index: 100
+	width: 35px
+	height: 75px
+	border-radius: 3px
+	background: rgba(0, 0, 0, 0.4) !important
+	text-align: center
+	line-height: 75px
+	cursor: pointer
+	transition: background-color $fade-out ease
+
+.tp-leftarrow.default:before
+	color: #fff
+	content: '\f053'
+	font-family: FontAwesome
+
+.tp-rightarrow.default
+	position: relative
+	z-index: 100
+	width: 35px
+	height: 75px
+	border-radius: 3px
+	background: rgba(0, 0, 0, 0.4) !important
+	text-align: center
+	line-height: 75px
+	cursor: pointer
+	transition: background-color $fade-out ease
+
+.tp-rightarrow.default:before
+	color: #fff
+	content: '\f054'
+	font-family: FontAwesome
+
+.tp-rightarrow.default:hover, .tp-leftarrow.default:hover
+	background: rgba(0, 0, 0, 0.6) !important

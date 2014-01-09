@@ -16,6 +16,7 @@
 	12. Twitter Feed
 	13. Flickr Feed
 	14. Google Maps
+	15. Setting height for Header wrapper
 
 ---------------------------------------------------------------------------------- */
 
@@ -38,12 +39,21 @@ jQuery('p').each(function(){
 /* --------------------------------------------------------------------------- */
 /*  7.  Page Scroller (Smooth Scrolling)
 /* --------------------------------------------------------------------------- */   
-// jQuery("html").niceScroll({
-//  styler:"fb",
-//  cursorcolor:'#616b74',
-//  cursorborder:'0',
-//  zindex:9999
-// });
+jQuery("html").niceScroll({
+ styler:"fb",
+ cursorcolor:'#616b74',
+ cursorborder:'0',
+ zindex:9999,
+ mousescrollstep:50
+});
+
+/* --------------------------------------------------------------------------- */
+/*  15.  Setting height for Header wrapper
+/* --------------------------------------------------------------------------- */
+if( jQuery('#stickyheader').length!=0 ){
+	jQuery('#stickyheader-wrapper').height( jQuery('#stickyheader').height() );
+	
+}
 
 
 /* --------------------------------------------------------------------------- */
@@ -61,23 +71,23 @@ jQuery(window).scroll(function(e){
 				if( jQuery(window).scrollTop() > stickyHeaderTop ) {
 					jQuery('#stickyheader').css({'position': 'fixed', 'top': '0px', 'opacity':'0'}).animate({opacity:1},300);
 					jQuery('#stickyheader').addClass("sticky").removeClass("nostick");
-					jQuery('.data-wrapper').addClass("stickyheader");
+					jQuery('body').addClass("stickyheader");
 				} else {                    
 					jQuery('#stickyheader').removeClass("sticky");
-					jQuery('.data-wrapper').removeClass("stickyheader");
+					jQuery('body').removeClass("stickyheader");
 				}               
 				
 			}else{
 				jQuery('#stickyheader').removeClass("sticky").addClass("nostick");
-				jQuery('#stickyheader').css({'position': 'static', 'top': '0px'});
-				jQuery('.data-wrapper').removeClass("stickyheader");
+				jQuery('#stickyheader').css({'position': 'relative', 'top': '0px'});
+				jQuery('body').removeClass("stickyheader");
 			}       
 		
 	  }
 	  if (jQuery(this).scrollTop() < 80 && $el.css('position') == 'fixed'){
-		jQuery('#stickyheader').css({'position': 'static', 'top': '0px'});          
+		jQuery('#stickyheader').css({'position': 'relative', 'top': '0px'});          
 		jQuery('#stickyheader').removeClass("sticky").addClass("nostick");
-		jQuery('.data-wrapper').removeClass("stickyheader");
+		jQuery('body').removeClass("stickyheader");
 	  }
 });
 
@@ -247,19 +257,19 @@ jQuery('.tweets').flexslider({
 /*  3.  Main Navigation
 /* --------------------------------------------------------------------------- */
 
-	var navigation = jQuery('#navigation');    
+	var navigation = jQuery('#nav');    
 	// Regular nav
 	navigation.on('mouseenter', 'li', function() {
 		var target    = jQuery(this),
 			subMenu = target.children('ul');
 		if( subMenu.length ) target.addClass('hover');
-		subMenu.hide().stop(true, true).slideDown(150);
+		subMenu.hide().stop(true, true).delay(300).slideDown(150);
 	}).on('mouseleave', 'li', function() {
-		jQuery(this).removeClass('hover').children('ul').stop(true, true).slideUp(70);
+		jQuery(this).delay(300).removeClass('hover').children('ul').stop(true, true).slideUp(70);
 	});
 
 	// Responsive nav
-	selectnav('navigation', {
+	selectnav('nav', {
 		label: 'Navigation...',
 		autoselect: false,
 		nested: true,
@@ -687,14 +697,6 @@ jQuery('.tweets').flexslider({
 jQuery(window).resize(function(){
 	jQuery(".accordion").accordion("refresh");
 });
-
-
-
-
-
-
-
-
 
 
 

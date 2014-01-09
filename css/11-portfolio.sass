@@ -1,0 +1,602 @@
+//	Project Feed Filter	-------------------------
+//	----------------------------------------------
+.one-third.project-item
+	width: 313px
+
+.one-fourth.project-item
+	width: 230px
+
+.one-half.project-item
+	width: 480px
+
+.project-feed-filter
+	display: block
+	margin: 0 0 30px
+	padding-bottom: 0px
+	padding-left: 0px
+	background: #f4f6f5
+	font-size: 12px
+	&:after
+		display: block
+		visibility: hidden
+		clear: both
+		width: 0
+		height: 0
+		content: ' '
+		font-size: 0
+		line-height: 0
+	li
+		display: block
+		float: left
+		margin: 0
+		list-style: none
+		a
+			display: block
+			margin: 0
+			padding: 12px 11px
+			font-size: 14px
+			line-height: 12px
+			// border: 1px solid transparent;
+			color: #333
+			&:hover, &.current, &.current:hover
+				background: $red
+				color: #fff
+				transition-duration: $fade-short
+
+//	Project Feed	--------------------------------
+//	----------------------------------------------
+.project-feed > div
+	position: relative
+	float: left
+	margin: 0 0 20px 0
+	list-style: none
+
+.project-feed div a
+	display: block
+
+.project-carousel img,
+.project-feed div img
+	display: block
+	max-width: 100%
+	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'saturate\' values=\'0.5\'/></filter></svg>#grayscale")
+	filter: gray alpha(opacity=50)
+	-webkit-filter: grayscale(.5)
+	-moz-filter: grayscale(.5)
+	-ms-filter: grayscale(.5)
+	filter: grayscale(.5)
+	transition: all $fade-out ease
+	-webkit-backface-visibility: hidden
+
+.projectsection .project-feed div img
+	display: block
+	width: 100%
+
+.project-feed .project-item .border-top, .project-feed .project-item .border-bottom
+	top: 0
+	left: 0
+	z-index: 1
+	width: 100%
+	border-top: solid 5px rgba(255, 255, 255, 0.35)
+
+.project-feed .project-item .border-bottom
+	top: auto
+	bottom: 0
+
+.project-feed .project-item .border-left, .project-feed .project-item .border-right
+	top: 5px
+	bottom: 5px
+	z-index: 1
+	border-left: solid 5px rgba(255, 255, 255, 0.35)
+
+.project-feed .project-item .border-left
+	left: 0
+
+.project-feed .project-item .border-right
+	right: 0
+
+.project-feed .project-item .border-top, 
+.project-feed .project-item .border-bottom, 
+.project-feed .project-item .border-left, 
+.project-feed .project-item .border-right
+	position: absolute
+	transition: all 0.1s
+
+.project-feed .project-item:hover .border-top, .project-feed .project-item:hover .border-left, .project-feed .project-item:hover .border-right, .project-feed .project-item:hover .border-bottom
+	transition: all 0.6s
+
+.product-grid li:hover .product-caption
+	bottom: 0
+	transition: all 0.6s
+
+.product-grid .product-caption
+	position: absolute
+	bottom: -215px
+	left: 5px
+	width: 218px
+	text-align: center
+	transition: all 0.1s
+
+.product-grid li:hover .product-bottom-title
+	position: relative
+	top: -100px
+	transition: top 0.7s
+
+.product-grid .product-caption .inner
+	padding-top: 23px
+	height: 190px
+	background: #fff84b
+	background: rgba(255, 248, 75, 0.9)
+
+.product-grid .product-caption .price
+	display: inline-block
+	margin: 30px 0 20px
+	padding: 5px
+	background: #fff84b
+	background: rgba(255, 248, 75, 0.95)
+
+.product-grid .product-caption .price span
+	display: inline-block
+	padding: 3px 21px
+	border: solid 1px #504f3b
+	border: solid 1px rgba(80, 79, 59, 0.5)
+	color: #222222
+	letter-spacing: 0.15em
+	font-size: 20px
+	font-family: 'Open Sans Condensed', Arial, sans-serif
+
+.product-grid .title
+	padding: 0
+	text-align: center
+	font-weight: normal
+	font-size: 18px
+	line-height: 19px
+
+//	Project Item Overlay	------------------------
+//	----------------------------------------------
+.data-wrapper
+	width: 100%
+
+.data-wrapper-grey
+	margin-right: -30px
+	margin-left: -30px
+	padding: 0px 30px
+	background: $white50
+	box-shadow: inset 0 4px 4px -4px rgba(0, 0, 0, 0.35), inset 0 -4px 4px -4px rgba(0, 0, 0, 0.35)
+
+.project-item .thumb-item-title
+	display: block
+	border-bottom: 1px solid #d8d8d8
+	transition: all $fade-out ease-in
+
+.projectsection .project-item img
+	width: 100%
+
+.projectsection .one-fourth
+	margin-right: 2%
+	width: 23.5%
+
+.projectsection .normaltext
+	display: block
+	text-align: center
+	text-transform: none
+	font-weight: normal
+	font-size: 13px
+
+.projectsection h3
+	margin-bottom: 10px
+	text-align: center
+	text-transform: uppercase
+	font-weight: normal
+
+.projectsection h3 strong
+	font-weight: bold
+
+.projectsection .jcarousel-prev, .projectsection .jcarousel-next
+	top: -5px
+	display: block
+	float: right
+
+.projectsection .project-carousel .icon-chevron-right:before, .projectsection .project-carousel .icon-chevron-left:before
+	font-size: 14px
+
+a.jcarousel-next i, a.jcarousel-prev i
+	color: #fff
+	// text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4)
+
+a.jcarousel-next i:hover, a.jcarousel-prev i:hover, a.jcarousel-next:hover i, a.jcarousel-prev:hover i
+	color: #fff
+	transition-duration: $fade-in
+
+.project-item
+	overflow: hidden
+
+	.thumbnail
+		position: relative
+		overflow: hidden
+
+.project-item .overlay, .overlay
+	position: absolute
+	top: 0
+	left: 0
+	overflow: hidden
+	width: 100%
+	height: 100%
+	opacity: 0
+
+.project-item .mask
+	position: absolute
+	top: 0
+	left: 0
+	overflow: hidden
+	width: 100%
+	height: 100%
+	background-color: transparent
+	transition: all $fade-out ease-in-out
+	// transform: translateX(-500px)
+
+.project-item:hover .mask
+	// background-color: rgba(0, 0, 0, 0.6)
+	// transform: translateX(0px)
+
+.project-item img
+	transition: all $fade-out linear
+
+.project-item:hover img
+	// transform: scale(1.05, 1.05)
+	filter: none
+	-webkit-filter: grayscale(0)
+
+.project-item .icon-image
+	position: absolute
+	top: 0
+	left: 50%
+	margin-left: -32px
+	width: 64px
+	height: 64px
+	border-radius: 50%
+	background: $red
+	opacity: 0
+	box-shadow: inset 0 -3px 0 hsla(0, 0%, 0%, 0.33)
+	text-align: center
+	font-size: 32px
+	line-height: 67px
+
+
+.project-item .icon-image
+	transition: all ease $fade-long
+
+.project-item:hover .icon-image
+	top: 36%
+	opacity: 0.8
+	transition-duration: $fade-out
+	//transform: scale(1.4, 1.4)
+
+.icon-image:active
+	box-shadow: none
+	top: 36.6% !important
+	opacity: 1 !important
+
+.project-item .icon-image i
+	color: #fff
+
+.project-item .thumbnail img
+	position: relative
+	overflow: hidden
+
+.project-item .item-title
+	position: absolute
+	bottom: 100%
+	width: 100%
+	padding: 10px 0
+	background: $black50
+	color: #fff
+	opacity: 0
+	text-align: center
+	font-weight: 300
+	font-size: 32px
+	line-height: 0.8
+	transition: all ease $fade-short
+
+.project-item:hover .item-title
+	bottom: 0
+	opacity: 1
+
+.project-item .thumb-item-title
+	position: relative
+	padding: 15px 0px
+	text-align: center
+
+.project-item .thumb-item-title h6
+	margin-bottom: 0
+	padding-bottom: 5px
+	letter-spacing: -1.5px
+	font-size: 28px
+
+.project-item .thumb-item-title h6 a:hover
+	color: #333
+
+.project-item .thumb-item-title span
+	display: none
+	color: #959595
+	font-size: 12px
+	line-height: 20px
+
+// Project Without Title
+.project-carousel
+	width: auto !important
+
+.sc-projects-without-title .project-carousel .jcarousel-clip
+	// padding-top: 20px
+	// border-top: 3px solid #d8d8d8
+
+.sc-projects-without-title .sc-projects-arrows
+	margin: -34px 0 24px
+	// padding-bottom: 20px
+	text-align: right
+
+.sc-projects-without-title .sc-projects-arrows:after
+	display: block
+	visibility: hidden
+	clear: both
+	width: 0
+	height: 0
+	content: ' '
+	font-size: 0
+	line-height: 0
+
+.data-wrapper-grey .sc-projects-without-title .project-carousel
+	margin-bottom: 10px
+
+// Project With Title
+.sc-projects-with-title .sc-projects-title
+	position: relative
+	display: block
+	margin: 0 0 30px
+	padding-bottom: 15px
+	border-bottom: 1px solid #d8d8d8
+	text-transform: uppercase
+	font-weight: 300
+
+//	Project Carousel	---------------------------- 
+//	---------------------------------------------- 
+.jcarousel-list
+	margin: 0 !important
+
+.project-carousel .jcarousel-clip
+	position: relative
+	overflow: hidden
+	width: inherit
+
+.project-carousel li
+	position: relative
+	display: block
+	float: left
+	overflow: hidden
+	margin: 0 20px 0 0
+	width: 230px
+	height: 230px
+
+.project-carousel img
+	position: relative
+	width: 100%
+
+//	Carousel Navigation	------------------------- 
+//	---------------------------------------------- 
+.jcarousel-next, .jcarousel-prev, .testimonial-wrapper .flex-direction-nav a
+	position: relative
+	// top: 50%
+	// top: -40px
+	z-index: 30
+	display: inline !important
+	margin-top: 8px
+	padding: 4px 8px
+	width: 10px !important
+	height: auto !important
+	border-radius: 3px
+	background-color: #888
+	box-shadow: 0 -3px rgba(0, 0, 0, 0.22) inset
+	text-align: center
+	font-size: 14px
+	
+	opacity: 1
+	&:active
+		box-shadow: none
+		padding-bottom: 3px
+		top: 3px
+
+.testimonial-wrapper .flex-direction-nav a
+	position: absolute
+	top: -45px
+	padding: 6px 8px
+	line-height: 14px !important
+	&:active 
+		top: -40px
+		margin-top: 11px
+
+.testimonial-wrapper .flex-direction-nav .flex-prev
+	right: 40px
+	left: auto
+.testimonial-wrapper .flex-direction-nav .flex-next
+	right: 10px
+
+
+.flex-direction-nav a
+	width: 38px !important
+	height: 38px !important
+	line-height: 38px !important
+
+.jcarousel-next i, .jcarousel-prev i
+	color: #fff
+
+.jcarousel-next a i:hover, .jcarousel-prev a i:hover
+	color: #fff
+
+
+.project-carousel:hover .jcarousel-next:hover, 
+.project-carousel:hover .jcarousel-next:focus, 
+.project-carousel:hover .jcarousel-next:active, 
+.project-carousel:hover .jcarousel-prev:hover, 
+.project-carousel:hover .jcarousel-prev:focus, 
+.project-carousel:hover .jcarousel-prev:active
+	opacity: 1
+
+.jcarousel-next-disabled, 
+.jcarousel-next-disabled:hover, 
+.jcarousel-next-disabled:focus, 
+.jcarousel-next-disabled:active, 
+.jcarousel-prev-disabled, 
+.jcarousel-prev-disabled:hover, 
+.jcarousel-prev-disabled:focus, 
+.jcarousel-prev-disabled:active
+	background-color: #bbb !important
+	cursor: default
+	pointer-events: none
+
+.jcarousel-next-disabled i, .jcarousel-prev-disabled i
+	color: #CECECE
+
+.project-carousel .icon-chevron-right:before, 
+.project-carousel .icon-chevron-left:before
+	font-size: 14px
+
+.jcarousel-prev:hover,
+.jcarousel-next:hover,
+.testimonial-wrapper .flex-direction-nav a:hover
+	background-color: $red
+	transition-duration: $fade-in
+
+//	Project Feed Alt	----------------------------
+//	----------------------------------------------
+.project-feed-alt .thumb-item-title
+	border-bottom: 1px solid #d8d8d8
+	color: #959595
+	text-align: center
+
+.project-feed-alt .one-fourth
+	margin-right: 2%
+	margin-bottom: 0px
+	width: 23.5%
+
+.projectsection .project-feed-alt .one-fourth
+	margin-bottom: 20px
+
+.project-feed-alt .one-fourth:nth-child(4n)
+	margin-right: 0%
+
+.project-feed-alt .thumb-item-title h6
+	padding-bottom: 5px
+	font-size: 14px
+
+//	Portfolio Details	---------------------------
+//	----------------------------------------------
+.project-title
+	float: left
+	margin-bottom: 0px
+	line-height: 1.3
+
+.project-nav
+	float: right
+	margin: 8px 0 0
+
+.project-nav a
+	top: -5px
+	display: block
+	float: left
+	margin-left: 3px
+	padding: 6px 8px
+	width: 12px !important
+	width: 25px
+	height: auto !important
+	height: 25px
+	border-radius: 3px
+	background-color: #7f7f7f
+	box-shadow: 0 -3px rgba(0, 0, 0, 0.22) inset
+	color: #fff
+	text-align: center
+	text-align: center
+	font-weight: 800
+	line-height: 12px !important
+
+.project-nav a i
+	color: #fff
+	font-size: 12px
+
+.project-description .overview
+	margin-top: 0px
+	font-size: 12px
+
+.project-description .overview h5
+	margin-bottom: 20px
+
+.project-description .description
+	margin-bottom: 20px
+
+.singleproject .three-fourth img
+	width: 100%
+
+//	Isotope Plugin	------------------------------
+//	----------------------------------------------
+#infscr-loading
+	position: absolute
+	bottom: 0
+	z-index: 100
+	width: 100%
+	text-align: center
+	img
+		display: none
+	div
+		display: inline-block
+		padding: 15px 20px
+		border-radius: 5px
+		background: $red
+		color: #fff
+		font-weight: 800
+		font-size: 14px
+
+//	Isotope Plugin	------------------------------
+//	----------------------------------------------
+.isotope-item
+	z-index: 2
+
+.isotope-hidden.isotope-item
+	z-index: 1
+	pointer-events: none
+
+.isotope, .isotope .isotope-item
+	// change duration value to whatever you like
+	transition-duration: $fade-long
+
+.isotope
+	transition-property: height, width
+
+.isotope .isotope-item
+	transition-property: transform, opacity
+
+/********************************/
+/* Single Product Page: 		*/
+/********************************/
+// .single-project
+// 	.inline-border { margin: 0; border: 0 }
+// 	.one-third { width: 40% }
+// 	.two-third { width: 54% }
+// 	.two-third .one-fourth { margin-right: 0; width: 21% }
+// 	.project-nav { position: relative; top: -93px; float: right }
+// 	.project-title { display: none }
+// 	.project-description {
+// 		p, ul { font-size: 18px }
+// 		ul { margin-bottom: 1em; list-style: initial }
+// 		ul li { margin-left: 2em; }
+// 		.logo-list li { margin: 1em 1em 0 0 }
+// 	}
+// 	.sc-projects-title {text-align: center; text-transform: capitalize; font-size: 25px }	
+// 	.logo-list { list-style: none;
+// 		a {
+// 			height: 66px;
+// 			border: 2px solid hsla(359, 100%, 100%, 0.2) !important;
+// 			border-radius: 2px;
+// 			background-color: #fff;
+// 			opacity: 0.6;
+// 		}
+// 		img {opacity: 1; }
+// 	}
+// }

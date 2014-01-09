@@ -1,0 +1,91 @@
+.fullwidth_stroke_footer
+	margin-right: -30px
+	margin-left: -30px
+
+#footer_main
+	background: $body-blur
+
+#footer
+	margin-top: 0px
+	padding-top: 60px
+	background: hsla(0, 0%, 25%, 0.3)
+	color: #ddd
+	font-size: 14px
+	&:before, &:after
+		font-family: FontAwesome
+	.logo
+		display: block
+		margin-top: -15px
+		margin-bottom: 20px
+		color: #fff
+		letter-spacing: -0.05em
+		font-weight: 700
+		font-size: 28px
+		line-height: 1.2em
+	h3
+		margin-bottom: 24px
+		color: $green
+		text-transform: capitalize
+		letter-spacing: -2px
+		font-weight: 200
+		font-size: 52px
+	a
+		color: white
+		&:hover
+			color: $green
+			transition-duration: $fade-in
+
+#speiseplan
+	img
+		margin: -17px 0 0 2px
+		opacity: 0.5
+		transition: all $fade-long
+	&:hover img
+		opacity: 1
+		transition-duration: $fade-in
+
+.widget_links a
+	white-space: nowrap
+
+.widget_links li
+	margin-bottom: 7px
+	line-height: inherit
+
+//	Copyright & Social Links	--------------------
+//	----------------------------------------------
+#footer .info
+	overflow: hidden
+	margin: 40px auto 0
+	padding: 15px 0 12px
+	width: 100%
+	border-left: none
+	background: $black75
+	box-shadow: inset 0 1px #222
+
+.copyright
+	float: left
+	margin-top: 10px
+	li
+		float: left
+		margin-right: 20px
+		line-height: 26px
+
+.social-links
+	float: right
+	li
+		float: left
+		margin-left: 8px
+		border-radius: 0px
+		background: #363636
+		text-align: center
+	a
+		display: block
+		width: 40px
+		height: 40px
+		text-align: center
+		text-indent: -9999px
+		line-height: 26px
+		i
+			color: #959595
+		&:hover
+			opacity: 1

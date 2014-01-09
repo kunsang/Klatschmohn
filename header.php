@@ -17,11 +17,20 @@
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo $f->settings->favicon; ?>" />
 <?php endif; ?>
 <!-- CSS Styles and JavaScript
-    ======================================================================== -->
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/prefixfree.min.js"></script>
+    ======================================================================== -->    
 <?php $f->register_header(); ?>
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,200italic,300italic,400italic,600italic' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/custom.css" />
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<script src="http://blurjs.com/blur.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+  jQuery('.innercontent').blurjs({  
+   source: 'body',
+   radius: 7,
+  overlay: 'rgba(255,255,255,0.4)'
+  });
+});
+</script>
 </head>
 <body <?php body_class($f->get_body_class()); ?>>
 <!-- Body Wrapper -->
@@ -31,8 +40,7 @@
 
 <header id="header">
 	
-	<?php echo $f->get_topbar(); ?>
-	
+	<?php echo $f->get_topbar(); ?>	
 	
   <div id="stickyheader" class="nostick">
     <div class="container" > <!-- Logo --> 
