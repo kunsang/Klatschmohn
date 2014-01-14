@@ -1,0 +1,68 @@
+#content .service
+	float: left
+	padding-bottom: 15px
+	&:hover h3
+		// color: $green
+		// transition-duration: $fade-in
+	&:hover .service-icon
+		// display: inline-block
+		background: $green
+		transition-duration: $fade-in
+		// transform: rotate(360deg)
+	// li
+	// 	display: block
+	// 	padding: 7px 0
+	// 	border-bottom: 1px solid #ececec
+	// 	&:last-child
+	// 		border: none
+
+.service-description
+	overflow: hidden
+	padding-right: 0px
+	h3
+		margin: 0px 0 10px 0px
+		color: $red
+		font-size: 32px
+		transition: all $fade-out ease
+	p
+		margin: 0px 0 9px
+	.more
+		opacity: 1
+
+.iconbox .service-icon
+	margin: 0px 20px 6px 0
+
+.service-icon
+	display: block
+	float: left
+	margin: -2px 20px 6px 0
+	width: 40px
+	height: 40px
+	border-radius: 50%
+	background: $red
+	vertical-align: middle
+	text-align: center
+	line-height: 40px
+	transition: color $fade-out ease
+	i
+		color: #fff
+		font-size: 20px
+		line-height: 40px
+		transition: all $fade-in ease-in-out
+
+//	Sevice Style 1	------------------------------
+//	----------------------------------------------
+.service-topicon .service-icon
+	float: none
+	margin: 0 auto 20px auto
+	width: 80px
+	height: 80px
+
+.service-topicon .service-icon i:before
+	line-height: 80px
+
+.service-topicon .service-icon i
+	font-size: 36px
+
+.service-topicon
+	text-align: center

@@ -1,30 +1,52 @@
 <?php
 
 class ThemeScripts {
-    
+
     protected $styleselector;
     protected $settings;
-    
+
     public function __construct(&$styleselector, &$settings) {
         $this->styleselector = &$styleselector;
         $this->settings = &$settings;
     }
-        
+
     public function registerScripts() {
 		$deparry = array();
-		if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-			$deparry = array('woocommerce_frontend_styles'); // Put your plugin code here
-		}
-		
-        $this->AddScript('/js/prefixfree.min.js');
+		// if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+		// 	$deparry = array('woocommerce_frontend_styles'); // Put your plugin code here
+		// }
+
         // $this->AddStyle('/css/style.css', 'theme_css_style', $deparry);
-        // $this->AddStyle(sprintf('/css/%s', $this->styleselector->layout), 'theme_css_layout');
+
         // $this->AddStyle(sprintf('/css/colors/%s', $this->styleselector->skin), 'theme_css_skin', array('theme_css_style'));
         // $this->AddStyle('/css/custom-style.php', 'custom_style'); // Color Skin
-        $this->AddStyle('/css/font-awesome.css', 'theme_css_font_awesome'); 
-        // $this->AddStyle('/css/zocial.css', 'theme_css_zocial'); 
-        $this->AddStyle('/css/custom.css', 'theme_css_style');
-        
+        // $this->AddStyle('/css/font-awesome.css', 'theme_css_font_awesome');
+        // $this->AddStyle('/css/zocial.css', 'theme_css_zocial');
+
+        // $this->AddScript('/js/prefixfree.min.js');
+
+        $this->AddStyle('/css/fa.css', 'theme_css_font_awesome');
+        $this->AddStyle('/css/custom.css');
+
+        $this->AddStyle('/css/custom.css.map');
+        $this->AddStyle('/sass/custom.sass');
+        $this->AddStyle('/sass/0-reset.sass');
+        $this->AddStyle('/sass/00-variables.sass');
+        $this->AddStyle('/sass/01-document-setup.sass');
+        $this->AddStyle('/sass/02-1-columns.sass');
+        $this->AddStyle('/sass/06-about-team.sass');
+        $this->AddStyle('/sass/07-services.sass');
+        $this->AddStyle('/sass/09-shortcodes.sass');
+        $this->AddStyle('/sass/10-blog.sass');
+        $this->AddStyle('/sass/11-portfolio.sass');
+        $this->AddStyle('/sass/12-contact.sass');
+        $this->AddStyle('/sass/13-widgets.sass');
+        $this->AddStyle('/sass/14-footer.sass');
+        $this->AddStyle('/sass/15-slider.sass');
+        $this->AddStyle('/sass/16-media-queries.sass');
+        $this->AddStyle('/sass/17-biosiegel.sass');
+
+
         if ($this->styleselector->background == 1 || $this->styleselector->background == 2) {
             $url = '';
             if ($this->styleselector->background == 1) {
@@ -32,11 +54,11 @@ class ThemeScripts {
             } else
             if ($this->styleselector->background == 2) {
                 $url = $this->styleselector->bgimage;
-            }            
+            }
             $style = <<< EOT
 .bg-img {
     background: url('{$url}');
-}            
+}
 EOT;
             wp_add_inline_style('theme_css_layout', $style);
         } else
@@ -44,11 +66,11 @@ EOT;
             $style = <<< EOT
 html {
     background-color: {$this->settings->bgcolor};
-}            
+}
 EOT;
             wp_add_inline_style('theme_css_skin', $style);
-        }        
-    
+        }
+
         // Register theme styles
         if ($this->settings->responsive)
         {
@@ -59,7 +81,7 @@ EOT;
         }
         $this->AddStyle('/css/flexslider.css', 'theme_css_flexslider');
         // $this->AddStyle('/css/jquery.fancybox.css', 'theme_css_jquery_fancybox');
-        
+
         // Register theme scripts
         $this->AddScript('/js/jquery.validate.min.js', null, array('jquery'), true);
         // $this->AddScript('/js/jquery.nicescroll.js', null, array('jquery'), true);
@@ -76,20 +98,21 @@ EOT;
         $this->AddScript('/js/respond.min.js', null, array('jquery'), true);
         $this->AddScript('/js/selectnav.min.js', null, array('jquery'), true);
         $this->AddScript('/js/custom.js', 'theme_js_custom', array('jquery', 'jquery-ui-core', 'jquery-ui-accordion', 'jquery-ui-widget', 'jquery-ui-tabs'), true);
-		$this->AddScript('/js/jquery.nicescroll.min.js', 'theme_js_nicescroll', array('jquery'), true); 
-		$this->AddScript('/js/jquery.nicescroll.plus.js', 'theme_js_nicescroll_plus', array('jquery','theme_js_nicescroll'), true); 
 
-		
-        $this->AddScript('/include/js/jquery.funcs.js', null, array('jquery'), true); 
+		// $this->AddScript('/js/jquery.nicescroll.min.js', 'theme_js_nicescroll', array('jquery'), true);
+		// $this->AddScript('/js/jquery.nicescroll.plus.js', 'theme_js_nicescroll_plus', array('jquery','theme_js_nicescroll'), true);
+
+
+        $this->AddScript('/include/js/jquery.funcs.js', null, array('jquery'), true);
         $this->AddScript('/js/jquery.kwayy.utils.js', null, array('jquery'), true);
-        
+
         if (HONEY_THEME_DEVELOPMENT) {
             $this->AddStyle('/css/styleselector.css', 'theme_css_styleselector');
             $this->AddScript('/js/jquery.kwayy.styleselector.js', null, array('jquery'), true);
             $this->AddScript('/js/jquery.cookie.js', null, array('jquery'), true);
-        }                
+        }
     }
-        
+
     public function AddScript($src, $handle = null, $dep = array(), $in_footer = false) {
         if (!isset($handle)) {
             $handle = sanitize_html_class($src);
@@ -104,7 +127,7 @@ EOT;
         wp_enqueue_style($handle, HONEY_URL_TO_THEME.$src, $dep);
     }
 
-    
-}    
-    
+
+}
+
 ?>

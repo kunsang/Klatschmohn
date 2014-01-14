@@ -7,7 +7,7 @@
 	<?php while ($f->content->loop() ) : ?>
 	<!--post-->
 	<div class="post <?php echo (is_single() || is_page()) ? 'single' : '' ?>">
-		<h2><a href="<?php $f->content->get_permalink(); ?>"><?php $f->content->get_title(); ?></a></h2>
+		<h2 class="post-h2"><a class="post-h2-link" href="<?php $f->content->get_permalink(); ?>"><?php $f->content->get_title(); ?></a></h2>
 		<div class="post-meta clearfix">
 			<span class="date"><i class="icon-time"></i> <?php $f->content->get_date(); ?></span>        
 			<span class="author"><i class="icon-user"></i> <?php echo __r('By'); ?> <a href="#"><?php $f->content->get_author(); ?></a></span>

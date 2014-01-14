@@ -16,6 +16,39 @@ remove_filter( 'the_content', 'wpautop' );
 add_filter( 'the_content', 'wpautop' , 99);
 add_filter( 'the_content', 'shortcode_unautop',100 );
 /*-----------------------------------------------------------------------------------*/
+/* Load jquery from Google CDN
+/*-----------------------------------------------------------------------------------*/
+
+// function jquery_cdn() {
+//    if (!is_admin()) {
+//       wp_deregister_script('jquery');
+//       wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', false, '1.10.2');
+//       wp_enqueue_script('jquery');
+//    }
+// }
+// add_action('init', 'jquery_cdn');
+
+/*-----------------------------------------------------------------------------------*/
+/* Attach a class to linked images' parent anchors * e.g. a img => a.img img
+/*-----------------------------------------------------------------------------------*/
+/*
+ function give_linked_images_class($html, $id, $caption, $title, $align, $url, $size, $alt = '') {
+     $classes = 'img'; // separated by spaces, e.g. 'img image-link'
+
+ // check if there are already classes assigned to the anchor
+
+ if ( preg_match('/<a.*? class=".*?">/', $html) ) {
+   $html = preg_replace('/(<a.*? class=".*?)(".*?>)/', '$1 ' . $classes . '$2', $html);
+ }
+   else {
+      $html = preg_replace('/(<a.*?)>/', '$1 class="' . $classes . '" >', $html);
+     }
+
+     return $html;
+
+     } add_filter('image_send_to_editor','give_linked_images_class',10,8);
+*/
+/*-----------------------------------------------------------------------------------
 /* Adds new body classes
 /*-----------------------------------------------------------------------------------*/
 add_filter('body_class', 'add_browser_classes');
@@ -86,3 +119,12 @@ function add_browser_classes($classes){
 
     return $classes;
 }
+
+// remove query strings on static resources
+
+function _remove_script_version( $src ){
+  $parts = explode( '?', $src );
+  return $parts[0];
+}
+add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
+add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );

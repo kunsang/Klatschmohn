@@ -34,7 +34,6 @@
 <?php do_action('action_theme_style_selector'); ?>
 <?php $f->register_footer(); ?>
 
-
 <?php
 $customJS = $f->settings->customjs;
 if( trim($customJS)!='' ){
@@ -44,7 +43,5 @@ if( trim($customJS)!='' ){
 </script>';
 }
 ?>
-
-
-
-</body></html>
+</body>
+</html>

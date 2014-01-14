@@ -1,0 +1,20 @@
+{
+  "name": "Klatschmohn",
+  "version": "0.8.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kunsang/Klatschmohn"
+  },
+  "author": {
+    "name": "kunsang"
+  },
+  "homepage": "http://klatschmohn-giessen.de",
+  "license": "MIT, GPL",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "matchdep": "*",
+    "grunt-contrib-sass": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-autoprefixer": "git+https://github.com/lydell/grunt-autoprefixer.git#source-maps"
+  }
+}

@@ -10,89 +10,93 @@
 	6.  Black & White Hover Effect
 	7.  Accordion
 	8.  Tabs
-	9. Isotope
+	9.  Isotope
 	10. Fancybox
 	11. Back to Top
 	12. Twitter Feed
 	13. Flickr Feed
 	14. Google Maps
 	15. Setting height for Header wrapper
+	16. Add img class to links that contain images
+	17
+	18. Bio Siegel page accordion
+	17. geht height of headings for hover effect
 
 ---------------------------------------------------------------------------------- */
 
 // Global scope containers
 var googlemaps = new Array();
-	   
-jQuery(document).ready(function() { 
-	
+
+jQuery(document).ready(function() {
+
 /* --------------------------------------------------------------------------- */
 /*  1.  Empty P Tag
 /* --------------------------------------------------------------------------- */
-jQuery('p:empty').remove(); 
+jQuery('p:empty').remove();
 jQuery('p').each(function(){
 	if( jQuery.trim( jQuery(this) ) === "" ){
 		jQuery(this).remove(); // $(item).remove();
 	}
 });
-	
+
 
 /* --------------------------------------------------------------------------- */
 /*  7.  Page Scroller (Smooth Scrolling)
-/* --------------------------------------------------------------------------- */   
-jQuery("html").niceScroll({
- styler:"fb",
- cursorcolor:'#616b74',
- cursorborder:'0',
- zindex:9999,
- mousescrollstep:50
-});
+/* --------------------------------------------------------------------------- */
+// jQuery("html").niceScroll({
+//  styler:"fb",
+//  cursorcolor:'#616b74',
+//  cursorborder:'0',
+//  zindex:9999,
+//  mousescrollstep:50
+// });
 
 /* --------------------------------------------------------------------------- */
 /*  15.  Setting height for Header wrapper
 /* --------------------------------------------------------------------------- */
 if( jQuery('#stickyheader').length!=0 ){
 	jQuery('#stickyheader-wrapper').height( jQuery('#stickyheader').height() );
-	
+
 }
 
 
 /* --------------------------------------------------------------------------- */
 /*  7.  Page Scroller (Smooth Scrolling)
-/* --------------------------------------------------------------------------- */       
-jQuery(window).scroll(function(e){ 
+/* --------------------------------------------------------------------------- */
+jQuery(window).scroll(function(e){
 //   console.log('called');
-	  $el = jQuery('#stickyheader'); 
-	  
+	  $el = jQuery('#stickyheader');
+
 	  var stickyHeaderTop = jQuery('#stickyheader').offset().top;
 	  stickyHeaderTop = stickyHeaderTop + 40;
-	  
-	  if (jQuery(this).scrollTop() > 100 && $el.css('position') != 'fixed'){            
-			if (jQuery(window).width() > 995) {                         
+
+	  if (jQuery(this).scrollTop() > 100 && $el.css('position') != 'fixed'){
+			if (jQuery(window).width() > 995) {
 				if( jQuery(window).scrollTop() > stickyHeaderTop ) {
 					jQuery('#stickyheader').css({'position': 'fixed', 'top': '0px', 'opacity':'0'}).animate({opacity:1},300);
 					jQuery('#stickyheader').addClass("sticky").removeClass("nostick");
 					jQuery('body').addClass("stickyheader");
-				} else {                    
+				} else {
 					jQuery('#stickyheader').removeClass("sticky");
 					jQuery('body').removeClass("stickyheader");
-				}               
-				
+				}
+
 			}else{
 				jQuery('#stickyheader').removeClass("sticky").addClass("nostick");
 				jQuery('#stickyheader').css({'position': 'relative', 'top': '0px'});
 				jQuery('body').removeClass("stickyheader");
-			}       
-		
+			}
+
 	  }
 	  if (jQuery(this).scrollTop() < 80 && $el.css('position') == 'fixed'){
-		jQuery('#stickyheader').css({'position': 'relative', 'top': '0px'});          
+		jQuery('#stickyheader').css({'position': 'relative', 'top': '0px'});
 		jQuery('#stickyheader').removeClass("sticky").addClass("nostick");
 		jQuery('body').removeClass("stickyheader");
 	  }
 });
 
-   
-   
+
+
 /* --------------------------------------------------------------------------- */
 /*  1.  Main Slider (Flexslider)
 /* --------------------------------------------------------------------------- */
@@ -105,27 +109,27 @@ jQuery(window).scroll(function(e){
 		direction: "horizontal",        //String: Select the sliding direction, "horizontal" or "vertical"
 		reverse: false,                 //{NEW} Boolean: Reverse the animation direction
 		animationLoop: true,            //Boolean: Should the animation loop? If false, directionNav will received "disable" classes at either end
-		smoothHeight: false,            //{NEW} Boolean: Allow height of the slider to animate smoothly in horizontal mode  
+		smoothHeight: false,            //{NEW} Boolean: Allow height of the slider to animate smoothly in horizontal mode
 		startAt: 0,                     //Integer: The slide that the slider should start on. Array notation (0 = first slide)
 		slideshow: true,                //Boolean: Animate slider automatically
 		slideshowSpeed: 7000,           //Integer: Set the speed of the slideshow cycling, in milliseconds
 		animationSpeed: 600,            //Integer: Set the speed of animations, in milliseconds
 		initDelay: 0,                   //{NEW} Integer: Set an initialization delay, in milliseconds
 		randomize: false,               //Boolean: Randomize slide order
-		
+
 		// Usability features
 		pauseOnAction: true,            //Boolean: Pause the slideshow when interacting with control elements, highly recommended.
 		pauseOnHover: false,            //Boolean: Pause the slideshow when hovering over slider, then resume when no longer hovering
 		useCSS: true,                   //{NEW} Boolean: Slider will use CSS3 transitions if available
 		touch: true,                    //{NEW} Boolean: Allow touch swipe navigation of the slider on touch-enabled devices
 		video: false,                   //{NEW} Boolean: If using video in the slider, will prevent CSS3 3D Transforms to avoid graphical glitches
-		
+
 		// Primary Controls
 		controlNav: false,              //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
 		directionNav: true,             //Boolean: Create navigation for previous/next navigation? (true/false)
 		prevText: "Previous",           //String: Set the text for the "previous" directionNav item
 		nextText: "Next",               //String: Set the text for the "next" directionNav item
-		
+
 		// Secondary Navigation
 		keyboard: true,                 //Boolean: Allow slider navigating via keyboard left/right keys
 		multipleKeyboard: false,        //{NEW} Boolean: Allow keyboard navigation to affect multiple sliders. Default behavior cuts out keyboard navigation with more than one slider present.
@@ -156,20 +160,20 @@ jQuery(window).scroll(function(e){
 		animationSpeed      : 600,               //Integer: Set the speed of animations, in milliseconds
 		initDelay           : 0,                 //{NEW} Integer: Set an initialization delay, in milliseconds
 		randomize           : false,             //Boolean: Randomize slide order
-		 
+
 		// Usability features
 		pauseOnAction       : true,              //Boolean: Pause the slideshow when interacting with control elements, highly recommended.
 		pauseOnHover        : false,             //Boolean: Pause the slideshow when hovering over slider, then resume when no longer hovering
 		useCSS              : true,              //{NEW} Boolean: Slider will use CSS3 transitions if available
 		touch               : true,              //{NEW} Boolean: Allow touch swipe navigation of the slider on touch-enabled devices
 		video               : false,             //{NEW} Boolean: If using video in the slider, will prevent CSS3 3D Transforms to avoid graphical glitches
-		 
+
 		// Primary Controls
 		controlNav          : false,              //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
 		directionNav        : true,              //Boolean: Create navigation for previous/next navigation? (true/false)
 		prevText            : "Previous",        //String: Set the text for the "previous" directionNav item
 		nextText            : "Next",            //String: Set the text for the "next" directionNav item
-		 
+
 		// Secondary Navigation
 		keyboard            : true,              //Boolean: Allow slider navigating via keyboard left/right keys
 		multipleKeyboard    : false,             //{NEW} Boolean: Allow keyboard navigation to affect multiple sliders. Default behavior cuts out keyboard navigation with more than one slider present.
@@ -177,17 +181,17 @@ jQuery(window).scroll(function(e){
 		pausePlay           : false,             //Boolean: Create pause/play dynamic element
 		pauseText           : 'Pause',           //String: Set the text for the "pause" pausePlay item
 		playText            : 'Play',            //String: Set the text for the "play" pausePlay item
-		 
+
 		// Special properties
 		controlsContainer   : "",                //{UPDATED} Selector: USE CLASS SELECTOR. Declare which container the navigation elements should be appended too. Default container is the FlexSlider element. Example use would be ".flexslider-container". Property is ignored if given element is not found.
 		manualControls      : "",                //Selector: Declare custom control navigation. Examples would be ".flex-control-nav li" or "#tabs-nav li img", etc. The number of elements in your controlNav should match the number of slides/tabs.
 		sync                : "",                //{NEW} Selector: Mirror the actions performed on this slider with another slider. Use with care.
 		asNavFor            : "",                //{NEW} Selector: Internal property exposed for turning the slider into a thumbnail navigation for another slider
 	});
-	
-	
-	
-	
+
+
+
+
 /* --------------------------------------------------------------------------- */
 /*  2.  Testimonials Slider (Flexslider)
 /* --------------------------------------------------------------------------- */
@@ -207,20 +211,20 @@ jQuery(window).scroll(function(e){
 		animationSpeed      : 600,               //Integer: Set the speed of animations, in milliseconds
 		initDelay           : 0,                 //{NEW} Integer: Set an initialization delay, in milliseconds
 		randomize           : false,             //Boolean: Randomize slide order
-		 
+
 		// Usability features
 		pauseOnAction       : true,              //Boolean: Pause the slideshow when interacting with control elements, highly recommended.
 		pauseOnHover        : false,             //Boolean: Pause the slideshow when hovering over slider, then resume when no longer hovering
 		useCSS              : true,              //{NEW} Boolean: Slider will use CSS3 transitions if available
 		touch               : true,              //{NEW} Boolean: Allow touch swipe navigation of the slider on touch-enabled devices
 		video               : false,             //{NEW} Boolean: If using video in the slider, will prevent CSS3 3D Transforms to avoid graphical glitches
-		 
+
 		// Primary Controls
 		controlNav          : false,              //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
 		directionNav        : true,              //Boolean: Create navigation for previous/next navigation? (true/false)
 		prevText            : "Previous",        //String: Set the text for the "previous" directionNav item
 		nextText            : "Next",            //String: Set the text for the "next" directionNav item
-		 
+
 		// Secondary Navigation
 		keyboard            : true,              //Boolean: Allow slider navigating via keyboard left/right keys
 		multipleKeyboard    : false,             //{NEW} Boolean: Allow keyboard navigation to affect multiple sliders. Default behavior cuts out keyboard navigation with more than one slider present.
@@ -228,7 +232,7 @@ jQuery(window).scroll(function(e){
 		pausePlay           : false,             //Boolean: Create pause/play dynamic element
 		pauseText           : 'Pause',           //String: Set the text for the "pause" pausePlay item
 		playText            : 'Play',            //String: Set the text for the "play" pausePlay item
-		 
+
 		// Special properties
 		controlsContainer   : "",                //{UPDATED} Selector: USE CLASS SELECTOR. Declare which container the navigation elements should be appended too. Default container is the FlexSlider element. Example use would be ".flexslider-container". Property is ignored if given element is not found.
 		manualControls      : "",                //Selector: Declare custom control navigation. Examples would be ".flex-control-nav li" or "#tabs-nav li img", etc. The number of elements in your controlNav should match the number of slides/tabs.
@@ -248,7 +252,7 @@ jQuery('.tweets').flexslider({
 	auto: false,
 	animation: "fade",
 	animationSpeed: 700,
-	slideshowSpeed: 5000, 
+	slideshowSpeed: 5000,
 });
 
 
@@ -257,7 +261,7 @@ jQuery('.tweets').flexslider({
 /*  3.  Main Navigation
 /* --------------------------------------------------------------------------- */
 
-	var navigation = jQuery('#nav');    
+	var navigation = jQuery('#nav');
 	// Regular nav
 	navigation.on('mouseenter', 'li', function() {
 		var target    = jQuery(this),
@@ -282,7 +286,7 @@ jQuery('.tweets').flexslider({
 /*  4.  Project Carousel
 /* --------------------------------------------------------------------------- */
 
-(function() {    
+(function() {
 	var carousel = jQuery('.project-carousel');
 	if( carousel.length ) {
 		var scrollCount;
@@ -356,7 +360,7 @@ jQuery('.tweets').flexslider({
 /* --------------------------------------------------------------------------- */
 /*  5.  Responsive Video
 /* --------------------------------------------------------------------------- */
-	
+
 	// jQuery('#content').fitVids();
 
 
@@ -375,7 +379,7 @@ jQuery('.tweets').flexslider({
 /* --------------------------------------------------------------------------- */
 
 	jQuery('.tabs').tabs( {
-		fx: { 
+		fx: {
 			opacity: 'toggle',
 			duration:'fast'
 		}
@@ -409,13 +413,21 @@ jQuery('.tweets').flexslider({
 /*  9. Isotope
 /* --------------------------------------------------------------------------- */
 
+	// disable isotop positioning with css transforms because fixed backgrounds are buggy when using css transforms in webkit
+
+	jQuery('.post-block-feed').isotope({
+		animationEngine: 'jquery'
+	  // transformsEnabled: false
+	});
+
+
 	(function() {
-		
+
 		// modified Isotope methods for gutters in masonry
 		jQuery.Isotope.prototype._getMasonryGutterColumns = function() {
 			var gutter = this.options.masonry && this.options.masonry.gutterWidth || 0;
 				containerWidth = this.element.width();
-		  
+
 			this.masonry.columnWidth = this.options.masonry && this.options.masonry.columnWidth ||
 						// or use the size of the first item
 						this.$filteredAtoms.outerWidth(true) ||
@@ -427,7 +439,7 @@ jQuery('.tweets').flexslider({
 			this.masonry.cols = Math.floor( ( containerWidth + gutter ) / this.masonry.columnWidth );
 			this.masonry.cols = Math.max( this.masonry.cols, 1 );
 		};
-		
+
 		jQuery.Isotope.prototype._masonryReset = function() {
 			// layout-specific props
 			this.masonry = {};
@@ -439,7 +451,7 @@ jQuery('.tweets').flexslider({
 				this.masonry.colYs.push( 0 );
 			}
 		};
-		
+
 		jQuery.Isotope.prototype._masonryResizeChanged = function() {
 			var prevSegments = this.masonry.cols;
 			// update cols/rows
@@ -447,7 +459,7 @@ jQuery('.tweets').flexslider({
 			// return if updated cols/rows is not equal to previous
 			return ( this.masonry.cols !== prevSegments );
 		};
-		
+
 		// Set Gutter width
 		var gutterSize;
 
@@ -488,7 +500,7 @@ jQuery('.tweets').flexslider({
 			var selector = jQuery(this).attr('data-filter');
 			filter.find('a').removeClass('current');
 			jQuery(this).addClass('current');
-			container.isotope({ 
+			container.isotope({
 				filter             : selector,
 				animationOptions   : {
 				animationDuration  : 750,
@@ -520,7 +532,7 @@ jQuery('.tweets').flexslider({
 		});
 
 		blogContainer.infinitescroll({
-			navSelector  : '#page-nav',    // selector for the paged navigation 
+			navSelector  : '#page-nav',    // selector for the paged navigation
 			nextSelector : '#page-nav a',  // selector for the NEXT link (to page 2)
 			itemSelector : '.post-block',     // selector for all items you'll retrieve
 			loading: {
@@ -544,7 +556,7 @@ jQuery('.tweets').flexslider({
 /* --------------------------------------------------------------------------- */
 /*  10. Back to Top
 /* --------------------------------------------------------------------------- */
-	
+
 	var backToTop = jQuery('#back-to-top');
 	backToTop.hide();
 	jQuery(window).scroll(function () {
@@ -573,8 +585,8 @@ jQuery('.tweets').flexslider({
 				cnt = 2;
 			}
 			jQuery(val).jTweetsAnywhere({
-				username: uid, 
-				count: cnt, 
+				username: uid,
+				count: cnt,
 				showTweetFeed: {
 					showProfileImages: false,
 					showUserScreenNames: false,
@@ -585,7 +597,7 @@ jQuery('.tweets').flexslider({
 					showActionFavorite: false
 				}
 			});
-		}    
+		}
 	);
 
 
@@ -617,13 +629,13 @@ jQuery('.tweets').flexslider({
 		jQuery(this).find('.skill-progress').animate({ "width" : dataperc + "%"}, dataperc * 20);
 	});
 
-	
+
 /* --------------------------------------------------------------------------- */
 /*  14. Google Maps
-/* --------------------------------------------------------------------------- */    
+/* --------------------------------------------------------------------------- */
 	var gmaps = jQuery('.google-map');
 	if (gmaps.length > 0)
-	{   
+	{
 		jQuery.getScript("https://www.google.com/jsapi", function()
 		{
 			google.load('maps', '3', { other_params: 'sensor=false', callback: function()
@@ -654,7 +666,7 @@ jQuery('.tweets').flexslider({
 								{ visibility: "off" }
 							]
 						}
-					];                    
+					];
 					var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
 					latlng = new google.maps.LatLng(lat, lng),
 						mapOptions = {
@@ -667,8 +679,8 @@ jQuery('.tweets').flexslider({
 							mapTypeControlOptions   : {
 								mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
 							}
-					};                 
-					map = new google.maps.Map(this, mapOptions);                    
+					};
+					map = new google.maps.Map(this, mapOptions);
 					map.mapTypes.set('map_style', styledMap);
 					map.setMapTypeId('map_style');
 					var contentString = '<div id="google-map-marker">{0}</div>'.format(title);
@@ -677,21 +689,21 @@ jQuery('.tweets').flexslider({
 					});
 					var marker = new google.maps.Marker({
 						position: latlng,
-						map: map, 
+						map: map,
 						title: title
 					});
 					google.maps.event.addListener(marker, 'click', function() {
 						infowindow.open(map,marker);
-					});                    
+					});
 					googlemaps.push(map);
-				});                
+				});
 		   }});
-		});        
+		});
    }
-   
-	 
-   
-});
+
+
+
+
 
 //Accordion Refresh when window resize
 jQuery(window).resize(function(){
@@ -700,7 +712,138 @@ jQuery(window).resize(function(){
 
 
 
+/* --------------------------------------------------------------------------- */
+/*  16. img class
+/* --------------------------------------------------------------------------- */
 
+jQuery('a').has('img').addClass('img');
+
+
+/* --------------------------------------------------------------------------- */
+/*  17. get height of headings for hover effect
+/* --------------------------------------------------------------------------- */
+
+var h2height = jQuery( '.post-h2' ).height();
+	h2height = h2height - 3
+
+jQuery('.post-h2-link').hover(
+	function() {
+		jQuery(this).css('height', h2height );
+	},
+	function() {
+		jQuery(this).css('height', '0px' );
+	}
+);
+
+
+var $item1Height = jQuery( '.posts li:nth-child(1) .entry' ).height();
+var $item2Height = jQuery( '.posts li:nth-child(2) .entry' ).height();
+var $item3Height = jQuery( '.posts li:nth-child(3) .entry' ).height();
+var $item4Height = jQuery( '.posts li:nth-child(4) .entry' ).height();
+var $item5Height = jQuery( '.posts li:nth-child(5) .entry' ).height();
+
+jQuery('li:nth-child(1) > div > a.post-h4-link').hover(function(){jQuery(this).css('height', $item1Height - 3 );
+jQuery('li:nth-child(1) > h4  > a.post-h4-link').addClass("hover"); }, function() {
+jQuery('li:nth-child(1) > div > a.post-h4-link').css('height', '0px' );
+jQuery('li:nth-child(1) > h4  > a.post-h4-link').removeClass("hover");
+});
+jQuery('li:nth-child(2) > div > a.post-h4-link').hover(function() {jQuery(this).css('height', $item2Height - 3 );
+jQuery('li:nth-child(2) > h4  > a.post-h4-link').addClass("hover"); },	function() {
+jQuery('li:nth-child(2) > div > a.post-h4-link').css('height', '0px' );
+jQuery('li:nth-child(2) > h4  > a.post-h4-link').removeClass("hover");
+});
+jQuery('li:nth-child(3) > div > a.post-h4-link').hover(function() {jQuery(this).css('height', $item3Height - 3 );
+jQuery('li:nth-child(3) > h4  > a.post-h4-link').addClass("hover"); },	function() {
+jQuery('li:nth-child(3) > div > a.post-h4-link').css('height', '0px' );
+jQuery('li:nth-child(3) > h4  > a.post-h4-link').removeClass("hover");
+});
+jQuery('li:nth-child(4) > div > a.post-h4-link').hover(function() {jQuery(this).css('height', $item4Height - 3 );
+jQuery('li:nth-child(4) > h4  > a.post-h4-link').addClass("hover"); },	function() {
+jQuery('li:nth-child(4) > div > a.post-h4-link').css('height', '0px' );
+jQuery('li:nth-child(4) > h4  > a.post-h4-link').removeClass("hover");
+});
+jQuery('li:nth-child(5) > div > a.post-h4-link').hover(function() {jQuery(this).css('height', $item5Height - 3 );
+jQuery('li:nth-child(5) > h4  > a.post-h4-link').addClass("hover"); },	function() {
+jQuery('li:nth-child(5) > div > a.post-h4-link').css('height', '0px' );
+jQuery('li:nth-child(5) > h4  > a.post-h4-link').removeClass("hover");
+});
+
+/* --------------------------------------------------------------------------- */
+/*  18. Bio Siegel page accordion
+/* --------------------------------------------------------------------------- */
+
+
+jQuery('.biosiegel-tab').click(function() {
+        jQuery('.biosiegel-tab').removeClass('on');
+        jQuery('.biosiegel-content').slideUp('normal');
+        if (jQuery(this).next().is(':hidden') == true) {
+            jQuery(this).addClass('on');
+            jQuery(this).next().slideDown('normal');
+        }
+    });
+    jQuery('.biosiegel-tab').mouseover(function() {
+        jQuery(this).addClass('over');
+    }).mouseout(function() {
+        jQuery(this).removeClass('over');
+    });
+    jQuery('.biosiegel-content').hide();
+
+/* --------------------------------------------------------------------------- */
+/*
+/* --------------------------------------------------------------------------- */
+
+
+jQuery("#s").before("\<i id\=\"ss\" class\=\"icon-search\"></i>");
+
+var sS = jQuery('#ss');
+
+jQuery('#s').focus(function() {
+	sS.addClass('focussed');
+});
+
+jQuery('#s').blur(function() {
+	sS.removeClass('focussed');
+});
+
+
+
+
+});
+
+
+/*
+
+jQuery(window).load(function () {
+
+var h4height = jQuery( '.post-h4' ).height();		imgOne = imgOne - 3
+	h4height = h4height - 3
+
+var $img1 = function() {
+
+	if (jQuery('.posts li:nth-child(1) p').has('img')).length = true
+
+	  {
+	  	jQuery('.posts li:nth-child(1) p').has('img').height();
+	  };
+	};
+var pImgHeight = jQuery( '.entry > .widget-p' ).height();
+	pImgHeight = pImgHeight - 3
+
+var pHeight = jQuery('.entry > a > .widget-p' ).height();
+	pHeight = pHeight - 3
+
+
+
+jQuery('.post-h4-link').hover(
+	function() {
+		jQuery(this).css('height', h4height );
+	},
+	function() {
+		jQuery(this).css('height', '0px' );
+	}
+);
+
+*/
 
 
 

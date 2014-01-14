@@ -30,23 +30,24 @@ class ThemeWidgetRecentposts extends ThemeWidget {
         {
             setup_postdata($post);
             $permalink = get_permalink();
+            $post_title = get_the_title();
             $excerpt = get_the_excerpt();
             $date = get_the_date(get_option('date_format'));
             $thumbnail = '';
             if (has_post_thumbnail())
             {
-                $excerpt = ThemeUtils::cutExcerpt($excerpt, 60);
-                $thumbnail = sprintf('<a href="%s">%s</a>', $permalink, get_the_post_thumbnail(null, array(50, 50)));
+                $excerpt = ThemeUtils::cutExcerpt($excerpt, 200);
+                $thumbnail = sprintf('%s', get_the_post_thumbnail(null, array(50, 50)));
             } else
             {
-                $excerpt = ThemeUtils::cutExcerpt($excerpt, 100);
+                $excerpt = ThemeUtils::cutExcerpt($excerpt, 240);
             }
             echo <<< EOT
-<li>
-    $thumbnail
-    <div class="entry">
-       <a href="$permalink">$excerpt</a>
-       <span class="date">$date</span>
+<li>   
+    <h4 class="post-h4"><a class="post-h4-link" href="$permalink">$post_title</a></h4>    
+    <div class="entry"><a class="post-h4-link" href="$permalink">  
+       <p class="widget-p">$thumbnail $excerpt</p>
+       <span class="date">$date</span></a>
     </div>
 </li>
 EOT;

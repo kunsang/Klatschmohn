@@ -1,0 +1,306 @@
+//	Buttons	-------------------------------------
+//	----------------------------------------------
+// .gray-green
+// 	background: #7f7f7f
+
+// .gray-green:hover
+// 	background: $green
+
+// .green-gray
+// 	background: $green
+
+// .green-gray:hover
+// 	background: #333
+
+// .green-darkgray
+// 	background: $green
+
+// .green-darkgray:hover
+// 	background: #333
+
+// .darkgray-green
+// 	background: #333
+
+// .darkgray-green:hover
+// 	background: $green
+
+// .gray-red
+// 	background: #7f7f7f
+
+// .gray-red:hover
+// 	background: $red
+
+// .red-gray
+// 	background: $red
+
+// .red-gray:hover
+// 	background: #333
+
+// .red-darkgray
+// 	background: $red
+
+// .red-darkgray:hover
+// 	background: #333
+
+// .darkgray-red
+// 	background: #333
+
+// .darkgray-red:hover
+// 	background: $red
+
+// .button, input[type="submit"], input[type="reset"], input[type="button"], button
+// 	text-transform: uppercase
+// 	cursor: pointer
+
+// .button.small
+// 	padding: 5px 8px 6px
+// 	font-size: 11px
+// 	line-height: 11px
+
+// .button.big
+// 	padding-right: 30px
+// 	padding-left: 30px
+// 	font-size: 14px
+
+//	description	---------------------------------
+//	----------------------------------------------
+.infobox
+	padding: 30px
+	border-radius: 2px
+	background: #ececec
+
+//	Accordion	-----------------------------------
+//	----------------------------------------------
+// .accordion-button
+// 	position: relative
+// 	display: block
+// 	margin: 0
+// 	margin-top: 1px
+// 	padding: 10px 10px 10px 30px
+// 	border: 5px solid transparent
+// 	border-radius: 2px 2px 2px 2px
+// 	background: #ececec
+// 	font-weight: bold
+// 	font-size: 15px
+// 	line-height: inherit
+// 	cursor: pointer
+// 	&:first-child
+// 		border: none
+// 	span.ui-icon
+// 		position: absolute
+// 		right: 20px
+// 		margin: 0
+// 	span.ui-icon:before
+// 		color: #959595
+// 		content: "\f067"
+// 		font-family: FontAwesome
+// 	&.ui-state-active span.ui-icon:before
+// 		content: "\f068"
+// 	&.ui-state-active
+// 		border: 5px solid #bdc3c7
+// 		border-bottom: none
+// 		border-radius: 2px 2px 0px 0px
+// 		background: #fff
+
+// #sidebar .accordion-button
+// 	padding: 10px 40px 10px 20px
+// 	font-size: 12px
+// 	line-height: 1.5em
+
+// #sidebar .accordion-content
+// 	margin-bottom: 1px
+// 	padding: 10px 40px 10px 20px
+
+// .accordion-content
+// 	padding: 15px
+// 	padding-top: 0px
+// 	padding-left: 30px
+// 	border: 5px solid #bdc3c7
+// 	border-top: none
+
+//	Alert Boxes	---------------------------------
+//	----------------------------------------------
+.alert
+	position: relative
+	margin-bottom: 15px
+	padding: 6px 15px
+	border-radius: 3px
+	color: #FFF
+	.success
+		background: #9BCC45
+	.notice
+		background: #78B9F7
+	.warning
+		background: #FEC901
+	.error
+		background: #D73300
+
+//	Blockquote	----------------------------------
+//	----------------------------------------------
+blockquote
+	position: relative
+	margin: 30px 0
+	padding: 15px 30px
+	border-left: 3px solid $red
+	color: inherit
+	font-style: italic
+	p:last-of-type
+		margin-bottom: 0
+	.person
+		display: block
+		margin-top: 10px
+		color: #333
+		font-weight: 600
+		font-style: normal
+
+// --------------------------------------------------------------------------
+//	Call to Action
+// --------------------------------------------------------------------------
+.honey-cta-message-full-inner
+	padding: 26px
+	padding-left: 30px
+	border-radius: 5px
+	background: rgba(255, 255, 255, 0.14)
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.19)
+	.column-last
+		text-align: right
+	.button.big
+		margin-top: 5px
+		margin-bottom: 0px
+		padding: 15px 25px
+		text-align: center
+		font-size: 18px
+	h2
+		padding-top: 7px
+		color: white
+	//text-transform: uppercase;
+
+// --------------------------------------------------------------------------
+//	Flex Slider
+// --------------------------------------------------------------------------
+.flex-caption .button
+	margin-top: 10px
+
+.theme-gray:hover
+	background: #7f7f7f
+
+//	Siderbar	bar ( Login Widget )	--------------
+//	----------------------------------------------
+.widget_wp_sidebarlogin
+	position: relative
+
+.widget_wp_sidebarlogin .avatar_container, #wp-sidebar-login .avatar_container
+	margin-right: 6px
+
+ul.sidebarlogin_otherlinks
+	position: absolute
+	right: 0
+	bottom: 11px
+	text-align: right
+
+//	Logo List	-----------------------------------
+//	----------------------------------------------
+.logo-list
+	img
+		position: absolute
+		top: 0
+		bottom: 0
+		margin: auto
+		opacity: .5
+		transition: all $fade-out ease
+	li
+		float: left
+		margin: 0px
+		width: 20%
+	a
+		position: relative
+		display: block
+		overflow: hidden
+		height: 100px
+		border: 1px solid #e1e1e1
+		border-right: none
+		border-bottom: 2px solid #e1e1e1
+		transition: all $fade-out ease
+		&:hover
+			border-bottom: 2px solid
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3)
+			opacity: 1
+			transition-duration: $fade-in
+	&:last-child a
+		border-right: 1px solid #e1e1e1
+	&:hover img
+		opacity: 1
+
+//	Testimonials ---------------------------------
+//	----------------------------------------------
+.testimonial-wrapper
+	position: relative
+	&:before
+		position: absolute
+		bottom: -25px
+		left: 30px
+		width: 0
+		height: 0
+		border: 20px solid
+		border-color: #ecf0f1 transparent transparent #ecf0f1
+		content: ' '
+
+.sc-testimonials
+	position: relative
+	padding-top: 20px
+	padding-right: 20px
+	padding-bottom: 20px
+	padding-left: 20px
+	background: #ecf0f1
+	.testimonial-left
+		float: left
+		padding-right: 35px
+		min-height: 157px
+		text-align: center
+	.image-container
+		overflow: hidden
+		padding: 6px
+		max-width: 100px
+		border: 1px solid #d8d8d8
+		border-radius: 999px
+	.image-container img
+		border-radius: 999px
+		vertical-align: bottom
+	.sc-testimonials h6
+		padding-top: 10px
+
+.testimonial-right:after
+	display: block
+	visibility: hidden
+	clear: both
+	width: 0
+	height: 0
+	content: ' '
+	font-size: 0
+	line-height: 0
+
+.testimonial-coname
+	padding-bottom: 20px
+	font-size: 10px
+
+.testimonial-content
+	padding-bottom: 20px
+	color: #333
+	font-size: 14px
+
+//	Lists	---------------------------------------
+//	----------------------------------------------
+ul.circle, ul.disc, ul.square
+	margin-bottom: 25px
+	li
+		margin: 0 30px 5px
+		color: #636363
+
+ul.disc li
+	list-style-type: disc
+
+ul.circle li
+	list-style-type: circle
+
+ul.square li
+	list-style-type: square
