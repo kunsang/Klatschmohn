@@ -847,18 +847,13 @@ header {
 }
 
 #topbar a {
-  color: lightgreen;
+  color: white;
   font-size: 16px;
   margin-left: 1em;
 }
 
 #topbar a:hover {
-  color: white;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  -webkit-transform: scale(120%);
-  -ms-transform: scale(120%);
-  transform: scale(120%);
+  text-decoration: underline;
 }
 
 #topbar a:before {
@@ -888,7 +883,7 @@ header {
   width: 100%;
   height: 100%;
   background: url(../img/body-blur.jpg) no-repeat center top/cover fixed;
-  box-shadow: inset 0 0 0 80px rgba(255, 255, 255, 0.2), 0 2px 4px rgba(0, 0, 0, 0.33);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.34);
   content: "";
   opacity: 0.9;
 }
@@ -1094,7 +1089,9 @@ header {
 }
 
 #content {
+  position: relative;
   margin-bottom: 60px;
+  padding-bottom: 60px;
   background: url(../img/body-blur.jpg) no-repeat center top/cover fixed;
 }
 
@@ -1139,19 +1136,6 @@ ul.slides {
   }
 }
 
-body.sortimente #content {
-  background: none;
-}
-
-body.sortimente #content > div {
-  padding: 30px;
-  background: url(../img/body-blur.jpg) no-repeat center top/cover fixed;
-}
-
-.data-wrapper {
-  background: rgba(255, 255, 255, 0.15);
-}
-
 .honey-cta-message-full {
   position: relative;
   z-index: 1;
@@ -1166,13 +1150,19 @@ body.sortimente #content > div {
 
 .honey-cta-message-full-inner:before {
   position: absolute;
+  z-index: -1;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: -1;
-  background: url(../img/body-blur.jpg) no-repeat center top/cover fixed;
+  display: block;
   content: "";
+  background: url(../img/body-blur.jpg) no-repeat center top/cover fixed;
+}
+
+.flex-viewport {
+  max-width: 392px;
+  max-height: 500px;
 }
 
 .philosophie .one-half {
@@ -1244,7 +1234,7 @@ body.sortimente #content > div {
 .page-title {
   display: block;
   margin: 0;
-  padding: 32px 30px;
+  padding: 60px 30px;
   text-align: center;
   font-size: 72px;
 }
@@ -1336,8 +1326,14 @@ body.sortimente #content > div {
   padding-bottom: 15px;
 }
 
+#content .service:hover h3 {
+  color: #d0002e;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+}
+
 #content .service:hover .service-icon {
-  background: #54bc43;
+  background: #d0002e;
   -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
 }
@@ -1349,14 +1345,14 @@ body.sortimente #content > div {
 
 .service-description h3 {
   margin: 0px 0 10px 0px;
-  color: #d0002e;
+  color: white;
   font-size: 32px;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  -webkit-transition: color 1s cubic-bezier(0, 0.5, 0, 2);
+  transition: color 1s cubic-bezier(0, 0.5, 0, 2);
 }
 
 .service-description p {
-  margin: 0px 0 9px;
+  margin: 0px 0 9px 2px;
 }
 
 .service-description .more {
@@ -1374,12 +1370,12 @@ body.sortimente #content > div {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #d0002e;
+  background: #54bc43;
   vertical-align: middle;
   text-align: center;
   line-height: 40px;
-  -webkit-transition: color 0.5s ease;
-  transition: color 0.5s ease;
+  -webkit-transition: background 1s cubic-bezier(0, 0.5, 0, 2);
+  transition: background 1s cubic-bezier(0, 0.5, 0, 2);
 }
 
 .service-icon i {
@@ -1896,7 +1892,6 @@ ul.square li {
 
 .blog-feed {
   color: white;
-  font-size: 12px;
 }
 
 .blog-feed a {
@@ -1910,11 +1905,12 @@ ul.square li {
 }
 
 .blog-feed h5 {
-  margin-top: 10px;
+  margin: 10px 0;
 }
 
 .blog-feed p {
   margin: 0;
+  font-size: 14px !important;
 }
 
 .blog-feed .post-meta {
@@ -1991,12 +1987,35 @@ ul.square li {
 
 .project-feed-filter li a:before {
   position: absolute;
+  z-index: 0;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   display: block;
   content: "";
+  background: transparent;
+}
+
+body.sortimente #content {
+  background: none;
+}
+
+body.sortimente #content > div {
+  padding: 30px;
+  background: url(../img/body-blur.jpg) no-repeat center top/cover fixed;
+}
+
+body.sortimente #content > div:before {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  content: "";
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .project-feed > div {
@@ -2142,8 +2161,7 @@ ul.square li {
   margin-right: -30px;
   margin-left: -30px;
   padding: 0px 30px;
-  background: rgba(255, 255, 255, 0.5);
-  box-shadow: inset 0 4px 4px -4px rgba(0, 0, 0, 0.35), inset 0 -4px 4px -4px rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .project-item .thumb-item-title {
@@ -2240,7 +2258,7 @@ a.jcarousel-prev:hover i {
 }
 
 .project-item:hover .mask {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .project-item img {
@@ -2249,11 +2267,11 @@ a.jcarousel-prev:hover i {
 }
 
 .project-item:hover img {
-  /* -webkit-transform: scale(1.05, 1.05); */
+  -webkit-transform: scale(1.05, 1.05);
   -ms-transform: scale(1.05, 1.05);
   transform: scale(1.05, 1.05);
-  /* filter: none; */
-  -webkit-filter: grayscale(0) blur(1px);
+  filter: none;
+  -webkit-filter: grayscale(0);
 }
 
 .project-item .icon-image {
@@ -2414,7 +2432,7 @@ a.jcarousel-prev:hover i {
   width: 10px !important;
   height: auto !important;
   border-radius: 3px;
-  background-color: #888888;
+  background-color: #9e9e9e;
   box-shadow: 0 -3px rgba(0, 0, 0, 0.22) inset;
   text-align: center;
   font-size: 14px;
@@ -2467,25 +2485,20 @@ a.jcarousel-prev:hover i {
 }
 
 .project-carousel:hover .jcarousel-next:hover,
-.project-carousel:hover .jcarousel-next:focus,
 .project-carousel:hover .jcarousel-next:active,
+.project-carousel:hover .jcarousel-next:focus,
 .project-carousel:hover .jcarousel-prev:hover,
-.project-carousel:hover .jcarousel-prev:focus,
-.project-carousel:hover .jcarousel-prev:active {
+.project-carousel:hover .jcarousel-prev:active,
+.project-carousel:hover .jcarousel-prev:focus {
   opacity: 1;
 }
 
 .jcarousel-next-disabled,
-.jcarousel-next-disabled:hover,
-.jcarousel-next-disabled:focus,
-.jcarousel-next-disabled:active,
-.jcarousel-prev-disabled,
-.jcarousel-prev-disabled:hover,
-.jcarousel-prev-disabled:focus,
-.jcarousel-prev-disabled:active {
+.jcarousel-prev-disabled {
   background-color: #bbbbbb !important;
+  opacity: 0.7;
   cursor: default;
-  pointer-events: none;
+  cursor: not-allowed;
 }
 
 .jcarousel-next-disabled i,
@@ -2644,7 +2657,7 @@ a.jcarousel-prev:hover i {
 }
 
 .single-project .one-third {
-  width: 40%;
+  width: 39.8%;
 }
 
 .single-project .two-third {
@@ -3136,8 +3149,8 @@ a.jcarousel-prev:hover i {
   line-height: 1.3;
 }
 
-#footer:before,
-#footer:after {
+#footer *:before,
+#footer *:after {
   font-family: FontAwesome;
 }
 
@@ -3167,121 +3180,197 @@ a.jcarousel-prev:hover i {
 #footer ul,
 #footer span,
 #footer div {
-  font-size: 17px;
+  font-size: 16px;
 }
 
-#speiseplan {
-  position: absolute;
-  top: 120px;
-  width: 216px;
-  height: 216px;
-  border-radius: 50%;
-  border: 1px solid #54BC43;
-  background-image: url(../img/wochenplan.png);
-  background-repeat: repeat;
-  background-position: -500px 690px;
-  background-size: 50px 69px;
-  box-shadow: inset 0 0 0 108px #54bc43;
-  -webkit-transition-property: background-position, background-size, top, height, border-radius, box-shadow;
-  transition-property: background-position, background-size, top, height, border-radius, box-shadow;
-  -webkit-transition-timing-function: cubic-bezier(0.6, 0, 0.6, 0.6), cubic-bezier(0.6, 0, 0.6, 0.6), ease, ease, ease, cubic-bezier(1, 1, 0.5, -1);
-  transition-timing-function: cubic-bezier(0.6, 0, 0.6, 0.6), cubic-bezier(0.6, 0, 0.6, 0.6), ease, ease, ease, cubic-bezier(1, 1, 0.5, -1);
-  -webkit-transition-duration: 2s, 2s, 0.2s, 0.2s, 0.2s, 1s;
-  transition-duration: 2s, 2s, 0.2s, 0.2s, 0.2s, 1s;
-  -webkit-transition-delay: 0s, 0s, 0.7s, 0.7s, 1s, 1.2s;
-  transition-delay: 0s, 0s, 0.7s, 0.7s, 1s, 1.2s;
-}
+@media only screen and (min-width: 980px) {
+  #speiseplan {
+    position: absolute;
+    top: 120px;
+    width: 216px;
+    height: 216px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 108px #54bc43;
+    background-image: url(../img/wochenplan.png);
+    background-repeat: repeat;
+    background-position: -716px 1059px;
+    background-size: 50px 69px;
+    -webkit-transition-property: background-position, background-size, top, height, border-radius, box-shadow;
+    transition-property: background-position, background-size, top, height, border-radius, box-shadow;
+    -webkit-transition-timing-function: cubic-bezier(0.6, 0, 0.6, 0.6), cubic-bezier(0.6, 0, 0.6, 0.6), ease, ease, ease, cubic-bezier(1, 1, 0.5, -1);
+    transition-timing-function: cubic-bezier(0.6, 0, 0.6, 0.6), cubic-bezier(0.6, 0, 0.6, 0.6), ease, ease, ease, cubic-bezier(1, 1, 0.5, -1);
+    -webkit-transition-duration: 2s, 2s, 0.2s, 0.2s, 0.2s, 1s;
+    transition-duration: 2s, 2s, 0.2s, 0.2s, 0.2s, 1s;
+    -webkit-transition-delay: 0s, 0s, 0.7s, 0.7s, 1s, 1.2s;
+    transition-delay: 0s, 0s, 0.7s, 0.7s, 1s, 1.2s;
+  }
 
-#speiseplan:hover {
-  top: 81px;
-  height: 290px;
-  box-shadow: inset 0 0 0 10px rgba(208, 0, 46, 0.3);
-  border-radius: 5px;
-  background-position: center;
-  background-size: 216px 290px;
-  -webkit-transition-property: background-position, background-size, top, height, border-radius, box-shadow;
-  transition-property: background-position, background-size, top, height, border-radius, box-shadow;
-  -webkit-transition-timing-function: ease, ease, ease, ease, ease, cubic-bezier(1, 1, 1, 2);
-  transition-timing-function: ease, ease, ease, ease, ease, cubic-bezier(1, 1, 1, 2);
-  -webkit-transition-duration: 1.7s, 0.4s, 0.2s, 0.2s, 0.2s, 1s;
-  transition-duration: 1.7s, 0.4s, 0.2s, 0.2s, 0.2s, 1s;
-  -webkit-transition-delay: 0.5s, 0.5s, 1s, 1s, 0.7s, 0s;
-  transition-delay: 0.5s, 0.5s, 1s, 1s, 0.7s, 0s;
-}
+  #speiseplan:before {
+    position: absolute;
+    top: 34px;
+    left: 43px;
+    border-radius: 50%;
+    color: white;
+    font-family: FontAwesome;
+    font-size: 128px;
+    line-height: 1;
+    -webkit-transition: box-shadow 0.5s ease 1.2s, color 1s cubic-bezier(1, 1, 1, -1) 1.2s, border-radius 0.2s ease 1s, top 0.2s ease 0.7s;
+    transition: box-shadow 0.5s ease 1.2s, color 1s cubic-bezier(1, 1, 1, -1) 1.2s, border-radius 0.2s ease 1s, top 0.2s ease 0.7s;
+  }
 
-#speiseplan:hover:before {
-  top: 73px;
-  color: #d0002e;
-  box-shadow: inset 0 0 0 74px rgba(208, 0, 46, 0.3);
-  -webkit-transition: box-shadow 0.5s cubic-bezier(0, 0, 1, 0), color 0.5s ease, border-radius 0.2s ease 0.7s, top 0.2s ease 1s;
-  transition: box-shadow 0.5s cubic-bezier(0, 0, 1, 0), color 0.5s ease, border-radius 0.2s ease 0.7s, top 0.2s ease 1s;
-}
+  #speiseplan:hover {
+    top: 81px;
+    height: 290px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 0 10px rgba(208, 0, 46, 0.3);
+  }
 
-#speiseplan:before {
-  position: absolute;
-  top: 34px;
-  left: 34px;
-  padding: 5px 10px 15px;
-  border-radius: 50%;
-  box-shadow: inset 0 0 0 5px #54bc43;
-  color: white;
-  content: "\f0f5";
-  font-family: FontAwesome;
-  font-size: 128px;
-  line-height: 1;
-  -webkit-transition: box-shadow 0.5s ease 1.2s, color 1s cubic-bezier(1, 1, 1, -1) 1.2s, border-radius 0.2s ease 1s, top 0.2s ease 0.7s;
-  transition: box-shadow 0.5s ease 1.2s, color 1s cubic-bezier(1, 1, 1, -1) 1.2s, border-radius 0.2s ease 1s, top 0.2s ease 0.7s;
-}
+  #speiseplan:hover:before {
+    top: 73px;
+    box-shadow: none;
+    -webkit-transition: color 0.5s ease, border-radius 0.2s ease 0.7s, top 0.2s ease 1s;
+    transition: color 0.5s ease, border-radius 0.2s ease 0.7s, top 0.2s ease 1s;
+  }
 
-.firefox #speiseplan {
-  background-size: 196px 270px !important;
-}
+  #speiseplan:before {
+    content: "\f0f5";
+  }
 
-#footer > div > div:nth-child(1) > div > div > .cblock:first-of-type,
-#footer > div > div > div > ul > li:first-of-type {
-  margin-top: -39px;
-  -webkit-transition: margin 0.3s ease 0s;
-  transition: margin 0.3s ease 0s;
-}
+  #speiseplan:hover {
+    background-position: center;
+    background-size: 216px 290px;
+    -webkit-transition-property: background-position, background-size, top, height, border-radius, box-shadow;
+    transition-property: background-position, background-size, top, height, border-radius, box-shadow;
+    -webkit-transition-timing-function: ease, ease, ease, ease, ease, cubic-bezier(1, 1, 1, 2);
+    transition-timing-function: ease, ease, ease, ease, ease, cubic-bezier(1, 1, 1, 2);
+    -webkit-transition-duration: 1.7s, 0.4s, 0.2s, 0.2s, 0.2s, 1s;
+    transition-duration: 1.7s, 0.4s, 0.2s, 0.2s, 0.2s, 1s;
+    -webkit-transition-delay: 0.5s, 0.5s, 1s, 1s, 0.7s, 0s;
+    transition-delay: 0.5s, 0.5s, 1s, 1s, 0.7s, 0s;
+  }
 
-#footer > .container {
-  min-height: 360px;
-}
+  #speiseplan:hover:before {
+    color: #d0002e;
+  }
 
-#footer > div > div > div > ul,
-#footer > div > div:nth-child(1) > div > div {
-  position: absolute;
-  top: 120px;
-  width: 216px;
-  height: 216px;
-  border-radius: 50%;
-  color: white;
-  overflow: hidden;
-  padding: 7px;
-  background-color: #54bc43;
-  -webkit-transition: top 0.3s ease 0s, height 0.3s ease 0s, border-radius 0.5s ease 0.5s, box-shadow 1s ease 0.5s, background 1s ease 0s;
-  transition: top 0.3s ease 0s, height 0.3s ease 0s, border-radius 0.5s ease 0.5s, box-shadow 1s ease 0.5s, background 1s ease 0s;
-}
+  .firefox #speiseplan {
+    background-size: 196px 270px !important;
+  }
 
-#footer > div > div > div > ul:hover,
-#footer > div > div:nth-child(1) > div > div:hover {
-  top: 81px;
-  height: 270px;
-  border-color: rgba(84, 188, 67, 0.25);
-  border-radius: 4px;
-  background-color: transparent;
-  box-shadow: inset 0 0 0 120px rgba(255, 255, 255, 0.1);
-  -webkit-transition: top 0.3s ease 0.5s, height 0.3s ease 0.5s, border-radius 0.3s ease 0s, box-shadow 0.5s ease 0.8s, background 0.5s ease 0.8s;
-  transition: top 0.3s ease 0.5s, height 0.3s ease 0.5s, border-radius 0.3s ease 0s, box-shadow 0.5s ease 0.8s, background 0.5s ease 0.8s;
-}
+  #footer > .container {
+    min-height: 360px;
+  }
 
-#footer > div > div > div > ul:hover > .cblock,
-#footer > div > div > div > ul:hover > li:first-of-type,
-#footer > div > div:nth-child(1) > div > div:hover > .cblock,
-#footer > div > div:nth-child(1) > div > div:hover > li:first-of-type {
-  margin-top: 0;
-  -webkit-transition: margin 0.3s ease 0.5s;
-  transition: margin 0.3s ease 0.5s;
+  #footer > div > div > div > ul,
+  #footer > div > div:nth-child(1) > div > div {
+    position: absolute;
+    top: 120px;
+    width: 216px;
+    height: 216px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 108px #54bc43;
+    color: white;
+    overflow: hidden;
+    padding: 7px;
+    -webkit-transition: top 0.3s ease 0s, height 0.3s ease 0s, border-radius 0.5s ease 0.5s, box-shadow 1s ease 0.5s, background 1s ease 0s;
+    transition: top 0.3s ease 0s, height 0.3s ease 0s, border-radius 0.5s ease 0.5s, box-shadow 1s ease 0.5s, background 1s ease 0s;
+  }
+
+  #footer > div > div > div > ul:before,
+  #footer > div > div:nth-child(1) > div > div:before {
+    position: absolute;
+    top: 34px;
+    left: 43px;
+    border-radius: 50%;
+    color: white;
+    font-family: FontAwesome;
+    font-size: 128px;
+    line-height: 1;
+    -webkit-transition: box-shadow 0.5s ease 1.2s, color 1s cubic-bezier(1, 1, 1, -1) 1.2s, border-radius 0.2s ease 1s, top 0.2s ease 0.7s;
+    transition: box-shadow 0.5s ease 1.2s, color 1s cubic-bezier(1, 1, 1, -1) 1.2s, border-radius 0.2s ease 1s, top 0.2s ease 0.7s;
+  }
+
+  #footer > div > div > div > ul:hover,
+  #footer > div > div:nth-child(1) > div > div:hover {
+    top: 81px;
+    height: 290px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 0 10px rgba(208, 0, 46, 0.3);
+  }
+
+  #footer > div > div > div > ul:hover:before,
+  #footer > div > div:nth-child(1) > div > div:hover:before {
+    top: 73px;
+    box-shadow: none;
+    -webkit-transition: color 0.5s ease, border-radius 0.2s ease 0.7s, top 0.2s ease 1s;
+    transition: color 0.5s ease, border-radius 0.2s ease 0.7s, top 0.2s ease 1s;
+  }
+
+  #footer > div > div > div > ul div,
+  #footer > div > div > div > ul li,
+  #footer > div > div:nth-child(1) > div > div div,
+  #footer > div > div:nth-child(1) > div > div li {
+    opacity: 0;
+    -webkit-transition: opacity 0.5s ease 0s;
+    transition: opacity 0.5s ease 0s;
+  }
+
+  #footer > div > div > div > ul:before,
+  #footer > div > div:nth-child(1) > div > div:before {
+    -webkit-transition: color 1s ease 0.3s, border-radius 0.2s ease 1s, top 0.3s ease 0s, position 0.5s ease 0.5s;
+    transition: color 1s ease 0.3s, border-radius 0.2s ease 1s, top 0.3s ease 0s, position 0.5s ease 0.5s;
+    pointer-events: none;
+    margin-top: 20px;
+    -webkit-backface-visibility: visible !important;
+  }
+
+  #footer > div > div > div > ul:hover,
+  #footer > div > div:nth-child(1) > div > div:hover {
+    border-radius: 4px;
+    box-shadow: 0 0 0 10px rgba(208, 0, 46, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-transition: top 0.2s ease 0.3s, height 0.2s ease 0.3s, border-radius 0.3s ease 0s, box-shadow 0.3s ease 0.5s;
+    transition: top 0.2s ease 0.3s, height 0.2s ease 0.3s, border-radius 0.3s ease 0s, box-shadow 0.3s ease 0.5s;
+  }
+
+  #footer > div > div > div > ul:hover:before,
+  #footer > div > div:nth-child(1) > div > div:hover:before {
+    color: transparent;
+    -webkit-transition: color 0.3s ease 0.5s, top 0.2s ease 0.3s;
+    transition: color 0.3s ease 0.5s, top 0.2s ease 0.3s;
+  }
+
+  #footer > div > div > div > ul:hover div,
+  #footer > div > div > div > ul:hover li,
+  #footer > div > div:nth-child(1) > div > div:hover div,
+  #footer > div > div:nth-child(1) > div > div:hover li {
+    opacity: 1;
+    -webkit-transition: opacity 0.5s ease 0.5s;
+    transition: opacity 0.5s ease 0.5s;
+  }
+
+  #footer > div > div:nth-child(1) > div > div:before {
+    content: "\e620";
+    font-size: 110px;
+    margin: 20px 0 0 10px;
+  }
+
+  #footer > div > div:nth-child(2) > div > ul:before {
+    content: "\e64e";
+    margin: 9px 0 0 10px;
+  }
+
+  #footer > div > div:nth-child(3) > div > ul:before {
+    content: "\e63f";
+    font-size: 110px;
+    margin: -3px 0 0 21px;
+    line-height: 1.5;
+    width: 120px;
+  }
 }
 
 .widget_links a {
@@ -3536,10 +3625,8 @@ a.jcarousel-prev:hover i {
   }
 
   #footer h3 {
-    font-size: 39px;
-  
-    text-shadow: 0 0 1px #000;
-}
+    font-size: 28px;
+  }
 }
 
 @media only screen and (min-width: 768px) {

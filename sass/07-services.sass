@@ -2,11 +2,10 @@
 	float: left
 	padding-bottom: 15px
 	&:hover h3
-		// color: $green
-		// transition-duration: $fade-in
+		color: $red
+		transition-duration: $fade-in
 	&:hover .service-icon
-		// display: inline-block
-		background: $green
+		background: $red
 		transition-duration: $fade-in
 		// transform: rotate(360deg)
 	// li
@@ -21,11 +20,11 @@
 	padding-right: 0px
 	h3
 		margin: 0px 0 10px 0px
-		color: $red
+		color: white
 		font-size: 32px
-		transition: all $fade-out ease
+		transition: color 1s cubic-bezier( 0,.5, 0,2)
 	p
-		margin: 0px 0 9px
+		margin: 0px 0 9px 2px
 	.more
 		opacity: 1
 
@@ -39,11 +38,11 @@
 	width: 40px
 	height: 40px
 	border-radius: 50%
-	background: $red
+	background: $green
 	vertical-align: middle
 	text-align: center
 	line-height: 40px
-	transition: color $fade-out ease
+	transition: background 1s cubic-bezier( 0,.5, 0,2)
 	i
 		color: #fff
 		font-size: 20px

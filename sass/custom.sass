@@ -17,20 +17,26 @@
 //	15. Revolution Slider
 //	16. Media Queries
 //	17. Biosiegel
-//
+//---------------------------------------------------------------------------
+
+
 // --------------------------------------------------------------------------
 //	@Mixins
 // --------------------------------------------------------------------------
 
-@mixin pseudo-overlay
+
+
+@mixin pseudo-overlay($z-index, $background)
 	&:before
 		position: absolute
+		z-index: $z-index
 		top: 0
 		right: 0
 		bottom: 0
 		left: 0
 		display: block
 		content: ""
+		background: $background
 
 @mixin hover-overlay
 	border-bottom-color: $red
@@ -102,13 +108,11 @@ header
 	padding: 0 30px
 	box-shadow: inset 0 0 0 80px hsla(0, 0%, 100%, 0.4)
 	a
-		color: $link
+		color: white
 		font-size: 16px
 		margin-left: 1em
 		&:hover
-			color: white
-			transition-duration: $fade-in
-			transform: scale(120%)
+			text-decoration: underline
 		&:before
 			margin-right: 5px
 	.center-content
@@ -118,7 +122,6 @@ header
 
 #stickyheader
 	box-shadow: inset 0 0 0 80px hsla(0, 100%, 100%, 0.2)
-
 	&.sticky
 		z-index: 300
 		width: 100%
@@ -128,22 +131,22 @@ header
 			width: 100%
 			height: 100%
 			background: $body-blur
-			box-shadow: inset 0 0 0 80px hsla(0, 100%, 100%, 0.2), 0 2px 4px rgba(0, 0, 0, 0.33)
+			box-shadow: 0 2px 4px transparentize(black, .66)
 			content: ""
 			opacity: 0.9
 			@media screen and (-webkit-min-device-pixel-ratio:0)
 				background: $header-blur
-
 #logo
 	position: absolute
 	z-index: 99
-.sticky #logo:before
-	position: absolute
-	top: 80px
-	width: 100%
-	height: 24px
-	content: ""
-	box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.5)
+.sticky
+	#logo:before
+		position: absolute
+		top: 80px
+		width: 100%
+		height: 24px
+		content: ""
+		box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.5)
 
 .admin-bar .sticky
 	top: 30px !important
@@ -249,7 +252,7 @@ header
 			color: #fff
 			transition-duration: $fade-short
 
-		//	Sub Dropdown	--------------------------------
+		//	Sub Dropdown	----------------------------------
 		//	------------------------------------------------
 		ul
 			top: 0
@@ -279,8 +282,11 @@ header
 // ---------------------------------------------------------------------------
 
 #content
+	position: relative
 	margin-bottom: 60px
+	padding-bottom: 60px
 	background: $body-blur
+
 
 .alignright
 	float: right
@@ -309,37 +315,18 @@ ul.slides
 	.one-half, .one-third, .one-fourth
 		width: 100% !important
 
-
-body.sortimente #content
-	background: none
-	> div
-		padding: 30px
-		background: $body-blur
-		@mixin pseudo-overlay
-		background: transparentize(white, .75)
-
-.data-wrapper
-	background: transparentize(white, 0.85)
-
 .honey-cta-message-full
 	position: relative
 	z-index: 1
 	padding: 80px 0
 	background: $body
 	color: #fff
+	.container
+		padding: 0
 
-.honey-cta-message-full .container
-	padding: 0
+.honey-cta-message-full-inner
+	@include pseudo-overlay(-1, $body-blur)
 
-.honey-cta-message-full-inner:before
-	position: absolute
-	top: 0
-	right: 0
-	bottom: 0
-	left: 0
-	z-index: -1
-	background: $body-blur
-	content: ''
 
 //	Single Pages ---------------------------------
 //	----------------------------------------------
@@ -406,7 +393,7 @@ body.sortimente #content
 .page-title
 	display: block
 	margin: 0
-	padding: 32px 30px
+	padding: 60px 30px
 	text-align: center
 	font-size: 72px
 	// line-height: 1;

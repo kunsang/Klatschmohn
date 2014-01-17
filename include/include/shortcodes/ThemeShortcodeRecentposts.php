@@ -1,20 +1,20 @@
 <?php
-    
+
 class ThemeShortcodeRecentposts extends ThemeShortcode {
-    
+
     public function tag() {
         return 'recentposts';
     }
-    
+
     public function process($atts, $content=null) {
         extract(shortcode_atts(
             array(
-                'columns' => 4,
+                'columns' => 2,
                 'count' => 4,
                 'categories' => '',
                 'tags' => '',
-                'excerpt' => 80,
-            ), $atts));  
+                'excerpt' => 160,
+            ), $atts));
         $args = array(
             'post_type' => 'post',
             'numberposts' => $count,
@@ -22,10 +22,10 @@ class ThemeShortcodeRecentposts extends ThemeShortcode {
             'tag' => $tags,
             'category_name' => $categories,
             'posts_per_page' => $count,
-        );                    
+        );
         $html = '';
         $query = new WP_Query($args);
-        
+
         if ($query->have_posts()) {
             $html .= '<div class="blog-feed clearfix">';
             while ($query->have_posts()) {
@@ -49,11 +49,11 @@ $thumnbail
 EOT;
                 $calc = ($query->current_post+1) / $columns;
                 $html .= do_shortcode(sprintf('[column class="1/%s"]%s[/column]', $columns.( floor($calc)==$calc || ($query->current_post + 1 >= $query->post_count) ? ' last' : ''), $posthtml));
-            }   
-            $html .= '</div>';         
+            }
+            $html .= '</div>';
         }
         return $html;
     }
-}    
-    
+}
+
 ?>

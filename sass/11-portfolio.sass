@@ -45,10 +45,20 @@
 			&:hover, &.current, &.current:hover
 				height: 42px
 				@include hover-overlay
-			@include pseudo-overlay
+			@include pseudo-overlay(0, transparent)
+			.windows &
+				padding: 0 6px
 
 //	Project Feed	--------------------------------
-//	----------------------------------------------
+//	------------------------------------------------
+
+body.sortimente #content
+	background: none
+	> div
+		padding: 30px
+		background: $body-blur
+		@include pseudo-overlay(0, transparentize(white, .9))
+
 .project-feed > div
 	position: relative
 	float: left
@@ -156,7 +166,8 @@
 	line-height: 19px
 
 //	Project Item Overlay	------------------------
-//	----------------------------------------------
+//	------------------------------------------------
+
 .data-wrapper
 	width: 100%
 
@@ -164,202 +175,183 @@
 	margin-right: -30px
 	margin-left: -30px
 	padding: 0px 30px
-	background: transparentize(white, .5)
-	box-shadow: inset 0 4px 4px -4px rgba(0, 0, 0, 0.35), inset 0 -4px 4px -4px rgba(0, 0, 0, 0.35)
+	background: transparentize(white, .9)
 
-.project-item .thumb-item-title
-	display: block
-	border-bottom: 1px solid #d8d8d8
-	transition: all $fade-out ease-in
 
-.projectsection .project-item img
-	width: 100%
 
-.projectsection .one-fourth
-	margin-right: 2%
-	width: 23.5%
-
-.projectsection .normaltext
-	display: block
-	text-align: center
-	text-transform: none
-	font-weight: normal
-	font-size: 13px
-
-.projectsection h3
-	margin-bottom: 10px
-	text-align: center
-	text-transform: uppercase
-	font-weight: normal
-
-.projectsection h3 strong
-	font-weight: bold
-
-.projectsection .jcarousel-prev, .projectsection .jcarousel-next
-	top: -5px
-	display: block
-	float: right
-
-.projectsection .project-carousel .icon-chevron-right:before, .projectsection .project-carousel .icon-chevron-left:before
-	font-size: 14px
+.projectsection
+	.project-item img
+		width: 100%
+	.one-fourth
+		margin-right: 2%
+		width: 23.5%
+	.normaltext
+		display: block
+		text-align: center
+		text-transform: none
+		font-weight: normal
+		font-size: 13px
+	h3
+		margin-bottom: 10px
+		text-align: center
+		text-transform: uppercase
+		font-weight: normal
+		strong
+			font-weight: bold
+	.jcarousel-prev, .jcarousel-next
+		top: -5px
+		display: block
+		float: right
+	.project-carousel .icon-chevron-right:before,
+	.project-carousel .icon-chevron-left:before
+		font-size: 14px
 
 a.jcarousel-next i, a.jcarousel-prev i
 	color: #fff
-	// text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4)
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4)
 
-a.jcarousel-next i:hover, a.jcarousel-prev i:hover, a.jcarousel-next:hover i, a.jcarousel-prev:hover i
+a.jcarousel-next i:hover,
+a.jcarousel-prev i:hover,
+a.jcarousel-next:hover i,
+a.jcarousel-prev:hover i
 	color: #fff
 	transition-duration: $fade-in
 
+.overlay
+	position: absolute
+	top: 0
+	left: 0
+	overflow: hidden
+	width: 100%
+	height: 100%
+	opacity: 0
+
 .project-item
 	overflow: hidden
-
 	.thumbnail
 		position: relative
 		overflow: hidden
+		img
+			position: relative
+			overflow: hidden
+	.overlay
+		@extend .overlay
+	.mask
+		position: absolute
+		top: 0
+		left: 0
+		overflow: hidden
+		width: 100%
+		height: 100%
+		background-color: transparent
+		transition: all $fade-out ease-in-out
+	img
+		transition: all $fade-short ease
+	&:hover img
+		// transform: scale(1.05, 1.05)
+		filter: none
+		-webkit-filter: grayscale(0)
+	&:hover .mask
+		background-color: transparentize(black, .8)
+	&:hover .icon-image
+		top: 36%
+		opacity: 0.8
+	&:hover .item-title
+		bottom: 0
+		opacity: 1
+		transition-duration: $fade-out
+	.icon-image
+		position: absolute
+		top: 0
+		left: 50%
+		margin-left: -32px
+		width: 64px
+		height: 64px
+		border-radius: 50%
+		background: $red
+		opacity: 0
+		box-shadow: inset 0 -3px 0 hsla(0, 0%, 0%, 0.33)
+		text-align: center
+		font-size: 32px
+		line-height: 67px
+		transition: all ease $fade-long
+		i
+			color: #fff
+		&:active
+			box-shadow: none
+			top: 36.6% !important
+			opacity: 1 !important
+	.item-title
+		position: absolute
+		bottom: 100%
+		width: 100%
+		padding: 10px 0
+		background: transparentize(black, 0.5)
+		color: #fff
+		opacity: 0
+		text-align: center
+		font-weight: 300
+		font-size: 32px
+		line-height: 0.8
+		transition: all ease $fade-short
+	.thumb-item-title
+		display: block
+		position: relative
+		border-bottom: 1px solid #d8d8d8
+		padding: 15px 0px
+		text-align: center
+		transition: all $fade-out ease-in
+		span
+			display: none
+			color: #959595
+			font-size: 12px
+			line-height: 20px
+		h6
+			margin-bottom: 0
+			padding-bottom: 5px
+			letter-spacing: -1.5px
+			font-size: 28px
+			a:hover
+				color: #333
 
-.project-item .overlay, .overlay
-	position: absolute
-	top: 0
-	left: 0
-	overflow: hidden
-	width: 100%
-	height: 100%
-	opacity: 0
-
-.project-item .mask
-	position: absolute
-	top: 0
-	left: 0
-	overflow: hidden
-	width: 100%
-	height: 100%
-	background-color: transparent
-	transition: all $fade-out ease-in-out
-	// transform: translateX(-500px)
-
-.project-item:hover .mask
-	background-color: rgba(0, 0, 0, 0.5)
-	// transform: translateX(0px)
-
-.project-item img
-	transition: all $fade-short ease
-
-.project-item:hover img
-	transform: scale(1.05, 1.05)
-	filter: none
-	-webkit-filter: grayscale(0)
-
-.project-item .icon-image
-	position: absolute
-	top: 0
-	left: 50%
-	margin-left: -32px
-	width: 64px
-	height: 64px
-	border-radius: 50%
-	background: $red
-	opacity: 0
-	box-shadow: inset 0 -3px 0 hsla(0, 0%, 0%, 0.33)
-	text-align: center
-	font-size: 32px
-	line-height: 67px
-
-
-.project-item .icon-image
-	transition: all ease $fade-long
-
-.project-item:hover .icon-image
-	top: 36%
-	opacity: 0.8
-	transition-duration: $fade-out
-	//transform: scale(1.4, 1.4)
-
-.icon-image:active
-	box-shadow: none
-	top: 36.6% !important
-	opacity: 1 !important
-
-.project-item .icon-image i
-	color: #fff
-
-.project-item .thumbnail img
-	position: relative
-	overflow: hidden
-
-.project-item .item-title
-	position: absolute
-	bottom: 100%
-	width: 100%
-	padding: 10px 0
-	background: transparentize(black, 0.5)
-	color: #fff
-	opacity: 0
-	text-align: center
-	font-weight: 300
-	font-size: 32px
-	line-height: 0.8
-	transition: all ease $fade-short
-
-.project-item:hover .item-title
-	bottom: 0
-	opacity: 1
-
-.project-item .thumb-item-title
-	position: relative
-	padding: 15px 0px
-	text-align: center
-
-.project-item .thumb-item-title h6
-	margin-bottom: 0
-	padding-bottom: 5px
-	letter-spacing: -1.5px
-	font-size: 28px
-
-.project-item .thumb-item-title h6 a:hover
-	color: #333
-
-.project-item .thumb-item-title span
-	display: none
-	color: #959595
-	font-size: 12px
-	line-height: 20px
 
 // Project Without Title
+
 .project-carousel
 	width: auto !important
 
-.sc-projects-without-title .project-carousel .jcarousel-clip
-	// padding-top: 20px
-	// border-top: 3px solid #d8d8d8
-
-.sc-projects-without-title .sc-projects-arrows
-	margin: -34px 0 24px
-	// padding-bottom: 20px
-	text-align: right
-
-.sc-projects-without-title .sc-projects-arrows:after
-	display: block
-	visibility: hidden
-	clear: both
-	width: 0
-	height: 0
-	content: ' '
-	font-size: 0
-	line-height: 0
+.sc-projects-without-title
+	.sc-projects-arrows
+		margin: -54px 0 24px
+		text-align: right
+		&:after
+			display: block
+			visibility: hidden
+			clear: both
+			width: 0
+			height: 0
+			content: ' '
+			font-size: 0
+			line-height: 0
 
 .data-wrapper-grey .sc-projects-without-title .project-carousel
 	margin-bottom: 10px
 
 // Project With Title
-.sc-projects-with-title .sc-projects-title
-	position: relative
-	display: block
-	margin: 0 0 30px
-	padding-bottom: 15px
-	border-bottom: 1px solid #d8d8d8
-	text-transform: uppercase
-	font-weight: 300
+
+.sc-projects-with-title
+	.sc-projects-title
+		position: relative
+		display: block
+		margin: 0 0 30px
+		padding-bottom: 15px
+		border-bottom: 1px solid #d8d8d8
+		text-transform: uppercase
+		font-weight: 300
+	.sc-projects-arrows
+		padding-bottom: 40px
+		margin-top: -70px
+		text-align: right
 
 //	Project Carousel	----------------------------
 //	----------------------------------------------
@@ -397,7 +389,7 @@ a.jcarousel-next i:hover, a.jcarousel-prev i:hover, a.jcarousel-next:hover i, a.
 	width: 10px !important
 	height: auto !important
 	border-radius: 3px
-	background-color: #888
+	background-color: #9e9e9e
 	box-shadow: 0 -3px rgba(0, 0, 0, 0.22) inset
 	text-align: center
 	font-size: 14px
@@ -436,25 +428,36 @@ a.jcarousel-next i:hover, a.jcarousel-prev i:hover, a.jcarousel-next:hover i, a.
 	color: #fff
 
 
-.project-carousel:hover .jcarousel-next:hover,
-.project-carousel:hover .jcarousel-next:focus,
-.project-carousel:hover .jcarousel-next:active,
-.project-carousel:hover .jcarousel-prev:hover,
-.project-carousel:hover .jcarousel-prev:focus,
-.project-carousel:hover .jcarousel-prev:active
-	opacity: 1
+// .project-carousel:hover .jcarousel-next:hover,
+// .project-carousel:hover .jcarousel-next:focus,
+// .project-carousel:hover .jcarousel-next:active,
+// .project-carousel:hover .jcarousel-prev:hover,
+// .project-carousel:hover .jcarousel-prev:focus,
+// .project-carousel:hover .jcarousel-prev:active
+// 	opacity: 1
+
+.project-carousel:hover
+	.jcarousel-next, .jcarousel-prev
+		&:hover, &:active, &:focus
+			opacity: 1
+
+
+// .jcarousel-next-disabled,
+// .jcarousel-next-disabled:hover,
+// .jcarousel-next-disabled:focus,
+// .jcarousel-next-disabled:active,
+// .jcarousel-prev-disabled,
+// .jcarousel-prev-disabled:hover,
+// .jcarousel-prev-disabled:focus,
+// .jcarousel-prev-disabled:active
 
 .jcarousel-next-disabled,
-.jcarousel-next-disabled:hover,
-.jcarousel-next-disabled:focus,
-.jcarousel-next-disabled:active,
-.jcarousel-prev-disabled,
-.jcarousel-prev-disabled:hover,
-.jcarousel-prev-disabled:focus,
-.jcarousel-prev-disabled:active
+.jcarousel-prev-disabled
 	background-color: #bbb !important
+	opacity: .7
 	cursor: default
-	pointer-events: none
+	cursor: not-allowed
+	// pointer-events: none
 
 .jcarousel-next-disabled i, .jcarousel-prev-disabled i
 	color: #CECECE
@@ -590,7 +593,7 @@ a.jcarousel-next i:hover, a.jcarousel-prev i:hover, a.jcarousel-next:hover i, a.
 		margin: 0
 		border: 0
 	.one-third
-		width: 40%
+		width: 39.8%
 	.two-third
 		width: 54%
 	.two-third .one-fourth
