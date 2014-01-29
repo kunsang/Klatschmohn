@@ -1,44 +1,83 @@
 module.exports = function(grunt) {
-  grunt.initConfig({
-	pkg: grunt.file.readJSON('package.json'),
-	sass: {
-	  build: {
-		files: {
-		  'css/custom.css': 'sass/custom.sass'
+	grunt.initConfig({
+		pkg: grunt.file.readJSON('package.json'),
+		sass: {
+			build: {
+				files: {
+					'css/custom.css': 'sass/custom.sass'
+				},
+				options: {
+					sourcemap: true,
+					style: 'compressed'
+				}
+			}
 		},
-		options: {
-		  sourcemap: true,
-		  style: 'expanded'
-		}
-	  }
-	},
-	autoprefixer: {
-	  options: {
-		// note the addition of this option over original grunt-autoprefixer
-		sourcemap: true,
-		browsers: ['last 2 version', 'ie 8', 'ie 9', 'ff 18']
-	  },
-	  build: {
-		files: {
-		  'css/custom.css' : 'css/custom.css'
+		autoprefixer: {
+			options: {
+				sourcemap: true,
+				browsers: ['last 10 versions', 'ie 8', 'ff 12']
+			},
+			build: {
+				expand: true,
+				flatten: true,
+				src: 'css/global.css',
+				dest: ''
+			}
 		},
-	  },
-	},
-	watch: {
-	  sass_watch: {
-		files: ['sass/*.sass'],
-		tasks: ['css_build']
-	  },
-	  css_watch: {
-		files: ['css/*.css'],
-		options: {
-		  livereload: false,
+		cssmin: {
+			minify: {
+				expand: true,
+				src: ['global.css', '!global.min.css'],
+				dest: '',
+				ext: '.min.css'
+			},
+			combine: {
+				files: {
+					'css/global.css': ['css/*.css']
+				}
+			}
 		},
-	  },
-	},
-  });
+		uglify: {
+			global: {
+				files: {
+					'global.min.js': ['js/*.js']
+				}
+			}
+		},
+		remove: {
+			oldjs: {
+				options: {
+					trace: true
+				},
+				fileList: ['js/global.min.js']
+			},
+			oldcss: {
+				options: {
+					trace: true
+				},
+				fileList: ['global.css', 'global.min.css', 'css/global.css', 'css/custom.css']
+			}
+		},
+		watch: {
+			sass_watch: {
+				files: ['sass/*.sass'],
+				tasks: ['css_build']
+			},
+			js_watch: {
+				files: ['js/*.js'],
+				tasks: ['js_build']
+			},
+			css_watch: {
+				files: ['css/*.css'],
+				options: {
+					livereload: false,
+				},
+			},
+		},
+	});
 
-  grunt.registerTask('default', ['watch'] );
-  grunt.registerTask('css_build',  ['sass:build', 'autoprefixer:build']);
-  require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
+	grunt.registerTask('default', ['watch']);
+	grunt.registerTask('css_build', ['remove:oldcss', 'sass:build', 'cssmin:combine', 'autoprefixer:build', 'cssmin:minify']);
+	grunt.registerTask('js_build', ['remove:oldjs', 'uglify:global']);
+	require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 };

@@ -3,13 +3,10 @@
 	margin-right: -30px
 	margin-left: -30px
 
-#footer_main
-	background: $body-blur
-
 #footer
 	margin-top: 0px
 	padding-top: 30px
-	background: hsla(0, 0%, 25%, 0.3)
+	background: hsla(0, 0%, 0%, 0.05)
 	color: #ddd
 	font-size: 14px
 	line-height: 1.3
@@ -31,11 +28,15 @@
 		letter-spacing: -2px
 		font-weight: 200
 		font-size: 52px
-		text-align: center
+		text-align: left
 	a, p, ul, span, div
 		font-size: 16px
 
 @media only screen and (min-width: 980px)
+
+	#footer h3
+		text-align: center
+
 	@mixin footer-block
 		position: absolute
 		top: 120px
@@ -43,53 +44,57 @@
 		height: 216px
 		box-sizing: border-box
 		border-radius: 50%
-		box-shadow: inset 0 0 0 108px $green
+		box-shadow: inset 0 0 0 108px $green, 0 0 0 1px $green
+		.icanhas-no-csstransitions &
+			box-shadow: inset 0 0 0 108px $green
+			background-color: transparent !important
 		&:before
 			position: absolute
-			top: 34px
-			left: 43px
+			top: 33px
+			left: 42px
 			border-radius: 50%
 			color: white
 			font-family: FontAwesome
 			font-size: 128px
 			line-height: 1
-			transition: $bxs 0.5s ease 1.2s, color 1s $cb111-1 1.2s, $bdr 0.2s ease 1s, top 0.2s ease 0.7s
-		&:hover
+			transition:		color 1s $cb111-1 1.2s, $bdr 0.2s ease 1s, $bxs 0.5s ease 1.2s, top 0.2s ease 0.7s
+		.icanhas-csstransitions &:hover
 			top: 81px
 			height: 290px
 			border-radius: 5px
 			box-shadow: $overlay
 			&:before
-				top: 73px
+				top: 72px
 				box-shadow: none
-				transition: color 0.5s ease, $bdr 0.2s ease 0.7s, top 0.2s ease 1s
+				transition:	color 0.5s ease, $bdr 0.2s ease 0.7s, $bxs 0.5s ease 1.2s, top 0.2s ease 1s,
 
 	#speiseplan
 		@include footer-block
 		background:
-			image: url(../img/wochenplan.png)
+			image: $speiseplan
 			repeat: repeat
 			position: -716px 1059px // h:w
 			size: 50px 69px
 		transition:
-			property:					$bgp	,$bgs		,top	,height	,$bdr	,$bxs
-			timing-function:	$cb666,$cb666	,ease	,ease		,ease	,$cb115-1
-			duration:					2s		,2s			,0.2s	,0.2s		,0.2s	,1.0s
-			delay:						0s		,0s			,0.7s	,0.7s		,1.0s	,1.2s
+			property:				$bgp	,$bgs	,top	,height	,$bdr	,$bxs
+			timing-function:		$cb666	,$cb666	,ease	,ease	,ease	,$cb115-1
+			duration:				2s		,2s		,0.2s	,0.2s	,0.2s	,1.0s
+			delay:					0s		,0s		,0.7s	,0.7s	,1.0s	,1.2s
 		&:before
+			left: 44px
 			content: "\f0f5"
-		&:hover
+		.icanhas-csstransitions &:hover
 			background:
 				position: center
 				size: 216px 290px
 			transition:
-				property:					$bgp	,$bgs	,top 	,height,$bdr,$bxs
+				property:			$bgp	,$bgs	,top 	,height ,$bdr	,$bxs
 				timing-function:	ease	,ease	,ease	,ease	,ease	,$cb1112
-				duration: 				1.7s	,0.4s	,0.2s	,0.2s	,0.2s	,1s
-				delay:						0.5s	,0.5s	,1.0s	,1.0s	,0.7s	,0s
-			&:before																																							// box-shadow: inset 0 0 0 74px transparentize($red, 0.7)
+				duration:			1.7s	,0.4s	,0.2s	,0.2s	,0.2s	,1s
+				delay:				0.5s	,0.5s	,1.0s	,1.0s	,0.7s	,0s
+			&:before																																			// box-shadow: inset 0 0 0 74px transparentize($red, 0.7)
 				color: $red																																		// transition: $bxs 0.5s $cb0010, color 0.5s ease, $bdr 0.2s ease 0.7s, top 0.2s ease 1s
-		.firefox &
+		.firefox &, .msie &
 			background-size: 196px 270px !important
 
 	#footer > .container
@@ -99,20 +104,22 @@
 	#footer > div > div:nth-child(1) > div > div
 		@include footer-block
 		color: $base
+		background-color: $green
 		overflow: hidden
-		padding: 7px
-		transition: top 0.3s ease 0s, height 0.3s ease 0.0s,  border-radius 0.5s ease 0.5s, box-shadow 1s ease 0.5s ,background 1s ease 0s
+		padding: 16px
+		transition: top 0.3s ease 0s, height 0.3s ease 0.0s,  border-radius 0.5s ease 0.5s, box-shadow 1s ease 0.3s ,background 1s ease 0s
 		div, li
 			opacity: 0
 			transition: opacity .5s ease 0s
 		&:before
-			transition: color 1s ease .3s, $bdr 0.2s ease 1s, top 0.3s ease 0s, position .5s ease .5s
+			transition: color .5s ease-in .7s, top 0.3s ease 0s
 			pointer-events: none
-			margin-top: 20px
+			margin-top: 21px
 			-webkit-backface-visibility: visible !important
-		&:hover
-			border-radius: 4px
-			box-shadow: 0 0 0 10px transparentize($red, 0.8)
+		.ie9 &:hover:before
+			display: none
+		.icanhas-csstransitions &:hover
+			box-shadow: none
 			background-color: transparentize(white, 0.9)
 			transition: top 0.2s ease 0.3s, height 0.2s ease 0.3s, border-radius 0.3s ease 0s, box-shadow 0.3s ease 0.5s
 			&:before
@@ -199,7 +206,7 @@
 			// 	height: 196px
 			// 	border: 6px solid $green
 			// 	box-shadow: inset 0 0 0 100px transparentize($green, .7)
-			// 	background: url(../img/speiseplan.png) no-repeat center center/196px 260px
+			// 	background: $speiseplan no-repeat center center/196px 260px
 			// 	transition: all 0.5s cubic-bezier(1,0,0,1)
 			// 	// border-radius: 50%
 			// 	// transition-property: box-shadow , border-radius , border-color,	height

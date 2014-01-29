@@ -1,85 +1,380 @@
-@media only screen and (min-width: 768px) and (max-width: 979px)
-	#nav li a 
-		font-size: 24px
-		font-weight: 300
-	.single-project .header-title-box .page-title
-		max-width: 700px
-	.single-project .page-title .container
-		right: -41%
-		text-align: left
-		font-size: 32px
-	.single-project .project-nav
-		top: -93px
-		left: 35px
-		float: right
-	#footer h3
-		font-size: 28px
+// -------------------------------------------------------------------------------
+//  Media Queries
+// -------------------------------------------------------------------------------
 
-@media only screen and (min-width: 768px)
-	#topbar .one-half
-		float: right
-		margin-right: -0.7%
-		width: 50%
-		text-align: right
-	#topbar .column-last
-		float: none
-		clear: none
-		width: 40%
+@media only screen and (min-width: 980px)
+	body.sortimente #content>div
+		min-width: 980px
+
+// Smaller than standard 960 (devices and browsers)
+@media only screen and (max-width: 979px)
+	.sticky#stickyheader
+		position: relative !important
+	#nav li a
+		font-weight: 300
+		font-size: 24px
+	.one-third.project-item
+		width: 223px
+	.one-fourth.project-item
+		width: 164px
+	.one-half.project-item
+		width: 340px
+	.page-title
+		font-size: 54px
+	.container
+		max-width: 700px
+	.photo-stream img
+		width: 49px
+		height: 49px
+	.flex-caption
+		margin: 0 0 20px 70px
+		padding: 25px
+		width: 300px
+		h3
+			font-size: 18px
+		p
+			font-size: 12px
+	.fullwidth-padding .google-map
+		height: 350px
+
+	#svg-logo
+		width: 102px
+		top: -15px
+		left: -2%
+
+	// Widget Area
+
+	#sidebar
+		#searchform input[type="text"]
+			max-width: 42%
+		.widget_product_search #searchform input[type="text"]
+			width: 89%
+			float: none
+			max-width: 89%
+	.post-block .fluid-width-video-wrapper
+		height: 56px
+
+
+// Tablet Portrait size to standard 960 (devices and browsers)
+
+@media only screen and (min-width: 768px) and (max-width: 979px)
+	.project-carousel li
+		width: 226px
+		height: 226px
+		margin-right: 10px
+	.project-feed > div
+		margin-bottom: 10px
+	.project-description
+		.one-fourth
+			width: 31.9%
+		.three-fourth
+			width: 64%
+
+	.single-project
+		.page-title .container
+			font-size: 54px
+		.project-description .logo-list li
+			margin: 0em 0.5em 0 0
+
+	#footer h3
+		font-size: 39px
+
+	#speiseplan
+		margin: 0 auto
+		height: 220px
+		width: 150px
+		display: block
+		background-image: $speiseplan
+		background-size: cover
+
+// All Mobile Sizes (devices and browser)
 
 @media only screen and (max-width: 767px)
-	#logo
-		position: absolute
+
+	#svg-logo
+		position: relative
+		width: 250px
+		height: 250px
+		margin: 0 auto
 		top: 0
-		margin: -39px 0 0 -12.7%
-		padding: 0
+
+	.inline-border
+		&:before, &:after
+			width: 10%
+	.container
+		width: 440px
+	#main
+		margin-bottom: 40px
+		width: 100%
+	#sidebar
+		width: 100%
+	.one-half
+		width: 48%
+	.one-third
+		width: 100% !important
+	.two-third
+		width: 100% !important
+	.one-fourth
+		width: 49%
+	.three-fourth
+		width: 100%
+	.one-fifth
+		width: 31.8%
+	.two-fifth
+		width: 36.8%
+	.three-fifth
+		width: 55.2%
+	.four-fifth
+		width: 73.6%
+	.one-sixth
+		width: 15%
+	.five-sixth
+		width: 75%
+	.one-fourth:nth-child(2n+2), .one-fifth:nth-child(3n+3)
+		margin-right: 0
+	.one-half, .one-third, .two-third, .three-fourth, .one-fourth, .one-fifth, .two-fifth, .three-fifth, .four-fifth, .one-sixth, .five-sixth
+		margin-bottom: 30px
+	#nav
+		display: none
+	.selectnav
+		display: block
+		margin-left: -30px
+		margin-right: -30px
+		width: 500px
+	.page-title
+		padding-top: 15px
+		padding-bottom: 15px
+		font-size: 30px
+		.accent
+			font-size: 24px
+	.project-carousel li
+		width: 210px
+		height: 210px
+	.sc-projects-with-title .sc-projects-arrows
+		padding-bottom: 20px
+		margin-top: -30px
+	.jcarousel-next, .jcarousel-prev
+		position: absolute
+		right: -30px
+		top: 100px
+		&:active
+			top: 103px
+			padding-bottom: 0
+	.jcarousel-prev
+		left: -30px
+	.social-links
+		float: left
+		margin-top: 15px
+		li
+			margin-left: 0
+			margin-right: 8px
+	.sep10
+		height: 10px
+	.sep20
+		height: 20px
+	.sep30
+		height: 30px
+	.sep40
+		height: 25px
+	.sep50
+		height: 30px
+	.sep60
+		height: 40px
+	.sep70
+		height: 45px
+	.sep80
+		height: 50px
+	.sep90
+		height: 60px
+	.sep100
+		height: 50px
+	.flex-caption
+		display: none
+	.project-nav
+		float: left
+		margin-bottom: 20px
+		a
+			margin-left: 0
+			margin-right: 8px
+	.button.big
+		padding: 7px 20px 8px
+		font-size: 12px
+	.service
+		margin-bottom: 0
+		&.nobutton
+			margin-bottom: 10px
+	.selectnav
+		position: inherit
+	.callus
+		text-align: center
+	#social .social_bookmarks
+		li
+			float: none
+			display: inline-block
+		text-align: center
+		float: none
+
+	// Portfolio section
+
+	.one-half.project-item, .one-third.project-item, .one-fourth.project-item, .one-third.project-item img, .one-fourth.project-item img
+		width: 215px !important
+	.project-feed>div
+		margin: 0 0 10px
+
+	//  Project Feed Alt  --------------------------------
+
+	.project-feed-alt .one-fourth
+		width: 100%
+		margin-right: 0%
+		.thumbnail img
+			width: 100%
+
+	//  Post Feed Alt  --------------------------------
+
+	.post-block-feed .one-third
+		width: 100%
+
+	// Widget Area
+
+	#sidebar
+		#searchform input[type="text"]
+			max-width: 78%
+			width: 78%
+		.widget_product_search #searchform input[type="text"]
+			width: 96%
+			float: none
+			max-width: 96%
+
+	.one-half, .one-third, .two-third, .one-fourth, .three-fourth, .one-fifth, .two-fifth, .three-fifth, .four-fifth, .one-sixth, .five-sixth
+		width: 100% !important
+	.projectsection .one-fourth
+		margin-right: 2%
+		width: 49%
+		margin-bottom: 10px
+		&:nth-child(2n+2)
+			margin-right: 0%
 
 	.selectnav
 		margin-left: -164px !important
 		width: 748px !important
 		text-indent: 310px
-	.single-project .project-nav
-		top: 13px
-		left: 8px
-		float: right
-	.single-project .page-title .container
-		left: 0
-		text-align: center
-	.single-project .one-third
-		margin-left: 0
-		width: 100% !important
-	.single-project .two-third
-		width: 100% !important
+
+	#content
+		margin-bottom: 100px
+
+	.single-project
+		.project-nav
+			top: -50px
+			float: right
+		.one-third
+			margin: 0 0 1em
+			width: 88.8% !important
+		.two-third
+			width: 100% !important
+		.logo-list
+			li
+				margin: 5px 10px 15px 0 !important
+				display: inline
+				width: 100px !important
+				height: 60px
 
 	.sc-projects-without-title .sc-projects-arrows
 		margin: 0
 		padding-bottom: 20px
 		text-align: center
-	.jcarousel-prev
+	.testimonial-wrapper .flex-prev, .jcarousel-prev
 		margin-right: 17px
 
-@media only screen and (max-width: 478px)
-	#logo
-		position: absolute
-		top: -10px
-		width: 90px
-		img
-			display: block
-			margin: 0 auto
+	#speiseplan
+		margin: 0 auto
+		height: 290px
+		width: 200px
+		display: block
+		background-image: $speiseplan
+		background-size: cover
+
+
+
+	//  Revolution Slider  --------------------------------
+
+	.tp-caption .tp-button.big
+		padding: 6px 12px
+
+	//  Call to Action  --------------------------------
+
+	.cta-message-inner
+		.two-third h2, .column-last
+			text-align: center
+
+
+// Mobile Portrait Size to Mobile Landscape Size (devices and browsers)
+
+@media only screen and (max-width: 479px)
+	.container
+		width: 340px
+	#main, #sidebar .one-half, .one-third, .two-third, .one-fourth, .three-fourth, .one-fifth, .two-fifth, .three-fifth, .four-fifth, .one-sixth, .five-sixth
+		width: 100% !important
+	.projectsection .inline-border
+		padding-bottom: 28px
+	.project-carousel li
+		width: 165px
+		height: 165px
+		margin-right: 10px
+	.jcarousel-next, .jcarousel-prev
+		top: 77px
+		&:active
+			padding-bottom: 0px
+			top: 80px
+	.one-fourth.project-item
+		width: 160px !important
+		&:nth-of-type(even)
+			left: 20px !important
+	.cta-message
+		margin-left: -25px
+		margin-right: -25px
+	.projectsection .inline-border
+		padding-bottom: 41px
 	.selectnav
 		margin-left: -100px !important
 		width: 679px !important
 		text-indent: 174px !important
-	.single-project .project-nav
-		left: 0
-	.single-project .one-third
-		margin-left: 0
-		width: 100% !important
-	.single-project .two-third
-		width: 100% !important
-	// .jcarousel-next, .jcarousel-prev, .testimonial-wrapper .flex-direction-nav a
-	// 	position: relative
-	// 	display: inline
-	// .sc-projects-without-title .sc-projects-arrows
-	// 	margin-top: 20px
+	.single-project
+		.one-third
+			margin-left: 0
+			width: 100% !important
+		.two-third
+			width: 100% !important
+		.project-nav
+			position: relative
+			float: right
+			top: 10px
+			left: 8px
+			padding-bottom: 20px
 
-	
+	//  Logo list --------------------------------
+	.logo-list
+		li
+			width: auto
+			float: none
+		img
+			position: inherit
+	//  Homepage portfolio section --------------------------------
+	.data-wrapper-grey
+		margin-left: -25px
+		margin-right: -25px
+	.data-wrapper
+		width: auto
+	//
+	// .fullwidth-padding{
+	//
+	//  	margin-right: 0px !important;
+	//  	margin-left: 0px !important;
+	//  	padding-right: 0px !important;
+	//  	padding-left: 0px !important;
+	//  }
+
+	// Widget Area
+
+	#sidebar
+		#searchform input[type="text"]
+			max-width: 64%

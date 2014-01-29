@@ -33,6 +33,7 @@ ul.icons {
 }
 ul.icons li i {
   margin-right: .7em;
+  display: none;
 }
 
 .icon-angle-left:before {

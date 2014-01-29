@@ -15,6 +15,9 @@
     "matchdep": "*",
     "grunt-contrib-sass": "*",
     "grunt-contrib-watch": "*",
-    "grunt-autoprefixer": "git+https://github.com/lydell/grunt-autoprefixer.git#source-maps"
+    "grunt-autoprefixer": "git+https://github.com/lydell/grunt-autoprefixer.git#source-maps",
+    "grunt-contrib-cssmin": "~0.7.0",
+    "grunt-contrib-uglify": "~0.3.1",
+    "grunt-remove": "~0.1.0"
   }
 }

@@ -1,53 +1,66 @@
 // Color Variables
 $base:			#fff
-
 $link:			#90EE90		// lightgreen
 $hover:			#F08080		// lightcoral
-
 $green:			#54BC43
 $darkgreen:	#138F00
 $red:				#D0002E
 $lightred:	#F08080
-
 // Background Images
-$body: 			url(../img/body.jpg) no-repeat center top/cover fixed
-$body-blur: 	url(../img/body-blur.jpg) no-repeat center top/cover fixed
-$header-blur: 	url(../img/header-blur.jpg) no-repeat center top/cover scroll
+$body:					url(img/body.jpg) no-repeat center top fixed
+$body-blur:			url(img/body-blur.jpg) no-repeat center top fixed
+$header-blur:		url(img/header-blur.jpg) no-repeat center top scroll
+$admin-header:	url(img/admin-header.jpg) no-repeat center top scroll
+$speiseplan:		url(img/wochenplan.png)
+$logo:					url(img/logo-104px.png)
+//
+
+// $bodyG:					url(img/body-glass.jpg) no-repeat center top/cover fixed
+// $blurG:					url(img/body-blur-glass.jpg) no-repeat center top/cover fixed
+// $headerG:				url(img/header-blur-glass.jpg) no-repeat center top/cover scroll
+// $adminG:	url(img/admin-header-glass.jpg) no-repeat center top/cover scroll
 
 // Font Variables
 $base-ff: 'Source Sans Pro', sans-serif
 $base-fz:	16px
-
 // Size Variables
-$menu-height: 77px
-$menu-border-height: 3px
+
+$menu-height: 80px
+$sticky-height: 80px
+$menu-border: 3px
+$menu-link: $menu-height - $menu-border
+$sticky: $sticky-height - $menu-border
 
 // Transitions
-$fade-in: 		0.1s
+$fade-in: 		0.2s
 $fade-out: 		0.5s
 $fade-short: 	0.3s
 $fade-long:		1.0s
-
+// overlays
 $container-shadow:	inset 0 0 0 9999px transparentize(white, 0.85)
 $overlay:			inset 0 0 0 10px transparentize($red, 0.7)
-
-$hoverbg: hsla(0, 0%, 0%, 0.1)
-
-$cb0505:	cubic-bezier( 0,.5, 0,.5)
-$cb0010:	cubic-bezier( 0, 0, 1, 0)
-$cb0100:	cubic-bezier( 0, 1, 0, 0)
-$cb0110:	cubic-bezier( 0, 1, 1, 0)
-$cb1110:	cubic-bezier( 1, 1, 1, 0)
-$cb1112:	cubic-bezier( 1, 1, 1, 2)
-$cb111-1:	cubic-bezier( 1, 1, 1,-1)
-$cb115-1:	cubic-bezier( 1, 1,.5,-1)
-$cb021-1:	cubic-bezier( 0, 2, 1,-1)
-$cb666: 	cubic-bezier(.6, 0,.6,.6)
-
+$hoverbg:			hsla(0, 0%, 0%, 0.1)
+// Cubic Bezier Timing Functions
+$cb0001:	cubic-bezier( 0, 0, 0, 1 )
+$cb0100:	cubic-bezier( 0, 1, 0, 0 )
+$cb666: 	cubic-bezier(.6, 0,.6,.6 )
+$cb1112:	cubic-bezier( 1, 1, 1, 2 )
+$cb111-1:	cubic-bezier( 1, 1, 1,-1 )
+$cb115-1:	cubic-bezier( 1, 1,.5,-1 )
+$cb0010:	cubic-bezier( 0, 0, 1, 0 )
+$cb0151:	cubic-bezier( 0, 1,.5, 1 )
+$cb5001:	cubic-bezier(.5, 0, 0,1.1)
+$cb6363:	cubic-bezier(.66,.33,.66,.33)
 // CSS Value Variables
-
 $bgp:	background-position
 $bgs:	background-size
+
+
+// $cb0505:	cubic-bezier( 0,.5, 0,.5)
+// $cb0110:	cubic-bezier( 0, 1, 1, 0)
+// $cb1110:	cubic-bezier( 1, 1, 1, 0)
+// $cb021-1:	cubic-bezier( 0, 2, 1,-1)
+
 
 $bdr:	border-radius
 $bdc:	border-color

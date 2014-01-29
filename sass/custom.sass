@@ -24,8 +24,6 @@
 //	@Mixins
 // --------------------------------------------------------------------------
 
-
-
 @mixin pseudo-overlay($z-index, $background)
 	&:before
 		position: absolute
@@ -37,9 +35,10 @@
 		display: block
 		content: ""
 		background: $background
+		background-size: cover
 
 @mixin hover-overlay
-	border-bottom-color: $red
+	border-bottom-color: $green
 	background: transparentize(black, 0.9)
 	color: white
 
@@ -59,6 +58,8 @@
 	position: relative
 	overflow: hidden
 	width: 100%
+	.stickyheader &
+		margin-top: 60px
 
 .container
 	position: relative
@@ -75,7 +76,6 @@
 	visibility: hidden
 	clear: both
 	height: 0
-
 	content: "\0020"
 
 .fullwidth
@@ -102,14 +102,19 @@ header
 	position: relative
 	margin: 0 auto
 	background: $body-blur
+	background-size: cover
+	.stickyheader &
+		background-image: none
 
 #topbar
-	margin: 0 -30px 0
+	margin: 0 -30px
 	padding: 0 30px
-	box-shadow: inset 0 0 0 80px hsla(0, 0%, 100%, 0.4)
+	background-color: transparentize(black, 0.66)
+	.stickyheader &
+		opacity: 0
 	a
-		color: white
-		font-size: 16px
+		color: transparentize(white, 0.3)
+		font-size: 14px
 		margin-left: 1em
 		&:hover
 			text-decoration: underline
@@ -121,35 +126,65 @@ header
 	display: none
 
 #stickyheader
-	box-shadow: inset 0 0 0 80px hsla(0, 100%, 100%, 0.2)
+	background-color: transparentize(white, 0.9)
 	&.sticky
 		z-index: 300
 		width: 100%
+		#nav>li>a
+			line-height: $sticky
+		#nav>li.current-menu-ancestor>a, #nav>li.current-menu-item>a, #nav>li.hover>a, #nav>li>a:hover
+			height: $sticky
+		#svg-logo
+			top: -1px
+			width: 104px
+			height: 105px
 		&:before
 			position: absolute
 			z-index: -1
 			width: 100%
 			height: 100%
 			background: $body-blur
-			box-shadow: 0 2px 4px transparentize(black, .66)
+			background-size: cover
+			box-shadow: 0 2px 4px transparentize(black, .75), inset 0 0 0 80px transparentize(white, .9)
 			content: ""
-			opacity: 0.9
 			@media screen and (-webkit-min-device-pixel-ratio:0)
 				background: $header-blur
-#logo
+				background-size: cover
+
+#svg-logo
 	position: absolute
+	top: -24px
+	width: 134px
+	height: 134px
 	z-index: 99
-.sticky
-	#logo:before
-		position: absolute
-		top: 80px
-		width: 100%
-		height: 24px
-		content: ""
-		box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.5)
+	display: block
+	transition: all .5s ease
+	.chrome & .red
+		fill: url(#hover-grad)
+	.chrome & .green
+		fill: url(#bg-grad)
+	a:hover &
+		#poppy
+			transform: scale(1.5)
+	.firefox a:hover &
+		#poppy
+			transform: scale(1.2)
+
+
+	// @media only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi)
+	// 	background: url(/wp-content/files/2014/01/logo-104px.png) no-repeat center/208px 208px
+
+#poppy
+	transform-origin: center
+	transition: all .5s ease
 
 .admin-bar .sticky
-	top: 30px !important
+	top: 32px !important
+	@media screen and (-webkit-min-device-pixel-ratio:0)
+		&:before
+			background: $admin-header
+			background-size: cover
+			// background: $adminG
 
 @media only screen and (max-width: 480px)
 	#topbar .smartphone
@@ -159,6 +194,20 @@ header
 		line-height: 12px
 	.no-mobile
 		display: none
+//
+#content
+	// position: relative
+	margin-bottom: 192px
+	padding-bottom: 0
+	background: $body-blur
+	background-size: cover
+
+#footer_main
+	background: $body-blur
+	background-size: cover
+
+#footer
+	background: hsla(0, 0%, 0%, 0.1)
 
 //----------------------------------------------------------------------------
 // Navigation:
@@ -177,26 +226,29 @@ header
 		margin: 0
 	> li
 		> a
-			margin-bottom: $menu-height
+			margin-bottom: $menu-link
 			padding: 0 12px
 			height: 0
-			border-bottom: $menu-border-height solid transparent
+			border-bottom: $menu-border solid transparent
 			color: white
 			letter-spacing: -2px
 			font-weight: 200
 			font-size: 32px
-			line-height: $menu-height
+			line-height: $menu-link
 			transition-property: margin, height, color,	border, background
 			transition-timing-function: ease
 			transition-duration: $fade-out
-			@media only screen and (min-width: 768px) and (max-width: 979px)
-				font-weight: 300
-				font-size: 24px
+			@include pseudo-overlay(0, transparent)
+			&:before
+				height: 80px
+			&[href="#"]
+				cursor: context-menu
 		> a:hover,
+		&.hover > a,
 		&.current-menu-item > a,
 		&.current-menu-ancestor > a
 			margin-bottom: 0
-			height: $menu-height
+			height: $menu-link
 			border-bottom-color: $red
 			color: $red
 			transition-duration: $fade-short
@@ -210,24 +262,28 @@ header
 			transition: none
 			&:hover
 				border: none
-				background: $red
+				background: $green
 				color: #fff
 				transition: none
 			&[href="#"]
-				cursor: default
-				pointer-events: none
+				cursor: context-menu
+				// pointer-events: none
 	//	Dropdown ---------------------------------------
 	//	------------------------------------------------
 	ul
 		position: absolute
-		top: $menu-height + $menu-border-height
+		top: $menu-height
 		left: 0
 		z-index: auto
 		display: none
 		margin: 0
-		border-top: 1px solid $red
+		border-top: 1px solid $green
 		width: 200px
-		background: transparentize(white, .1)
+		background: transparentize(white, .05)
+		box-shadow: 2px 2px 4px transparentize(black, .5)
+		.sticky > &
+			top: $sticky-height
+
 		li
 			float: none
 		li:last-child
@@ -248,8 +304,9 @@ header
 			color: #333
 			transition-duration: $fade-in
 		a:hover, .hover > a, .current > a, .current > a:hover
-			background: $red
+			background: $green
 			color: #fff
+			transition-duration: $fade-short
 			transition-duration: $fade-short
 
 		//	Sub Dropdown	----------------------------------
@@ -281,12 +338,173 @@ header
 //	4.	Content
 // ---------------------------------------------------------------------------
 
-#content
-	position: relative
-	margin-bottom: 60px
-	padding-bottom: 60px
-	background: $body-blur
+// 404 Error Page Searchform Animation
 
+@keyframes flasher
+	25%, 75%
+		box-shadow: 0 0 5px transparentize($link, 0.3)
+		background-color: transparentize($link, 0.85)
+		border-color: transparentize($link, 0.5)
+		color: $link
+
+	0%, 50%, 100%
+		box-shadow: none
+		background-color: transparentize($lightred, 0.9)
+		border-color: transparentize($red, 0.5)
+		color: $lightred
+
+@keyframes iconFlash
+	25%, 75%
+		color: $link
+
+	0%, 50%, 100%
+		color: $lightred
+
+.error404 #searchform
+	input
+		animation: flasher 2s 1.5 ease 6s
+		transition: all 0.4s ease !important
+	#ss
+		animation: iconFlash 2s 1.5 ease 6s
+		transition: all 0.4s ease !important
+
+// Page Title Animation onload
+
+@keyframes titleEasing
+	from
+		letter-spacing: -1000px
+		opacity: 0
+	to
+		letter-spacing: -2px
+		opacity: 1
+
+@keyframes shadowFlash
+	0%
+		text-shadow: 0 0 0px white
+	10%
+		text-shadow: 0 0 50px white
+	100%
+		text-shadow: 0 0 0px white
+
+// @keyframes textBlur
+// 	from
+// 		text-shadow: 0 0 50px white
+// 		color: transparent
+// 	to
+// 		text-shadow: 0 0 0 white
+// 		color: white
+
+h1.page-title
+	white-space: nowrap
+	opacity: 0
+	letter-spacing: -1000px
+
+.icanhas-no-csstransitions h1.page-title
+	white-space: normal !important
+	opacity: 1 !important
+	letter-spacing: -2px !important
+
+.title-easing, .page-title.loaded
+	// animation: titleEasing 1s 0.5s 1 normal forwards
+	animation-name: titleEasing, shadowFlash
+	animation-duration: 1s, 0.5s
+	animation-delay: 0s, 0.8s
+	animation-iteration-count: 1, 1
+	animation-fill-mode: forwards, forwards
+	animation-timing-function: $cb0151, ease-out
+
+// Waypoints Animation
+
+.animation
+	opacity: .1
+
+.animated
+	transition: opacity 1s ease .3s
+	opacity: 1
+	&.delay1
+		transition-delay: 1.3s
+	&.delay2
+		transition-delay: 2.3s
+
+li.animation
+	&:nth-of-type(1)
+		transition-delay: 0.5s
+	&:nth-of-type(2)
+		transition-delay: 1s
+	&:nth-of-type(3)
+		transition-delay: 1.5s
+	&:nth-of-type(4)
+		transition-delay: 2s
+	&:nth-of-type(5)
+		transition-delay: 2.5s
+	&:nth-of-type(6)
+		transition-delay: 3s
+	&:nth-of-type(7)
+		transition-delay: 3.5s
+	&:nth-of-type(8)
+		transition-delay: 4s
+
+
+#content hr.animation
+	opacity: 1
+	&:after
+		margin-right: 18px
+		content: "\e631"
+		font-family: FontAwesome
+		color: transparent
+		display: block
+		text-align: center
+		-webkit-animation: shadowFlash 3s infinite ease
+
+hr.animated:after
+	color: transparentize(white, .9) !important
+	background-color: transparentize(white, .9)
+	position: absolute
+	left: 48%
+	-webkit-animation: timeline 3s 1 normal $cb6363 forwards, shadowFlash .5s infinite normal ease forwards !important
+	border: solid transparent
+	border-radius: 200px
+
+@keyframes timeline
+	0%
+		border-top-width: 0
+		opacity: 1
+	90%
+		border-top-width: 360px
+		opacity: 1
+	100%
+		border-top-width: 720px
+		opacity: 0
+
+.firmenhistorie .one-half
+	width: 46%
+	&.column-last
+		margin-left: 2%
+
+
+// .animated img
+// 	&:nth-of-type(1)
+// 		transition-delay: 0s
+// 	&:nth-of-type(2)
+// 		transition-delay: 1s
+// .animated p
+// 	&:nth-of-type(1)
+// 		transition-delay: 0s
+// 	&:nth-of-type(2)
+// 		transition-delay: 0.5s
+// 	&:nth-of-type(3)
+// 		transition-delay: 1s
+// 	&:nth-of-type(4)
+// 		transition-delay: 1.5s
+// @keyframes fadeIn
+// 	from
+// 		opacity: 0
+// 	to
+// 		opacity: 1
+
+
+
+//
 
 .alignright
 	float: right
@@ -294,8 +512,8 @@ header
 .alignleft
 	float: left
 
-#content > hr
-	background: transparentize(white, .8)
+// #content > hr
+// 	background: transparentize(white, .95)
 
 .data-wrapper ul
 	margin-left: 2em
@@ -315,17 +533,7 @@ ul.slides
 	.one-half, .one-third, .one-fourth
 		width: 100% !important
 
-.honey-cta-message-full
-	position: relative
-	z-index: 1
-	padding: 80px 0
-	background: $body
-	color: #fff
-	.container
-		padding: 0
 
-.honey-cta-message-full-inner
-	@include pseudo-overlay(-1, $body-blur)
 
 
 //	Single Pages ---------------------------------
@@ -337,11 +545,21 @@ ul.slides
 		&.column-last
 			width: 42%
 
+.firmenhistorie
+	.first-slider
+		max-height: 400px
+		max-width: 450px
+
 //	Text and Lists -------------------------------
 //	----------------------------------------------
 #content
 	p, ul, blockquote
 		font-size: 18px
+	ul.icons li:before
+		font-family: 'FontAwesome'
+		content: "\e61b"
+		color: #90EE90
+		margin-right: .7em
 	ul
 		&.fa-ul
 			margin-left: 1.5em

@@ -1,35 +1,20 @@
 #content .service
 	float: left
 	padding-bottom: 15px
-	&:hover h3
-		color: $red
-		transition-duration: $fade-in
 	&:hover .service-icon
 		background: $red
 		transition-duration: $fade-in
-		// transform: rotate(360deg)
-	// li
-	// 	display: block
-	// 	padding: 7px 0
-	// 	border-bottom: 1px solid #ececec
-	// 	&:last-child
-	// 		border: none
+		animation: tada 1s 1 ease .3s
 
 .service-description
 	overflow: hidden
 	padding-right: 0px
 	h3
-		margin: 0px 0 10px 0px
+		margin: 0 0 10px 0
 		color: white
 		font-size: 32px
-		transition: color 1s cubic-bezier( 0,.5, 0,2)
 	p
-		margin: 0px 0 9px 2px
-	.more
-		opacity: 1
-
-.iconbox .service-icon
-	margin: 0px 20px 6px 0
+		margin: 0 0 9px 2px
 
 .service-icon
 	display: block
@@ -42,26 +27,37 @@
 	vertical-align: middle
 	text-align: center
 	line-height: 40px
-	transition: background 1s cubic-bezier( 0,.5, 0,2)
+	transition: all 1s ease
+	.iconbox &
+		margin: 0px 20px 6px 0
 	i
 		color: #fff
 		font-size: 20px
 		line-height: 40px
-		transition: all $fade-in ease-in-out
-
-//	Sevice Style 1	------------------------------
-//	----------------------------------------------
-.service-topicon .service-icon
-	float: none
-	margin: 0 auto 20px auto
-	width: 80px
-	height: 80px
-
-.service-topicon .service-icon i:before
-	line-height: 80px
-
-.service-topicon .service-icon i
-	font-size: 36px
 
 .service-topicon
 	text-align: center
+	.service-icon
+		float: none
+		margin: 0 auto 20px auto
+		width: 80px
+		height: 80px
+		i
+			font-size: 36px
+			&:before
+				line-height: 80px
+
+@keyframes tada
+	0%
+		transform: scale(1)
+	10%, 20%
+		transform: scale(0.8) rotate(-4deg)
+	30%, 50%, 70%, 90%
+		transform: scale(1.1) rotate(4deg)
+	40%, 60%, 80%
+		transform: scale(1.3) rotate(-4deg)
+	100%
+		transform: scale(1) rotate(0)
+
+.tada
+	animation-name: tada

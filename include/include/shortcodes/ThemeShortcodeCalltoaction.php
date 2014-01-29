@@ -1,9 +1,9 @@
 <?php
-    
+
 class ThemeShortcodeCalltoaction extends ThemeShortcode {
     public function tag() {
         return 'calltoaction';
-    }    
+    }
 
     public function process($atts, $content=null) {
         extract(shortcode_atts(
@@ -14,19 +14,19 @@ class ThemeShortcodeCalltoaction extends ThemeShortcode {
                 'buttonlink' => '#',
 				'buttontext' => 'Weiterlesen'
             ), $atts));
-            
+
 		return sprintf('
-			<div class="honey-cta-message-full" style="background: url(\'%s\')  no-repeat center top/cover fixed">
+			<div class="cta-message" style="background: url(\'%s\')  no-repeat center top/cover fixed">
 				<div class="container">
-					<div class="honey-cta-message-full-inner">
-						'.do_shortcode('[column class="4/5"]<h2>%s</h2><p>%s</p>[/column]').'
-						'.do_shortcode('[column class="1/5 last"]<a href="%s" target="_blank" class="tp-button lightgrey big">%s</a>[/column]').'
+					<div class="cta-message-inner">
+						'.do_shortcode('[column class="4/5"]<h2 class="animation">%s</h2><p class="animation">%s</p>[/column]').'
+						'.do_shortcode('[column class="1/5 last"]<a href="%s" class="animation delay2 tp-button lightgrey big">%s</a>[/column]').'
 						<div class="clear clr"></div>
 					</div>
 				</div>
 			</div>', $image, $title, $text, $buttonlink, $buttontext);
-		
+
     }
-}    
-    
+}
+
 ?>

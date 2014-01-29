@@ -2,7 +2,7 @@
 
 class ThemeMain {
     public $settings;
-    public $settings_array;                                                           
+    public $settings_array;
     protected $settings_db_name;
     public $menu;
     protected $scripts;
@@ -21,54 +21,54 @@ class ThemeMain {
         if (is_admin()) {
             $this->optionspage = new ThemeOptionsPage($this->settings, $this->styleselector);
             add_action('theme_options_update', array(&$this, 'action_theme_options_update'));
-        }        
+        }
         $this->scripts = new ThemeScripts($this->styleselector, $this->settings);
         $this->menu = new ThemeMenu();
         $this->gallery = new ThemeGallery();
         $this->content = new ThemeContent($this->settings, $this->gallery);
-        $this->shortcodes = new ThemeManageShortcodes();                
+        $this->shortcodes = new ThemeManageShortcodes();
         // Check plugins installed
         require_once(HONEY_PATH_TO_THEME_CODE.'/plugins/tgm-plugin-activation/class-tgm-plugin-activation.php');
-        add_action('tgmpa_register', array(&$this, 'action_tgmpa_register'));      
-        if (HONEY_THEME_DEVELOPMENT) {            
+        add_action('tgmpa_register', array(&$this, 'action_tgmpa_register'));
+        if (HONEY_THEME_DEVELOPMENT) {
             add_action('wp_head', array(&$this, 'define_ajaxurl'));
         }
     }
-        
-    public function define_ajaxurl() {        
+
+    public function define_ajaxurl() {
         $url = admin_url('admin-ajax.php');
         echo <<< EOT
 <script type="text/javascript">
     var ajaxurl = '$url';
 </script>
 EOT;
-    }        
-        
+    }
+
     public function action_tgmpa_register() {
         $plugins = array(
             array(
-                'name'               => 'Revolution Slider', 
-                'slug'               => 'revslider', 
+                'name'               => 'Revolution Slider',
+                'slug'               => 'revslider',
                 'source'             => HONEY_PATH_TO_THEME_CODE.'/plugins/revolution-slider/revslider.zip',
                 'required'           => false,
                 'version'            => '2.3.3',
-                'force_activation'   => false, 
-                'force_deactivation' => false, 
-                'external_url'       => '', 
+                'force_activation'   => false,
+                'force_deactivation' => false,
+                'external_url'       => '',
             ),
         );
         $config = array(
             'domain'               => HONEY_THEME_NAME,
-            'default_path'         => '',                  
-            'parent_menu_slug'     => 'themes.php',        
-            'parent_url_slug'     => 'themes.php',         
+            'default_path'         => '',
+            'parent_menu_slug'     => 'themes.php',
+            'parent_url_slug'     => 'themes.php',
             'menu'                 => 'install-required-plugins',
-            'has_notices'          => true,                     
+            'has_notices'          => true,
             'is_automatic'        => true,
-        );            
+        );
         tgmpa($plugins, $config);
     }
-    
+
     public function action_rss2_head() {
         // Get theme configuration
         $sidebars = get_option('sidebars_widgets');
@@ -89,7 +89,7 @@ EOT;
                 'posts_per_page' => get_option('posts_per_page'),
                 'sidebars_widgets' => $sidebars,
                 'sidebars_config' => $sidebars_config,
-            );            
+            );
         if (HONEY_THEME_DEVELOPMENT) {
 			echo sprintf('<wp:theme_custom>%s</wp:theme_custom>', base64_encode(serialize($config)));
 		}
@@ -110,15 +110,15 @@ EOT;
         add_theme_support( 'woocommerce' ); // WooCommerce Support
         add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 9;' ), 20 );
     }
-    
+
     public function action_admin_enqueue_scripts() {
         $scripts = new ThemeScriptsAdmin($this->styleselector, $this->settings);
         $scripts->registerScripts();
     }
 
-    public function action_theme_admin_menu() {        
+    public function action_theme_admin_menu() {
         $options_page = add_theme_page(
-            __r('Theme Options'),   
+            __r('Theme Options'),
             __r('Theme Options'),
             'edit_theme_options',
             'honey_theme_options',
@@ -126,11 +126,11 @@ EOT;
         );
     }
 
-    public function admin_theme_options() {                            
-        $this->optionspage->build();            
-    }              
-    
-    public function action_theme_options_update() {        
+    public function admin_theme_options() {
+        $this->optionspage->build();
+    }
+
+    public function action_theme_options_update() {
         update_option($this->settings_db_name, $this->settings_array);
     }
 
@@ -147,14 +147,14 @@ EOT;
 
     public function register_footer() {
         wp_footer();
-    }    
+    }
 
     public function register_title() {
         wp_title('|', true, 'right');
         bloginfo('name');
-    }    
-    
-    
+    }
+
+
     public function register_logo() {
         if ($this->settings->logo == 0) {
             echo $this->settings->logo_text;
@@ -162,10 +162,10 @@ EOT;
         if ($this->settings->logo == 1) {
             echo sprintf('<img src="%s" />', $this->settings->logo_image);
         }
-    }    
-    
+    }
+
     public function get_body_class() {
-        $class = array();                
+        $class = array();
         if ($this->styleselector->background == 1) {
             $class[] = 'bg-img';
         } else
@@ -173,22 +173,22 @@ EOT;
             $class[] = 'bg-img';
             $class[] = 'bg-cover';
         }
-		if($this->settings->responsive == '1'){
-			$class[] = 'k-responsive-on';
-		} else {
-			$class[] = 'k-responsive-off';
-		}
+		// if($this->settings->responsive == '1'){
+		// 	$class[] = 'k-responsive-on';
+		// } else {
+		// 	$class[] = 'k-responsive-off';
+		// }
         return $class;
     }
-    
-    
+
+
     public function get_social_links() {
-		
+
 		$return = '';
-		
+
 		if( $this->styleselector->settings->topbarshowsocial == true ){
 			$socialarray = array('twitter'=>'Follow us on Twitter', 'facebook'=>'Join our Facebook Group', 'linkedin'=>'Add me on Linkedin',  'googleplus'=>'Join me on Google Plus', 'dribbble'=>'Follow us on dribbble', 'rss'=>'RSS');
-		
+
 			foreach($socialarray as $social=>$desc ){
 				if( $this->styleselector->settings->$social == true && trim($this->styleselector->settings->$social) != '' ){
 					if($social=='rss'){
@@ -205,8 +205,8 @@ EOT;
 		}
 		return $return;
     }
-    
-    
+
+
     // Topbar
 	public function get_topbar() {
 		$return = '';
@@ -231,10 +231,10 @@ EOT;
 					</div>
 				</div>';
 		}
-		
+
 		return $return;
     }
-    
+
 
     public function action_init()
     {
@@ -246,17 +246,17 @@ EOT;
         $posttypes = array(
             'gallery' =>
             array(
-                'labels' => 
+                'labels' =>
                 array(
                     'name'              => __r('Galleries'),
                     'singular_name'     => __r('Gallery'),
                     'add_new_item'      => __r('Add New Gallery'),
                     'search_items'      => __r('Search Galleries'),
-                    'popular_items'       => __r('Popular Galleries'),        
+                    'popular_items'       => __r('Popular Galleries'),
                     'all_items'           => __r('All Galleries'),
                     'parent_item'       => __r('Parent Gallery'),
                     'parent_item_colon' => __r('Parent Gallery:'),
-                    'edit_item'           => __r('Edit Gallery'), 
+                    'edit_item'           => __r('Edit Gallery'),
                     'update_item'       => __r('Update Gallery'),
                     'new_item_name'       => __r('New Gallery Name')
                 ),
@@ -266,18 +266,18 @@ EOT;
                 'taxonomies' => array('')
             ),
             'pricetable' =>
-            array(                        
-                'labels' => 
+            array(
+                'labels' =>
                 array(
                     'name'              => __r('Pricing Tables'),
                     'singular_name'     => __r('Pricing Table'),
                     'add_new_item'      => __r("Add New Pricing Table"),
                     'search_items'      => __r('Search Pricing Tables'),
-                    'popular_items'       => __r('Popular Pricing Tables'),        
+                    'popular_items'       => __r('Popular Pricing Tables'),
                     'all_items'           => __r('All Pricing Tables'),
                     'parent_item'       => __r('Parent Pricing Table'),
                     'parent_item_colon' => __r('Parent Pricing Table:'),
-                    'edit_item'           => __r('Edit Pricing Table'), 
+                    'edit_item'           => __r('Edit Pricing Table'),
                     'update_item'       => __r('Update Pricing Table'),
                     'new_item_name'       => __r('New Pricing Table Name')
                 ),
@@ -288,17 +288,17 @@ EOT;
             ),
             'services' =>
             array(
-                'labels' => 
+                'labels' =>
                 array(
                     'name'              => __r('Services'),
                     'singular_name'     => __r('Service'),
                     'add_new_item'      => __r('Add New Service'),
                     'search_items'      => __r('Search Services'),
-                    'popular_items'       => __r('Popular Services'),        
+                    'popular_items'       => __r('Popular Services'),
                     'all_items'           => __r('All Services'),
                     'parent_item'       => __r('Parent Service'),
                     'parent_item_colon' => __r('Parent Service:'),
-                    'edit_item'           => __r('Edit Service'), 
+                    'edit_item'           => __r('Edit Service'),
                     'update_item'       => __r('Update Service'),
                     'new_item_name'       => __r('New Service Name')
                 ),
@@ -309,17 +309,17 @@ EOT;
             ),
             'slides' =>
             array(
-                'labels' => 
+                'labels' =>
                 array(
                     'name'              => __r('Slides'),
                     'singular_name'     => __r('Slide'),
                     'add_new_item'      => __r('Add New Slide'),
                     'search_items'      => __r('Search Slides'),
-                    'popular_items'       => __r('Popular Slides'),        
+                    'popular_items'       => __r('Popular Slides'),
                     'all_items'           => __r('All Slides'),
                     'parent_item'       => __r('Parent Slide'),
                     'parent_item_colon' => __r('Parent Slide:'),
-                    'edit_item'           => __r('Edit Slide'), 
+                    'edit_item'           => __r('Edit Slide'),
                     'update_item'       => __r('Update Slide'),
                     'new_item_name'       => __r('New Slide Name')
                 ),
@@ -327,20 +327,20 @@ EOT;
                 'has_archive' => false,
                 'supports' => array('title', 'editor', 'thumbnail'),
                 'taxonomies' => array('')
-            ),                
+            ),
             'staffmembers' =>
             array(
-                'labels' => 
+                'labels' =>
                 array(
                     'name'              => __r('Staff Members'),
                     'singular_name'     => __r('Staff Member'),
                     'add_new_item'      => __r('Add New Staff Member'),
                     'search_items'      => __r('Search Staff Members'),
-                    'popular_items'       => __r('Popular Staff Members'),        
+                    'popular_items'       => __r('Popular Staff Members'),
                     'all_items'           => __r('All Staff Members'),
                     'parent_item'       => __r('Parent Staff Member'),
                     'parent_item_colon' => __r('Parent Staff Member:'),
-                    'edit_item'           => __r('Edit Staff Member'), 
+                    'edit_item'           => __r('Edit Staff Member'),
                     'update_item'       => __r('Update Staff Member'),
                     'new_item_name'       => __r('New Staff Member Name')
                 ),
@@ -351,17 +351,17 @@ EOT;
             ),
             'project' =>
             array(
-                'labels' => 
+                'labels' =>
                 array(
                     'name'              => __r('Projects'),
                     'singular_name'     => __r('Project'),
                     'add_new_item'      => __r('Add New Project'),
                     'search_items'      => __r('Search Projects'),
-                    'popular_items'       => __r('Popular Projects'),        
+                    'popular_items'       => __r('Popular Projects'),
                     'all_items'           => __r('All Projects'),
                     'parent_item'       => __r('Parent Project'),
                     'parent_item_colon' => __r('Parent Project:'),
-                    'edit_item'           => __r('Edit Project'), 
+                    'edit_item'           => __r('Edit Project'),
                     'update_item'       => __r('Update Project'),
                     'new_item_name'       => __r('New Project Name')
                     ),
@@ -372,17 +372,17 @@ EOT;
                 ),
             'testimonial' =>
             array(
-                'labels' => 
+                'labels' =>
                 array(
                     'name'              => __r('Testimonials'),
                     'singular_name'     => __r('Testimonial'),
                     'add_new_item'      => __r('Add New Testimonial'),
                     'search_items'      => __r('Search Testimonials'),
-                    'popular_items'       => __r('Popular Testimonials'),        
+                    'popular_items'       => __r('Popular Testimonials'),
                     'all_items'           => __r('All Testimonials'),
                     'parent_item'       => __r('Parent Testimonial'),
                     'parent_item_colon' => __r('Parent Testimonial:'),
-                    'edit_item'           => __r('Edit Testimonial'), 
+                    'edit_item'           => __r('Edit Testimonial'),
                     'update_item'       => __r('Update Testimonial'),
                     'new_item_name'       => __r('New Testimonial Name')
                     ),
@@ -397,7 +397,7 @@ EOT;
                 register_post_type($slug, $data);
             }
         }
-		
+
 		// Change default text
 		function change_default_title( $title ){
 			$screen = get_current_screen();
@@ -408,7 +408,7 @@ EOT;
 		}
 		add_filter( 'enter_title_here', 'change_default_title' );
 
-		
+
         // Register Taxonomies
         $taxonomies = array(
             'txnm_project' => array(
@@ -435,8 +435,8 @@ EOT;
             'contact' => __r('Contact Sidebar (appears in the contact page)')
         );
         // Add custom sidebars
-        if (is_array($this->settings->sidebars)) {	
-            foreach ($this->settings->sidebars as $sidebar) {            
+        if (is_array($this->settings->sidebars)) {
+            foreach ($this->settings->sidebars as $sidebar) {
                 $this->sidebars[sanitize_key($sidebar)] = $sidebar;
             }
         }
@@ -450,16 +450,16 @@ EOT;
                     'before_title' => '<h3>',
                     'after_title' => '</h3>'
                 )
-            );            
+            );
         }
-        
+
         // Add Shortcodes
         $shortcodes = array(
             'accordion',
             'accordionitem',
-            'button',                
-            'columns',    
-            'googlemap',            
+            'button',
+            'columns',
+            'googlemap',
             'logos',
             'icon',
             'pagetitle',
@@ -472,7 +472,7 @@ EOT;
             'separator',
             'service',
             'slider',
-            'staffmembers',                
+            'staffmembers',
             'tab',
             'tabs',
             'infobox',
@@ -485,7 +485,7 @@ EOT;
             $scode = new $class($this->content);
         }
     }
-    
+
     public function filter_manage_edit_project_columns($columns) {
         $cols = array();
         $i = 0;
@@ -502,8 +502,8 @@ EOT;
         }
         return $cols;
     }
-	
-	
+
+
 	public function filter_manage_edit_testimonial_columns($columns) {
         $cols = array();
         $i = 0;
@@ -520,8 +520,8 @@ EOT;
         }
         return $cols;
     }
-	
-    
+
+
     public function filter_manage_posts_custom_column($column_name, $post_id) {
         switch ($column_name) {
             case 'custom_id': {
@@ -529,7 +529,7 @@ EOT;
                 break;
             }
             case 'project_tag': {
-                $terms = array();                    
+                $terms = array();
                 foreach (get_the_terms($post_id, 'txnm_project') as $term) {
                     array_push($terms, $term->name);
                 }
@@ -550,7 +550,7 @@ EOT;
                     }
                 }
                 break;
-            }    
+            }
             case 'services_icon': {
                 $service = new ThemeMetaboxServices();
                 $meta = get_post_meta($post_id, 'theme_metabox', true);
@@ -561,10 +561,10 @@ EOT;
                     }
                 }
                 break;
-            }                            
+            }
         }
-    }        
-    
+    }
+
     public function filter_manage_edit_staffmembers_columns($columns) {
         $cols = array();
         $i = 0;
@@ -581,7 +581,7 @@ EOT;
         }
         return $cols;
     }
-    
+
     public function filter_manage_edit_slides_columns($columns) {
         $cols = array();
         $i = 0;
@@ -594,8 +594,8 @@ EOT;
             $i++;
         }
         return $cols;
-    }        
-             
+    }
+
     public function filter_manage_edit_services_columns($columns) {
         $cols = array();
         $i = 0;
@@ -608,7 +608,7 @@ EOT;
             $i++;
         }
         return $cols;
-    }       
+    }
 
     public function filter_manage_edit_gallery_columns($columns) {
         $cols = array();
@@ -621,8 +621,8 @@ EOT;
             $i++;
         }
         return $cols;
-    }        
-    
+    }
+
     public function filter_manage_edit_pricetable_columns($columns) {
         $cols = array();
         $i = 0;
@@ -634,24 +634,24 @@ EOT;
             $i++;
         }
         return $cols;
-    }        
-    
+    }
+
     public function action_theme_admin_init() {
         // For Project custom posts
         add_filter('manage_edit-project_columns', array(&$this, 'filter_manage_edit_project_columns'));
         add_action('manage_project_posts_custom_column', array(&$this, 'filter_manage_posts_custom_column'), 10, 2);
         // For Staff Members custom posts
         add_filter('manage_edit-staffmembers_columns', array(&$this, 'filter_manage_edit_staffmembers_columns'));
-        add_action('manage_staffmembers_posts_custom_column', array(&$this, 'filter_manage_posts_custom_column'), 10, 2);            
+        add_action('manage_staffmembers_posts_custom_column', array(&$this, 'filter_manage_posts_custom_column'), 10, 2);
         // For Services custom posts
         add_filter('manage_edit-services_columns', array(&$this, 'filter_manage_edit_services_columns'));
-        add_action('manage_services_posts_custom_column', array(&$this, 'filter_manage_posts_custom_column'), 10, 2);                        
+        add_action('manage_services_posts_custom_column', array(&$this, 'filter_manage_posts_custom_column'), 10, 2);
         // For Galleries custom posts
         add_filter('manage_edit-gallery_columns', array(&$this, 'filter_manage_edit_gallery_columns'));
-        add_action('manage_gallery_posts_custom_column', array(&$this, 'filter_manage_posts_custom_column'), 10, 2);            
+        add_action('manage_gallery_posts_custom_column', array(&$this, 'filter_manage_posts_custom_column'), 10, 2);
         // For Slides custom posts
         add_filter('manage_edit-slides_columns', array(&$this, 'filter_manage_edit_slides_columns'));
-        add_action('manage_slides_posts_custom_column', array(&$this, 'filter_manage_posts_custom_column'), 10, 2);                
+        add_action('manage_slides_posts_custom_column', array(&$this, 'filter_manage_posts_custom_column'), 10, 2);
         // For Price Table custom posts
         add_filter('manage_edit-pricetable_columns', array(&$this, 'filter_manage_edit_pricetable_columns'));
         add_action('manage_pricetable_posts_custom_column', array(&$this, 'filter_manage_posts_custom_column'), 10, 2);
@@ -659,14 +659,14 @@ EOT;
         add_filter('manage_edit-testimonial_columns', array(&$this, 'filter_manage_edit_testimonial_columns'));
         add_action('manage_testimonial_posts_custom_column', array(&$this, 'filter_manage_posts_custom_column'), 10, 2);
     }
-    
+
     public function print_copyrights() {
         echo $this->settings->copyrights;
-    }        
-    
+    }
+
     public function print_error404() {
         echo do_shortcode($this->settings->error404);
-    }                
+    }
 
     public function print_sociallinks() {
         $links = $this->settings->social_links;
@@ -674,7 +674,7 @@ EOT;
             foreach ($links as $link) {
                 $path = parse_url(strtolower($link));
                 $path = (is_array($path) && isset($path['host'])) ? $path['host'] : $link;
-                $path = strtr($path, array('www.' => ''));                
+                $path = strtr($path, array('www.' => ''));
                 $path = substr($path, 0, strrpos($path, '.'));
                 $icon = $path;
                 $dotpos = strrpos($icon, '.');
@@ -685,8 +685,8 @@ EOT;
             }
         }
         return false;
-    }    
-    
+    }
+
     public function print_sidebar($name = '') {
         if (!$name) {
             $name = 'default';
@@ -700,31 +700,31 @@ EOT;
         dynamic_sidebar('footer');
         add_filter('dynamic_sidebar_params', $filter);
     }
-    
+
 	public function print_footertwitterbar() {
-		
+
 		$consumer_key       = trim($this->settings->consumer_key);
 		$consumer_secret    = trim($this->settings->consumer_secret);
 		$oauth_token        = trim($this->settings->oauth_token);
 		$oauth_token_secret = trim($this->settings->oauth_token_secret);
 		$twittercount       = $this->settings->twittercount;
-		
-		
+
+
 		if( $consumer_key   != '' &&
 		$consumer_secret    != '' &&
 		$oauth_token        != '' &&
 		$oauth_token_secret != '' ){
-			
-			
+
+
 			// new API 1.1
 			if ( !class_exists('TwitterOAuth')) {
 				require_once ('widgets/inc/twitteroauth.php');
 			}
 			$connection      = new TwitterOAuth($consumer_key, $consumer_secret, $oauth_token, $oauth_token_secret);
-			$search_feed3    = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=".$username."&count=".$twittercount; 
+			$search_feed3    = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=".$username."&count=".$twittercount;
 			$api_1_1_content = $connection->get($search_feed3);
 			$html_result     = '';
-			
+
 			// if connection is ok
 			if ( is_array( $api_1_1_content ) AND isset( $api_1_1_content[0] -> id ) ) {
 				$rss_i = $api_1_1_content;
@@ -732,7 +732,7 @@ EOT;
 				$author = $rss_i[0] -> user -> screen_name;
 				$avatar = $rss_i[0] -> user -> profile_image_url;
 				$html_avatar = $new_attrs = '';
-				// followers	
+				// followers
 				$user_followers = $rss_i[0] -> user -> followers_count;
 				$i = 0;
 				foreach ( $rss_i as $tweet ) {
@@ -759,7 +759,7 @@ EOT;
 						$html_action_links ='<span class="honey_action_links">
 							<a title="'.__('Reply', 'honey').'" href="http://twitter.com/intent/tweet?in_reply_to='.$honey_tweet_id.'" class="honey_al_reply" rel="nofollow" target="'.$target4action_links.'">'.__('Reply', 'honey').'</a> <span class="honey_sep">-</span>
 							<a title="'.__('Retweet', 'honey').'" href="http://twitter.com/intent/retweet?tweet_id='.$honey_tweet_id.'" class="honey_al_retweet" rel="nofollow" target="'.$target4action_links.'">'.__('Retweet', 'honey').'</a> <span class="honey_sep">-</span>
-							<a title="'.__('Favorite', 'honey').'" href="http://twitter.com/intent/favorite?tweet_id='.$honey_tweet_id.'" class="honey_al_fav" rel="nofollow" target="'.$target4action_links.'">'.__('Favorite', 'honey').'</a> 
+							<a title="'.__('Favorite', 'honey').'" href="http://twitter.com/intent/favorite?tweet_id='.$honey_tweet_id.'" class="honey_al_fav" rel="nofollow" target="'.$target4action_links.'">'.__('Favorite', 'honey').'</a>
 						</span>';
 					}
 					$item_pos_class = " honey_tweetitem";
@@ -803,18 +803,18 @@ EOT;
 						</ul>
 					</div>
 				</div>';
-			
+
 		} // IF
-		
+
 	} // print_footertwitterbar()
-    
+
     protected $footer_wg_count = 0;
-    
+
     public function action_footer_dynamic_sidebar_params($params) {
         $param =& $params[0];
         $lastclass = (++$this->footer_wg_count % 4) ? '' : ' column-last';
         $param['before_widget'] = "<div class=\"one-fourth$lastclass\">".$param["before_widget"];
-        $param['after_widget'] .= '</div>';            
+        $param['after_widget'] .= '</div>';
         return $params;
     }
 
@@ -825,7 +825,7 @@ EOT;
         register_widget('ThemeWidgetRecentposts');
         register_widget('ThemeWidgetPosttabs');
     }
-    
+
     public function action_add_meta_boxes() {
         $metaboxes = array(
             'featuredcontent' => array('post', 'project'),
@@ -840,26 +840,26 @@ EOT;
 			'testimonial'        => array('Testimonial')
         );
         foreach ($metaboxes as $name => $types) {
-            $class = 'ThemeMetabox'.ucfirst($name);            
+            $class = 'ThemeMetabox'.ucfirst($name);
             $metabox = new $class();
             foreach ($types as $type) {
                 add_meta_box($metabox->getId(), $metabox->title, array($metabox, 'form'), $type);
             }
         }
     }
-    
+
     public function action_save_post($post_id) {
         if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )  {
             return;
-        }            
+        }
         if ($_POST && isset($_POST['metabox'])) {
             update_post_meta($post_id, 'theme_metabox', $_POST['metabox']);
-        }            
-    } 
-    
+        }
+    }
+
     public function action_wp_enqueue_scripts() {
         // Nothing to do yet
-    }                       
+    }
 }
 
 ?>

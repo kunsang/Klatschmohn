@@ -1,28 +1,28 @@
-#left, #right, #top, #bottom
-	position: fixed
-	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.05)
-
-#left, #right
-	top: 6px
-	bottom: 6px
-	width: 6px
-
-#top, #bottom
-	right: 0
-	left: 0
-	height: 6px
-
-#left
-	left: 0
-
-#right
-	right: 0
-
-#top
-	top: 0
-
-#bottom
-	bottom: 0
+// #left, #right, #top, #bottom
+// 	position: fixed
+// 	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.05)
+//
+// #left, #right
+// 	top: 6px
+// 	bottom: 6px
+// 	width: 6px
+//
+// #top, #bottom
+// 	right: 0
+// 	left: 0
+// 	height: 6px
+//
+// #left
+// 	left: 0
+//
+// #right
+// 	right: 0
+//
+// #top
+// 	top: 0
+//
+// #bottom
+// 	bottom: 0
 
 html
 	overflow-x: hidden
@@ -32,10 +32,12 @@ html
 body, input, select, button, textarea
 	-webkit-font-smoothing: antialiased !important
 	-moz-osx-font-smoothing: grayscale !important
-	text-rendering: geometricPrecision
+	text-rendering: geometricPrecision !important
 
 body
 	background: $body
+	background-size: cover
+	background-color: #333
 	color: $base
 	font-weight: normal
 	font-size: $base-fz
@@ -51,6 +53,9 @@ body
 	background: #333333
 	color: white
 	text-shadow: none
+
+//	Links	---------------------------------------
+//	-----------------------------------------------
 
 a, a > *
 	color: $link
@@ -81,14 +86,14 @@ a:hover, img:hover
 #main .post-meta a:hover
 	height: 15px
 
-// #sidebar a { height: inherit; display: inline }
-// #sidebar a:hover { height: inherit }
 
 #main a.img
 	height: auto
 	display: inline
 	border-bottom: none
 
+//	Headings	---------------------------------------
+//	---------------------------------------------------
 h1
 	font-weight: 200
 	font-size: 54px
@@ -126,32 +131,31 @@ blockquote, address, table, fieldset, form
 h1, h2, h3, h4, h5, h6
 	line-height: 1
 
-h1.headline, h2.headline, h3.headline
-	margin-bottom: 24px
-
 h4.headline, h5.headline, h6.headline
 	margin-bottom: 16px
 
-.inline-border
-	position: relative
-	display: block
-	margin: 0 0 30px
-	padding-bottom: 15px
-	border-bottom: 1px solid #d8d8d8
-	text-transform: uppercase
-	font-weight: 400
-
 small
 	font-size: 12px
+
+b, strong
+	font-weight: 600
+
+h1 b
+	font-weight: 400
 
 img
 	display: block
 	max-width: 100%
 	height: auto
+	border-radius: 4px
 	-webkit-backface-visibility: hidden
 
-.stickyheader img
-	-webkit-backface-visibility: visible !important
+i
+	font-style: normal !important
+
+sup
+	vertical-align: super
+	font-size: x-small
 
 .blog-feed img
 	width: 100%
@@ -179,15 +183,17 @@ object, video
 //	----------------------------------------------
 
 label
-	font-weight: 600
+	font-weight: 400
 
 label.error
 	display: block
-	margin-top: -15px
-	margin-bottom: 20px
+	margin: -50px 10px 50px
 	background: none
-	color: red
+	color: $lightred
 	font-weight: 400
+	pointer-events: none
+	&[for="contactmessage"]
+		margin: -160px 10px 160px
 
 input[type="text"], input[type="password"], input[type="email"], textarea
 	display: block
@@ -229,7 +235,7 @@ textarea
 input[type="submit"], input[type="reset"], input[type="button"], button, .button, #sidebar a.button, #sidebar button.button, .tp-caption .tp-button, .tp-button.lightgrey
 	position: relative
 	display: inline-block
-	height: auto
+	height: auto !important
 	margin: 0 5px 15px 0
 	padding: 12px 20px
 	border: none !important
@@ -245,12 +251,12 @@ input[type="submit"], input[type="reset"], input[type="button"], button, .button
 	text-decoration: none
 	text-transform: uppercase
 	cursor: pointer
-	transition: background-color $fade-long ease
+	transition: all $fade-long ease !important
 
 input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover, button:hover, .button:hover
 	background: $green !important
 	box-shadow: 0 -3px rgba(0, 0, 0, 0.3) inset !important
-	transition-duration: $fade-in
+	transition-duration: $fade-in !important
 
 input[type="submit"]:active, input[type="reset"]:active, input[type="button"]:active, button:active, .button:active
 	margin-top: 3px !important
@@ -261,5 +267,15 @@ input[type="submit"]:active, input[type="reset"]:active, input[type="button"]:ac
 #sidebar .button-primary:hover
 	background: #333333
 
-i
-	font-style: normal !important
+// .inline-border
+// 	position: relative
+// 	display: block
+// 	margin: 0 0 30px
+// 	padding-bottom: 15px
+// 	border-bottom: 1px solid #d8d8d8
+// 	text-transform: uppercase
+// 	font-weight: 400
+
+
+// .stickyheader img
+// 	-webkit-backface-visibility: visible !important

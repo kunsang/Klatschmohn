@@ -20,6 +20,3 @@ Template Name: Blog (Classic)
 	<?php get_sidebar(); ?>
 </div><!-- .container -->
 <?php get_footer(); ?>
-
-
-       

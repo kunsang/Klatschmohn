@@ -2,72 +2,73 @@
 //	----------------------------------------------
 // .gray-green
 // 	background: #7f7f7f
-
+//
 // .gray-green:hover
 // 	background: $green
-
+//
 // .green-gray
 // 	background: $green
-
+//
 // .green-gray:hover
 // 	background: #333
-
+//
 // .green-darkgray
 // 	background: $green
-
+//
 // .green-darkgray:hover
 // 	background: #333
-
+//
 // .darkgray-green
 // 	background: #333
-
+//
 // .darkgray-green:hover
 // 	background: $green
-
+//
 // .gray-red
 // 	background: #7f7f7f
-
+//
 // .gray-red:hover
 // 	background: $red
-
+//
 // .red-gray
 // 	background: $red
-
+//
 // .red-gray:hover
 // 	background: #333
-
+//
 // .red-darkgray
 // 	background: $red
-
+//
 // .red-darkgray:hover
 // 	background: #333
-
+//
 // .darkgray-red
 // 	background: #333
-
+//
 // .darkgray-red:hover
 // 	background: $red
-
+//
 // .button, input[type="submit"], input[type="reset"], input[type="button"], button
 // 	text-transform: uppercase
 // 	cursor: pointer
-
+//
 // .button.small
 // 	padding: 5px 8px 6px
 // 	font-size: 11px
 // 	line-height: 11px
-
+//
 // .button.big
 // 	padding-right: 30px
 // 	padding-left: 30px
 // 	font-size: 14px
+//
 
 //	description	---------------------------------
 //	----------------------------------------------
 .infobox
-	padding: 30px
-	border-radius: 2px
-	background: #ececec
+	padding: 50px
+	border-radius: 3px
+	background: transparentize($red, 0.8)
 
 //	Accordion	-----------------------------------
 //	----------------------------------------------
@@ -101,22 +102,23 @@
 // 		border-bottom: none
 // 		border-radius: 2px 2px 0px 0px
 // 		background: #fff
-
+//
 // #sidebar .accordion-button
 // 	padding: 10px 40px 10px 20px
 // 	font-size: 12px
 // 	line-height: 1.5em
-
+//
 // #sidebar .accordion-content
 // 	margin-bottom: 1px
 // 	padding: 10px 40px 10px 20px
-
+//
 // .accordion-content
 // 	padding: 15px
 // 	padding-top: 0px
 // 	padding-left: 30px
 // 	border: 5px solid #bdc3c7
 // 	border-top: none
+//
 
 //	Alert Boxes	---------------------------------
 //	----------------------------------------------
@@ -141,7 +143,7 @@ blockquote
 	position: relative
 	margin: 30px 0
 	padding: 15px 30px
-	border-left: 3px solid $red
+	border-left: 3px solid $link
 	color: inherit
 	font-style: italic
 	p:last-of-type
@@ -156,12 +158,26 @@ blockquote
 // --------------------------------------------------------------------------
 //	Call to Action
 // --------------------------------------------------------------------------
-.honey-cta-message-full-inner
+
+
+.cta-message
+	position: relative
+	z-index: 1
+	padding: 80px 0
+	background: $body
+	color: #fff
+	.container
+		padding: 0
+
+.cta-message-inner
 	padding: 26px
 	padding-left: 30px
 	border-radius: 5px
 	background: rgba(255, 255, 255, 0.14)
 	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.19)
+	@include pseudo-overlay(-1, $body-blur)
+	&:before
+		border-radius: 5px
 	.column-last
 		text-align: right
 	.button.big
@@ -173,63 +189,62 @@ blockquote
 	h2
 		padding-top: 7px
 		color: white
-	//text-transform: uppercase;
 
 // --------------------------------------------------------------------------
 //	Flex Slider
 // --------------------------------------------------------------------------
-.flex-caption .button
-	margin-top: 10px
-
-.theme-gray:hover
-	background: #7f7f7f
-
-//	Siderbar	bar ( Login Widget )	--------------
+// .flex-caption .button
+// 	margin-top: 10px
+//
+// .theme-gray:hover
+// 	background: #7f7f7f
+//
+//	Sidebar	( Login Widget )	------------------
 //	----------------------------------------------
-.widget_wp_sidebarlogin
-	position: relative
-
-.widget_wp_sidebarlogin .avatar_container, #wp-sidebar-login .avatar_container
-	margin-right: 6px
-
-ul.sidebarlogin_otherlinks
-	position: absolute
-	right: 0
-	bottom: 11px
-	text-align: right
-
+// .widget_wp_sidebarlogin
+// 	position: relative
+//
+// .widget_wp_sidebarlogin .avatar_container, #wp-sidebar-login .avatar_container
+// 	margin-right: 6px
+//
+// ul.sidebarlogin_otherlinks
+// 	position: absolute
+// 	right: 0
+// 	bottom: 11px
+// 	text-align: right
+//
 //	Logo List	-----------------------------------
 //	----------------------------------------------
-.logo-list
-	img
-		position: absolute
-		top: 0
-		bottom: 0
-		margin: auto
-		opacity: .5
-		transition: all $fade-out ease
-	li
-		float: left
-		margin: 0px
-		width: 20%
-	a
-		position: relative
-		display: block
-		overflow: hidden
-		height: 100px
-		border: 1px solid #e1e1e1
-		border-right: none
-		border-bottom: 2px solid #e1e1e1
-		transition: all $fade-out ease
-		&:hover
-			border-bottom: 2px solid
-			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3)
-			opacity: 1
-			transition-duration: $fade-in
-	&:last-child a
-		border-right: 1px solid #e1e1e1
-	&:hover img
-		opacity: 1
+// .logo-list
+// 	img
+// 		position: absolute
+// 		top: 0
+// 		bottom: 0
+// 		margin: auto
+// 		opacity: .5
+// 		transition: all $fade-out ease
+// 	li
+// 		float: left
+// 		margin: 0px
+// 		width: 20%
+// 	a
+// 		position: relative
+// 		display: block
+// 		overflow: hidden
+// 		height: 100px
+// 		border: 1px solid #e1e1e1
+// 		border-right: none
+// 		border-bottom: 2px solid #e1e1e1
+// 		transition: all $fade-out ease
+// 		&:hover
+// 			border-bottom: 2px solid
+// 			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3)
+// 			opacity: 1
+// 			transition-duration: $fade-in
+// 	&:last-child a
+// 		border-right: 1px solid #e1e1e1
+// 	&:hover img
+// 		opacity: 1
 
 //	Testimonials ---------------------------------
 //	----------------------------------------------
@@ -266,8 +281,13 @@ ul.sidebarlogin_otherlinks
 	.image-container img
 		border-radius: 999px
 		vertical-align: bottom
-	.sc-testimonials h6
+	h6
+		margin-bottom: 0
 		padding-top: 10px
+		color: $green
+		font-size: 18px
+	a
+		color: $red
 
 .testimonial-right:after
 	display: block
@@ -282,6 +302,7 @@ ul.sidebarlogin_otherlinks
 .testimonial-coname
 	padding-bottom: 20px
 	font-size: 10px
+	color: #444
 
 .testimonial-content
 	padding-bottom: 20px

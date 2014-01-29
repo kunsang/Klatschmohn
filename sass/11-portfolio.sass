@@ -44,10 +44,15 @@
 			transition: all .3s ease
 			&:hover, &.current, &.current:hover
 				height: 42px
-				@include hover-overlay
+				border-bottom-color: $red
+				background: $body-blur
+				background-size: cover
+				transition: height .3s ease
+				&:before
+					background: transparentize(white, 0.9)
 			@include pseudo-overlay(0, transparent)
-			.windows &
-				padding: 0 6px
+			.windows.chrome &
+				padding: 0 7px 0 6px
 
 //	Project Feed	--------------------------------
 //	------------------------------------------------
@@ -57,6 +62,7 @@ body.sortimente #content
 	> div
 		padding: 30px
 		background: $body-blur
+		background-size: cover
 		@include pseudo-overlay(0, transparentize(white, .9))
 
 .project-feed > div
@@ -170,14 +176,13 @@ body.sortimente #content
 
 .data-wrapper
 	width: 100%
+	background: transparentize(white, .9)
 
 .data-wrapper-grey
 	margin-right: -30px
 	margin-left: -30px
 	padding: 0px 30px
-	background: transparentize(white, .9)
-
-
+	background: transparentize(white, .85)
 
 .projectsection
 	.project-item img
@@ -243,25 +248,20 @@ a.jcarousel-prev:hover i
 		overflow: hidden
 		width: 100%
 		height: 100%
+		border-radius: 4px
 		background-color: transparent
 		transition: all $fade-out ease-in-out
 	img
 		transition: all $fade-short ease
-	&:hover img
-		// transform: scale(1.05, 1.05)
-		filter: none
-		-webkit-filter: grayscale(0)
-	&:hover .mask
-		background-color: transparentize(black, .8)
-	&:hover .icon-image
-		top: 36%
-		opacity: 0.8
-	&:hover .item-title
-		bottom: 0
-		opacity: 1
-		transition-duration: $fade-out
-	.icon-image
+	i
+		color: #fff
+	.icon-image, .item-title
 		position: absolute
+		opacity: 0
+		color: #fff
+		text-align: center
+		font-size: 32px
+	.icon-image
 		top: 0
 		left: 50%
 		margin-left: -32px
@@ -269,51 +269,58 @@ a.jcarousel-prev:hover i
 		height: 64px
 		border-radius: 50%
 		background: $red
-		opacity: 0
 		box-shadow: inset 0 -3px 0 hsla(0, 0%, 0%, 0.33)
-		text-align: center
-		font-size: 32px
 		line-height: 67px
 		transition: all ease $fade-long
-		i
-			color: #fff
 		&:active
 			box-shadow: none
 			top: 36.6% !important
 			opacity: 1 !important
 	.item-title
-		position: absolute
 		bottom: 100%
 		width: 100%
 		padding: 10px 0
-		background: transparentize(black, 0.5)
-		color: #fff
-		opacity: 0
-		text-align: center
+		border-radius: 0 0 3px 3px
+		background: transparentize(black, 0.4)
 		font-weight: 300
-		font-size: 32px
 		line-height: 0.8
 		transition: all ease $fade-short
-	.thumb-item-title
-		display: block
-		position: relative
-		border-bottom: 1px solid #d8d8d8
-		padding: 15px 0px
-		text-align: center
-		transition: all $fade-out ease-in
-		span
-			display: none
-			color: #959595
-			font-size: 12px
-			line-height: 20px
-		h6
-			margin-bottom: 0
-			padding-bottom: 5px
-			letter-spacing: -1.5px
-			font-size: 28px
-			a:hover
-				color: #333
+	&:hover .mask
+		background-color: transparentize(black, .8)
+	&:hover img
+		// transform: scale(1.05, 1.05)
+		filter: none
+		-webkit-filter: grayscale(0)
+	&:hover .icon-image
+		top: 36%
+		opacity: 0.8
+		transition-duration: $fade-out
+	&:hover .item-title
+		bottom: 0
+		opacity: 1
+		transition-duration: $fade-short
 
+	// .thumb-item-title not in use, only used for norma view
+	//
+	// .thumb-item-title
+	// 	display: block
+	// 	position: relative
+	// 	border-bottom: 1px solid #d8d8d8
+	// 	padding: 15px 0px
+	// 	text-align: center
+	// 	transition: all $fade-out ease-in
+	// 	span
+	// 		display: none
+	// 		color: #959595
+	// 		font-size: 12px
+	// 		line-height: 20px
+	// 	h6
+	// 		margin-bottom: 0
+	// 		padding-bottom: 5px
+	// 		letter-spacing: -1.5px
+	// 		font-size: 28px
+	// 		a:hover
+	// 			color: #333
 
 // Project Without Title
 
@@ -380,8 +387,6 @@ a.jcarousel-prev:hover i
 //	----------------------------------------------
 .jcarousel-next, .jcarousel-prev, .testimonial-wrapper .flex-direction-nav a
 	position: relative
-	// top: 50%
-	// top: -40px
 	z-index: 30
 	display: inline !important
 	margin-top: 8px
@@ -393,7 +398,6 @@ a.jcarousel-prev:hover i
 	box-shadow: 0 -3px rgba(0, 0, 0, 0.22) inset
 	text-align: center
 	font-size: 14px
-
 	opacity: 1
 	&:active
 		box-shadow: none
@@ -509,21 +513,22 @@ a.jcarousel-prev:hover i
 	top: -5px
 	display: block
 	float: left
+	width: 12px
+	height: auto
 	margin-left: 3px
 	padding: 6px 8px
-	width: 12px !important
-	width: 25px
-	height: auto !important
-	height: 25px
 	border-radius: 3px
 	background-color: #7f7f7f
-	box-shadow: 0 -3px rgba(0, 0, 0, 0.22) inset
 	color: #fff
-	text-align: center
+	opacity: .7
+	box-shadow: 0 -3px rgba(0, 0, 0, 0.22) inset
 	text-align: center
 	font-weight: 800
-	line-height: 12px !important
-
+	line-height: 12px
+	&:active
+		box-shadow: none
+		padding-bottom: 4px
+		margin-top: 2px
 .project-nav a i
 	color: #fff
 	font-size: 12px
@@ -588,21 +593,23 @@ a.jcarousel-prev:hover i
 // Single Product Page:
 //--------------------------------------------------
 
+.biobistro,
 .single-project
-	.inline-border
-		margin: 0
-		border: 0
 	.one-third
 		width: 39.8%
 	.two-third
-		width: 54%
+		width: 56%
 	.two-third .one-fourth
 		margin-right: 0
 		width: 21%
+	.flexslider
+		max-height: 500px
+		margin-bottom: 24px
 
+.single-project
 	.project-nav
 		position: relative
-		top: -93px
+		top: -50px
 		float: right
 	.project-title
 		display: none
@@ -611,23 +618,32 @@ a.jcarousel-prev:hover i
 			font-size: 18px
 		ul
 			margin-bottom: 1em
-			list-style: initial
+			list-style: none
 		ul li
 			margin-left: 2em
-		.logo-list li
-			margin: 1em 1em 0 0
+		.logo-list
+			li
+				float: left
+				margin: .8em 1em 0 0
+				list-style: none
+			a
+				position: relative
+				display: block
+				overflow: hidden
+				height: 66px
+				border: 2px solid transparentize(white, .8)
+				border-radius: 2px
+				background-color: #fff
+				&:hover img
+					transform: scale3d(1.2,1.2,1.2)
+			img
+				position: absolute
+				top: 0
+				bottom: 0
+				margin: auto
+				transform: scale3d(1,1,1)
+				transition: all $fade-out ease
 	.sc-projects-title
 		text-align: center
 		text-transform: capitalize
-		font-size: 25px
-	.logo-list
-		list-style: none
-		a
-			height: 66px
-			border: 2px solid hsla(359, 100%, 100%, 0.2) !important
-			border-radius: 2px
-			background-color: #fff
-			opacity: 0.6
-		img
-			opacity: 1
 
