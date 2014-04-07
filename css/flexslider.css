@@ -170,7 +170,6 @@ html[xmlns] .slides {
 	display: inline-block;
 	margin: 0 4px;
 	zoom: 1;
- *display: inline;
 }
 .flex-control-paging li a {
 	display: block;

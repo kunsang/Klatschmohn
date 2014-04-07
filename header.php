@@ -2,16 +2,15 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script src="/wp-content/themes/klatsch/modernizr.js" type="text/javascript"></script>
 <!-- Meta
     ======================================================================== -->
 <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Title
-    ======================================================================== -->
-<title>
-<?php $f->register_title(); ?>
-</title>
+<meta name="robots" content="noarchive">
+<!-- <meta name="googlebot-image" content="noindex, noarchive"> -->
+<meta name="googlebot" content="noimageindex">
 <?php if ($f->settings->favicon): ?>
 <!-- Favicon
         ======================================================================== -->
@@ -22,8 +21,13 @@
 <?php $f->register_header(); ?>
 </head>
 <body <?php body_class($f->get_body_class()); ?>>
+
+<img class="bg" src="/wp-content/themes/klatsch/img/body.jpg" alt="" />
+
 <!-- Body Wrapper -->
 <div id="body-wrapper">
+
+
 <!-- Header
     ======================================================================== -->
 
@@ -35,7 +39,7 @@
     <div class="container" > <!-- Logo -->
       <a href="<?php echo home_url(); ?>" id="logo">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="svg-logo" x="0px" y="0px" width="400px" height="400px" viewBox="0 0 400 400" xml:space="preserve" class="style0">
-      <style>
+      <style type="text/css" media="screen">
         .style0{enable-background:  new 0 0 400 400;}
         .green{fill:  #64BC1D}
         .white{fill:  #FFFFFF}

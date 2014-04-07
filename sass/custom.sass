@@ -481,6 +481,33 @@ hr.animated:after
 	&.column-last
 		margin-left: 2%
 
+// Rezeptseite
+
+.rezeptlink
+	display: block
+	width: 280px
+	height: 120px
+	overflow: hidden
+	margin-bottom: 9px
+	border-radius: 4px
+	background-color: white
+	&:hover img
+		transform: scale3d(1,1,1)
+	img
+		transform: scale3d(.9,.9,.9)
+		transition: all .2s ease
+		@media only screen and (-webkit-min-device-pixel-ratio: 2)
+			transform: none
+
+body.rezepte .alignleft
+	margin-left: 50px
+
+// body.rezepte #content .wp-caption-text
+// 	font-size: 16px
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2)
+	div#attachment_1304
+		display: none
 
 // .animated img
 // 	&:nth-of-type(1)
@@ -501,7 +528,6 @@ hr.animated:after
 // 		opacity: 0
 // 	to
 // 		opacity: 1
-
 
 
 //

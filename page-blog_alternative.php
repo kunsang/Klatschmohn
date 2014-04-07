@@ -25,9 +25,9 @@ Template Name: Blog (Alternative)
                   </div>
                     <div class="post-entry">
                       <a href="<?php $f->content->get_permalink(); ?>"><h2><?php $f->content->get_title(); ?></h2></a>
-                      <p><?php $f->content->get_excerpt(); ?></p>
+                      <?php $f->content->get_excerpt(); ?>
                       </div>
-                
+
                         <?php if ($f->content->get_has_thumbnail()): ?>
                         <!-- <a href="<?php $f->content->get_permalink(); ?>"><img src="<?php $f->content->get_thumbnail_url(); ?>" alt=""></a> -->
                         <?php endif; ?>
@@ -37,7 +37,7 @@ Template Name: Blog (Alternative)
                       </div>
               </div>
 		</div>
-	<?php        
+	<?php
 		}
 	?>
 	</div>

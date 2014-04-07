@@ -7,7 +7,7 @@
     <div class="fullwidth_stroke_footer"></div>
 	  <?php $f->print_footertwitterbar(); ?>
       <div id="footer" class="fullwidth-padding">
-        
+
         <div class="container">
           <?php $f->print_footersidebar(); ?>
           </div>
@@ -25,9 +25,8 @@
           </div>
         </div>
       </div>
-    </div>
     <!-- Footer / End -->
-</div>
+    </div>
 <!-- Body Wrapper / End -->
 <!-- Back to Top -->
 <a href="#" id="back-to-top"><i class="icon-chevron-up"></i></a>

@@ -44,6 +44,31 @@ body
 	font-family: $base-ff
 	line-height: 1.5
 
+img.bg
+	// Set rules to fill background
+	display: none
+	min-height: 100%
+	min-width: 1680px
+	// Set up proportionate scaling
+	width: 100%
+	height: auto
+	// Set up positioning
+	position: fixed
+	top: 0
+	left: 0
+
+	// Specific to this particular image
+@media only screen and (max-width: 1680px)
+	img.bg
+		left: 50%
+		margin-left: -840px	// 50%
+
+@media only screen and (device-width: 768px)
+	img.bg
+		display: block
+	body
+		background: transparent
+
 ::-moz-selection
 	background: #333333
 	color: white
@@ -62,6 +87,7 @@ a, a > *
 	text-decoration: none
 	transition: background-color ease, border ease, color ease, opacity ease-in-out
 	transition-duration: $fade-long
+	-webkit-tap-highlight-color: transparentize($red, 0.5)
 
 a:hover, img:hover
 	color: $hover
@@ -73,6 +99,8 @@ a:hover, img:hover
 	border-bottom: 3px solid transparent
 	color: $link
 	transition: all 0.3s ease
+	.safari &
+		display: inline
 
 #main a:hover
 	@include hover-overlay

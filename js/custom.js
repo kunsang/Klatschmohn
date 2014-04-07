@@ -400,7 +400,7 @@ jQuery(document).ready(function() {
 /*  5.  Responsive Video
 /* --------------------------------------------------------------------------- */
 
-	jQuery('#content').fitVids();
+	// jQuery('#content').fitVids();
 
 /* --------------------------------------------------------------------------- */
 /*  6.  Accordion
@@ -409,6 +409,11 @@ jQuery(document).ready(function() {
 	// jQuery('.accordion').accordion({
 	// 	collapsible: true,
 	// 	autoHeight: false
+	// });
+
+	// //Accordion Refresh when window resize
+	// jQuery(window).resize(function() {
+	// 	jQuery(".accordion").accordion("refresh");
 	// });
 
 /* --------------------------------------------------------------------------- */
@@ -782,7 +787,7 @@ jQuery(document).ready(function() {
 							panControl: false,
 							zoomControl: true,
 							scaleControl: false,
-							mapTypeControl: false,
+							mapTypeControl: true,
 							mapTypeControlOptions: {
 								mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
 							}
@@ -790,7 +795,7 @@ jQuery(document).ready(function() {
 						map = new google.maps.Map(this, mapOptions);
 						map.mapTypes.set('map_style', styledMap);
 						map.setMapTypeId('map_style');
-						var contentString = '<div id="google-map-marker">{0}</div>'.format(title);
+						var contentString = '<div id="google-map-marker"><h5 style="font-size:23px;color:#d0002e;margin-bottom: 12px;"><span style="font-size:28px;font-weight:400; color:#138f00">Klatschmohn</span><br>Naturkost GmbH</h5><p style="font-size: 20px; color: #525252;">Neuen Bäue 16<br>35390 Gießen<br><a target="_blank" style="color: #0032D0; font-size: 20px;" href="http://goo.gl/VCeET2">Route berechnen</a></p></div>';
 						var infowindow = new google.maps.InfoWindow({
 							content: contentString
 						});
@@ -809,10 +814,8 @@ jQuery(document).ready(function() {
 		});
 	}
 
-	//Accordion Refresh when window resize
-	jQuery(window).resize(function() {
-		jQuery(".accordion").accordion("refresh");
-	});
+
+
 
 /* --------------------------------------------------------------------------- */
 /*  16. img class
