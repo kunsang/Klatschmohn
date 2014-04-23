@@ -155,3 +155,25 @@ function _remove_script_version( $src ){
 }
 add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
 add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
+
+
+
+// add_filter( 'clean_url', function( $url )
+// {
+//     if ( FALSE === strpos( $url, '.js' ) )
+//     { // not our file
+//         return $url;
+//     }
+//     // Must be a ', not "!
+//     return "$url' async='async";
+// }, 11, 1 );
+
+
+
+function exclude_category($query) {
+if ( $query->is_home() ) {
+$query->set('cat', '-15 -17');
+}
+return $query;
+}
+add_filter('pre_get_posts', 'exclude_category');

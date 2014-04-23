@@ -627,31 +627,40 @@ a.jcarousel-prev:hover i
 			list-style: none
 		ul li
 			margin-left: 2em
-		.logo-list
-			li
-				float: left
-				margin: .8em 1em 0 0
-				list-style: none
-			a
-				position: relative
-				display: block
-				overflow: hidden
-				height: 66px
-				border: 2px solid transparentize(white, .8)
-				border-radius: 2px
-				background-color: #fff
-				&:hover img
-					transform: scale3d(1.2,1.2,1.2)
-			img
-				position: absolute
-				top: 0
-				bottom: 0
-				margin: auto
-				transform: scale3d(1,1,1)
-				transition: all $fade-out ease
-				@media only screen and (-webkit-min-device-pixel-ratio: 2)
-					transform: none
 	.sc-projects-title
 		text-align: center
 		text-transform: capitalize
+		&.lieferanten
+			padding-bottom: 12px
+			border-bottom: 1px solid white
+	.logo-list
+		li.one-fourth
+			width: 10%
+			float: left
+			margin-right: 2.8%
+			list-style: none
+		a
+			position: relative
+			display: block
+			overflow: hidden
+			height: 66px
+			border: 2px solid transparentize(white, .8)
+			border-radius: 2px
+			background-color: #fff
+			opacity: .5
+			&:hover
+				opacity: 1
+			&:hover img
+				opacity: 1
+				// transform: scale3d(1.2,1.2,1.2)
+		img
+			position: absolute
+			top: 0
+			bottom: 0
+			margin: auto
+			// transform: scale3d(1,1,1)
+			transition: all $fade-out ease
+			-webkit-backface-visibility: visible
+			@media only screen and (-webkit-min-device-pixel-ratio: 2)
+				transform: none
 

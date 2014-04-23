@@ -380,7 +380,7 @@ input[type="submit"]:active, input[type="reset"]:active, input[type="button"]:ac
 #main {
   float: left;
   width: 70%;
-  padding: 24px 12px 24px 24px; }
+  padding: 24px 12px 24px 0; }
 
 #sidebar {
   float: right;

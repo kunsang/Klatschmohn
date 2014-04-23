@@ -1,41 +1,36 @@
-.team-member
-	background: none
-	opacity: .9
-	transition: all $fade-out ease-in-out
-	&:hover
-		box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4)
-		opacity: 1
-		transition-duration: $fade-in
+// .team-member
+// 	margin-top: -48px
 
 .member-photo
 	position: relative
+	height: 100px
+	overflow: hidden
+	border-radius: 50%
+	border: 4px solid $lightred
+	z-index: 1
+	float: left
 	img
-		width: 100%
+		width: 100px
+		top: -25px
+		position: relative
 
 .member-info
-	padding: 16px 25px 9px
-	text-align: center
+	// float: left
+	padding: 0 0 0 124px
+	// text-align: center
 	font-size: 12px
 	h4
 		margin: 0
 	.position
 		display: block
-		margin-bottom: 15px
+		margin-bottom: 6px
 		color: #AAAAAA
 	p
 		margin: 12px 0
 		padding: 0px 0
 		border-top: 1px solid rgba(255, 255, 255, 0.1)
 		border-bottom: 1px solid rgba(255, 255, 255, 0.1)
-
-.member-social-links
-	display: inline-block
-	li
-		display: block
-		float: left
 	a
-		margin-right: 10px
-		color: #636363
-		text-transform: uppercase
-		letter-spacing: 1px
-		font-size: 8px
+		font-size: $base-fz
+	a.staff-fon
+		margin-right: 8px

@@ -3,7 +3,7 @@
 <html <?php language_attributes(); ?>>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<script src="/wp-content/themes/klatsch/modernizr.js" type="text/javascript"></script>
+<script async src="/wp-content/themes/klatsch/modernizr.js" type="text/javascript"></script>
 <!-- Meta
     ======================================================================== -->
 <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>">
@@ -11,9 +11,13 @@
 <meta name="robots" content="noarchive">
 <!-- <meta name="googlebot-image" content="noindex, noarchive"> -->
 <meta name="googlebot" content="noimageindex">
-<?php if ($f->settings->favicon): ?>
+<!-- Title
+    ======================================================================== -->
+<!-- <title><?php $f->register_title(); ?></title> -->
+<title><?php wp_title('|'); ?></title>
 <!-- Favicon
-        ======================================================================== -->
+    ======================================================================== -->
+<?php if ($f->settings->favicon): ?>
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo $f->settings->favicon; ?>" />
 <?php endif; ?>
 <!-- CSS Styles and JavaScript
@@ -45,8 +49,9 @@
         .white{fill:  #FFFFFF}
         .red  {fill:  #D0172E;  fill-rule:  evenodd;clip-rule:  evenodd}
         .style4{          fill-rule:  evenodd;clip-rule:  evenodd}
-        #bg-black {fill: rgba(0, 0, 0, 0.5)}
-        user agent stylesheet
+        .chrome #svg-logo .red {fill: url(#hover-grad);}
+        .chrome #svg-logo .green {fill: url(#bg-grad);}
+        #bg-black {fill: rgba(0, 0, 0, 0.5);}
       </style>
         <defs>
             <linearGradient id="hover-grad">
@@ -100,6 +105,13 @@
       <!-- Navigation / End --> </div>
   </div>
 </header>
+<?php if (is_category()): ?>
+<div class="fullwidth_stroke head-dark header-title-box header-bgimage-hbg1">
+  <h1 class="page-title loaded">
+  <div class="container"><?php single_cat_title(); ?></div>
+  </h1>
+</div>
+<?php endif; ?>
 <!-- Header / End -->
 <!-- Page Title -->
 <?php $f->content->print_metabox('tagline'); ?>
