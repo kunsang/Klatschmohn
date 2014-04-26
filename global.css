@@ -957,7 +957,8 @@ a:hover #svg-logo #poppy {
   transform: scale(1.5);
 }
 
-.firefox a:hover #svg-logo #poppy {
+.firefox a:hover #svg-logo #poppy,
+.msie a:hover #svg-logo #poppy {
   -webkit-transform: scale(1.2);
   -moz-transform: scale(1.2);
   -ms-transform: scale(1.2);
@@ -1668,6 +1669,14 @@ hr.animated:after {
 
 .firmenhistorie .one-half.column-last {
   margin-left: 2%;
+}
+
+.post-entry img.alignleft {
+  margin-right: 10px;
+}
+
+.wp-post-image {
+  margin-bottom: 1em;
 }
 
 .rezeptlink {
