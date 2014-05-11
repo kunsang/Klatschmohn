@@ -249,7 +249,7 @@ jQuery(document).ready(function() {
 		// Usability features
 		pauseOnAction       : true,              //Boolean: Pause the slideshow when interacting with control elements, highly recommended.
 		pauseOnHover        : false,             //Boolean: Pause the slideshow when hovering over slider, then resume when no longer hovering
-		useCSS              : true,             //{NEW} Boolean: Slider will use CSS3 transitions if available
+		useCSS              : true,              //{NEW} Boolean: Slider will use CSS3 transitions if available
 		touch               : true,              //{NEW} Boolean: Allow touch swipe navigation of the slider on touch-enabled devices
 		video               : false,             //{NEW} Boolean: If using video in the slider, will prevent CSS3 3D Transforms to avoid graphical glitches
 
@@ -735,7 +735,7 @@ jQuery(document).ready(function() {
 							}, {
 								gamma: 0.9
 							}, {
-								visibility: 'simplified'
+								visibility: 'on'
 							}]
 						}, {
 							featureType: 'water',
@@ -778,7 +778,7 @@ jQuery(document).ready(function() {
 						}];
 
 						var styledMap = new google.maps.StyledMapType(roadAtlasStyles, {
-							name: "Styled Map"
+							name: "Atlas"
 						});
 						latlng = new google.maps.LatLng(lat, lng),
 						mapOptions = {

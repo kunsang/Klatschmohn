@@ -71,6 +71,7 @@ add_filter('the_content', 'wpex_clean_shortcodes');
 /*-----------------------------------------------------------------------------------
 /* Adds new body classes
 /*-----------------------------------------------------------------------------------*/
+
 add_filter('body_class', 'add_browser_classes');
 function add_browser_classes($classes){
 
@@ -84,7 +85,7 @@ function add_browser_classes($classes){
 		$browser = $_SERVER[ 'HTTP_USER_AGENT' ];
 
 		// Mac, PC ...or Linux
-		if ( preg_match( "/Mac/", $browser ) ){
+		if ( preg_match( "/Macintosh/", $browser ) ){
 				$classes[] = 'mac';
 
 		} elseif ( preg_match( "/Windows/", $browser ) ){
@@ -204,3 +205,6 @@ add_filter('pre_get_posts', 'exclude_category');
 // 	}
 // 	return $buttons;
 // });
+
+ // Menu Descriptions Walker Class
+

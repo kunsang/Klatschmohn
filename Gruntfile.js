@@ -7,14 +7,12 @@ module.exports = function(grunt) {
 					'css/custom.css': 'sass/custom.sass'
 				},
 				options: {
-					sourcemap: true,
 					style: 'compressed'
 				}
 			}
 		},
 		autoprefixer: {
 			options: {
-				sourcemap: true,
 				browsers: ['last 10 versions', 'ie 8', 'ff 12']
 			},
 			build: {

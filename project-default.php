@@ -26,21 +26,36 @@
 
 	  <!-- Project Description -->
 		<div class="overview">
+
 			<?php $f->content->get_content(); ?>
+
+			<!-- ACF ansprechpartner -->
+
 			<?php $post_object = get_field('ansprechpartner');
+
 				if( $post_object ):
 					$post = $post_object;
 					setup_postdata( $post );
 					$staff_id = get_the_ID();
 					$shortcode = '[staffmember id="'.$staff_id.'"]';
-			?><?php echo do_shortcode( $shortcode ) ?>
-			<?php wp_reset_postdata(); ?>
-			<?php endif; ?>
+
+			 		echo do_shortcode( $shortcode )
+
+			 		wp_reset_postdata();
+
+				endif;
+			?>
+
+			<!-- ACF end -->
+
 		</div>
 	</div>
 	<hr style="height: 48px">
 
+	<!-- ACF lieferanten_logos -->
+
 	<?php $post_object = get_field('lieferanten_logos');
+
 		if( $post_object ):
 
 			$post = $post_object;
@@ -48,14 +63,19 @@
 
 			$logos_id = get_the_ID();
 			$shortcode = '[logos id="'.$logos_id.'"]';
+		?>
+
+			<h3 class="sc-projects-title lieferanten">Lieferanten</h3>
+
+			<?php echo do_shortcode( $shortcode )
+
+			wp_reset_postdata();
+
+		endif;
+
 	?>
 
-	<h3 class="sc-projects-title lieferanten">Lieferanten</h3>
-
-	<?php echo do_shortcode( $shortcode ) ?>
-
-	<?php wp_reset_postdata(); ?>
-	<?php endif; ?>
+	<!-- ACF end -->
 
 	<!-- Sidebar / End -->
 <?php endwhile; ?>

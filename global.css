@@ -86,7 +86,7 @@ video {
   font-size: 100%;
   outline: 0;
   border: 0;
-  background: 0 0;
+  background: rgba(0,0,0,0);
   vertical-align: baseline;
 }
 
@@ -1002,6 +1002,23 @@ a:hover #svg-logo #poppy {
   .no-mobile {
     display: none;
   }
+
+  #topbar .call a,
+  #topbar .icon-envelope,
+  #topbar .icon-food {
+    display: block;
+    font-size: 20px;
+    line-height: 1.8;
+    color: #fff;
+  }
+
+  .icon-food {
+    padding-bottom: 12px;
+  }
+
+  header#header {
+    background: #444;
+  }
 }
 
 #content {
@@ -1767,6 +1784,10 @@ ul.slides {
   }
 }
 
+h1#home-title {
+  text-indent: -9999em!important;
+}
+
 .philosophie .one-half {
   width: 54%;
 }
@@ -2215,7 +2236,7 @@ ul.square li {
   list-style-type: square;
 }
 
-.blog #content,
+.page-template-page-blog_alternative-php #content,
 .single-post #content {
   background: 0 0;
 }
@@ -3279,7 +3300,7 @@ a.jcarousel-prev:hover i {
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-  body.blog .isotope-item {
+  .page-template-page-blog_alternative-php .isotope-item {
     -webkit-transition: none;
     -moz-transition: none;
     -o-transition: none;
@@ -3500,6 +3521,10 @@ a.jcarousel-prev:hover i {
   display: inline;
   border: 0;
   color: red;
+}
+
+input#recaptcha_response_field {
+  color: #000!important;
 }
 
 .widget {
@@ -4545,6 +4570,19 @@ a.jcarousel-prev:hover i {
     top: 0;
   }
 
+  div#rev_slider_1_1_wrapper {
+    display: none;
+  }
+
+  #topbar .call a,
+  #topbar .icon-envelope,
+  #topbar .icon-food {
+    display: block;
+    font-size: 20px;
+    line-height: 1.8;
+    color: #fff;
+  }
+
   .inline-border:after,
   .inline-border:before {
     width: 10%;
@@ -4960,10 +4998,10 @@ a.jcarousel-prev:hover i {
 
 .biosiegel-tab:hover {
   background: #eee;
-  background-image: -webkit-linear-gradient(rgba(0,0,0,.1) 0, transparent 100%);
-  background-image: -moz-linear-gradient(rgba(0,0,0,.1) 0, transparent 100%);
-  background-image: -o-linear-gradient(rgba(0,0,0,.1) 0, transparent 100%);
-  background-image: linear-gradient(rgba(0,0,0,.1) 0,transparent 100%);
+  background-image: -webkit-linear-gradient(rgba(0,0,0,.1) 0, rgba(0,0,0,0) 100%);
+  background-image: -moz-linear-gradient(rgba(0,0,0,.1) 0, rgba(0,0,0,0) 100%);
+  background-image: -o-linear-gradient(rgba(0,0,0,.1) 0, rgba(0,0,0,0) 100%);
+  background-image: linear-gradient(rgba(0,0,0,.1) 0,rgba(0,0,0,0) 100%);
   color: #fff;
   cursor: pointer!important;
   -webkit-transition-duration: .2s;
@@ -5972,4 +6010,3 @@ html[xmlns] .slides {
   background: rgba(0,0,0,.6);
   color: #fff;
 }
-/*# sourceMappingURL=global.css.map */
